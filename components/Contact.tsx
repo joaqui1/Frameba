@@ -25,7 +25,7 @@ export const Contact: React.FC = () => {
             </div>
             <div className="flex items-center gap-4 text-zinc-300">
               <div className="w-2 h-2 bg-brand-orange rounded-full"></div>
-              <span>Disponibles para viajar</span>
+              <span>Bahía Blanca</span>
             </div>
           </div>
         </div>

@@ -4,62 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- SEO Local: Title & Description -->
-    <title>FRAME ESTUDIO | Fotografía y Video para Eventos en Buenos Aires</title>
-    <meta name="description" content="Productora audiovisual líder en Buenos Aires (CABA y GBA). Cobertura de Bodas, 15 Años y Eventos Corporativos con estética de cine. Fotógrafos y videógrafos profesionales." />
-    <meta name="keywords" content="fotografo bodas buenos aires, video 15 años caba, productora audiovisual eventos corporativos, videorgrafo zona norte, frame estudio" />
+    <title>FRAME ESTUDIO | Foto y Video en Buenos Aires</title>
+    <meta name="description" content="Productora audiovisual en Buenos Aires. Fotografía y video para Bodas, 15 Años y Empresas. Estética de cine en CABA y GBA." />
+    <meta name="keywords" content="fotografo buenos aires, video casamiento, productora audiovisual, cobertura eventos corporativos, frame estudio" />
+    <meta name="author" content="FRAME ESTUDIO">
     <meta name="robots" content="index, follow" />
+    
+    <link rel="canonical" href="https://frame-estudio.com.ar/" />
+    <link rel="alternate" hreflang="es-AR" href="https://frame-estudio.com.ar/" />
 
-    <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://frame-estudio.com.ar/" />
     <meta property="og:title" content="FRAME ESTUDIO | Cine & Foto Buenos Aires" />
-    <meta property="og:description" content="No hacemos videos, contamos tu historia. Cobertura cinematográfica para eventos en CABA y GBA." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" />
+    <meta property="og:description" content="Contamos historias con estética de cine. Producción audiovisual para Marcas y Eventos." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&auto=format&fit=crop" />
     <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="FRAME ESTUDIO">
 
-    <!-- Tailwind CSS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FRAME ESTUDIO | Cine & Foto Buenos Aires">
+    <meta name="twitter:description" content="Productora audiovisual en Buenos Aires. Fotografía y video para Bodas y Empresas.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&auto=format&fit=crop">
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              zinc: {
-                850: '#1F2025',
-                900: '#18181B',
-                950: '#09090B', // Deep Cinematic Black
-              },
-              brand: {
-                orange: '#FF4500', // Film Burn / REC color
-                blue: '#2563EB',   // Electric Blue accent
-              }
+              zinc: { 850: '#1F2025', 900: '#18181B', 950: '#09090B' },
+              brand: { orange: '#FF4500', blue: '#2563EB' }
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
               display: ['Manrope', 'sans-serif'],
             },
-            letterSpacing: {
-              'tighter': '-0.05em',
-            },
-            backgroundImage: {
-              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-            }
+            letterSpacing: { 'tighter': '-0.05em' }
           }
         }
       }
     </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Schema Markup (JSON-LD) for Local Business -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+        "@type": "VideoProductionService",
         "name": "FRAME ESTUDIO",
         "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
         "url": "https://frame-estudio.com.ar",
@@ -70,54 +66,16 @@
           "addressRegion": "CABA",
           "addressCountry": "AR"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "-34.6037",
-          "longitude": "-58.3816"
-        },
-        "areaServed": ["Buenos Aires", "CABA", "Zona Norte", "Gran Buenos Aires", "Vicente López", "San Isidro", "Pilar"],
-        "priceRange": "$$",
-        "description": "Productora audiovisual especializada en fotografía documental y video cinematográfico para bodas, fiestas de 15 y eventos corporativos."
+        "priceRange": "$$"
       }
     </script>
-
-    <style>
-      body {
-        background-color: #09090B;
-        color: #FAFAFA;
-      }
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Manrope', sans-serif;
-      }
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #09090B; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #3F3F46; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #FF4500; 
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body>
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+  </head>
+  <body class="bg-zinc-950 text-white antialiased">
+    <div id="root">
+        <h1 style="display:none;">FRAME ESTUDIO - Productora Audiovisual en Buenos Aires</h1>
+        <p style="display:none;">Servicios de fotografía y video para bodas, 15 años y eventos corporativos en CABA y GBA.</p>
+    </div>
+    
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

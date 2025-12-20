@@ -1,7 +1,23 @@
 import React from 'react';
 import { Send } from 'lucide-react';
 
+// Esto evita que TypeScript marque error porque no conoce 'gtag'
+declare global {
+  interface Window { gtag: any; }
+}
+
 export const Contact: React.FC = () => {
+
+  const handleSubmit = () => {
+    // Dispara la conversión cuando el usuario intenta enviar el formulario
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag('event', 'conversion', {
+          'send_to': 'AW-17522815085/maHaCPnNk5kbEO3gw6NB',
+          'transaction_id': ''
+      });
+    }
+  };
+
   return (
     <section id="contacto" className="py-24 bg-zinc-900 relative overflow-hidden">
       {/* Decorative element */}
@@ -9,7 +25,7 @@ export const Contact: React.FC = () => {
 
       <div className="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16 relative z-10">
         
-        {/* Text Block - Shifted Down 120px and Right 30px (adjusted 10px left from 40px) */}
+        {/* Text Block */}
         <div className="lg:w-1/2 lg:mt-[120px] lg:ml-[30px] text-center lg:text-center">
           <h2 className="font-display font-black text-5xl md:text-6xl text-white mb-6 tracking-tighter">
             HABLEMOS.
@@ -35,6 +51,7 @@ export const Contact: React.FC = () => {
             action="mailto:joaquinvallascianiii@hotmail.com" 
             method="post" 
             encType="text/plain"
+            onSubmit={handleSubmit} // <-- AQUÍ ESTÁ EL SEGUIMIENTO
             className="space-y-6 bg-zinc-950 p-8 rounded-xl border border-zinc-800 shadow-2xl"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

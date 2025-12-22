@@ -1,28 +1,22 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
-// Declaramos la función que pusimos en el index.html
+// Declaramos la función con el parámetro opcional
 declare global {
   interface Window { 
-    gtag_report_conversion: (url: string) => boolean;
+    gtag_report_conversion: (url?: string) => boolean;
   }
 }
 
 export const WhatsAppButton: React.FC = () => {
-  // Definimos el número y la URL aquí para usarlos en ambos lados
   const whatsappUrl = "https://wa.me/5491170671050";
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // 1. Evitamos que el enlace te lleve a WhatsApp inmediatamente
-    e.preventDefault();
-
-    // 2. Intentamos disparar la conversión usando la función del index.html
+  const handleClick = () => {
+    // Solo avisamos a Google si la función existe.
+    // Pasamos undefined (vacío) para que Google cuente el clic 
+    // pero NO intente redirigir la página, ya que de eso se encarga el <a>
     if (typeof window.gtag_report_conversion === 'function') {
-      // Esta función reporta a Google Y LUEGO redirige a la URL
-      window.gtag_report_conversion(whatsappUrl);
-    } else {
-      // 3. Si hay bloqueador de anuncios o falló la carga, abrimos igual
-      window.open(whatsappUrl, '_blank');
+      window.gtag_report_conversion();
     }
   };
 
@@ -31,7 +25,7 @@ export const WhatsAppButton: React.FC = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick} // <-- Ahora maneja el evento correctamente
+      onClick={handleClick} 
       className="fixed bottom-8 right-8 z-50 group flex items-center justify-center bg-brand-orange hover:bg-orange-600 text-white p-4 rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 hover:scale-110"
       aria-label="WhatsApp"
     >

@@ -8,11 +8,13 @@ declare global {
 
 export const Contact: React.FC = () => {
 
-  const handleSubmit = () => {
-    // Dispara la conversión con el NUEVO código que me pasaste
+  const handleSubmit = (e: React.FormEvent) => {
+    // Nota: NO usamos e.preventDefault() aquí porque QUEREMOS que el formulario se envíe a Formspree.
+    
+    // Disparamos la conversión a Google Ads justo antes de que la página cambie
     if (typeof window.gtag !== 'undefined') {
       window.gtag('event', 'conversion', {
-          'send_to': 'AW-17522815085/ym6kCNSov9UbEO3gw6NB', // <--- ID ACTUALIZADO
+          'send_to': 'AW-17522815085/ym6kCNSov9UbEO3gw6NB', // ID Correcto del Formulario
       });
     }
   };
@@ -46,11 +48,11 @@ export const Contact: React.FC = () => {
         </div>
 
         <div className="lg:w-1/2">
+          {/* FORMULARIO CONECTADO A FORMSPREE */}
           <form 
-            action="mailto:joaquinvallascianiii@hotmail.com" 
-            method="post" 
-            encType="text/plain"
-            onSubmit={handleSubmit} // <-- Al enviar, dispara el aviso a Google
+            action="https://formspree.io/f/xkowqqlb" 
+            method="POST" 
+            onSubmit={handleSubmit} // Mantiene el tracking de Google
             className="space-y-6 bg-zinc-950 p-8 rounded-xl border border-zinc-800 shadow-2xl"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

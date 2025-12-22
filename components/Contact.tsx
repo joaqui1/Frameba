@@ -9,11 +9,10 @@ declare global {
 export const Contact: React.FC = () => {
 
   const handleSubmit = () => {
-    // Dispara la conversión cuando el usuario intenta enviar el formulario
+    // Dispara la conversión con el NUEVO código que me pasaste
     if (typeof window.gtag !== 'undefined') {
       window.gtag('event', 'conversion', {
-          'send_to': 'AW-17522815085/maHaCPnNk5kbEO3gw6NB',
-          'transaction_id': ''
+          'send_to': 'AW-17522815085/ym6kCNSov9UbEO3gw6NB', // <--- ID ACTUALIZADO
       });
     }
   };
@@ -51,7 +50,7 @@ export const Contact: React.FC = () => {
             action="mailto:joaquinvallascianiii@hotmail.com" 
             method="post" 
             encType="text/plain"
-            onSubmit={handleSubmit} // <-- AQUÍ ESTÁ EL SEGUIMIENTO
+            onSubmit={handleSubmit} // <-- Al enviar, dispara el aviso a Google
             className="space-y-6 bg-zinc-950 p-8 rounded-xl border border-zinc-800 shadow-2xl"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

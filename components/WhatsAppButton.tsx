@@ -1,29 +1,37 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
-// Esto evita que TypeScript marque error porque no conoce 'gtag'
+// Declaramos la función que pusimos en el index.html
 declare global {
-  interface Window { gtag: any; }
+  interface Window { 
+    gtag_report_conversion: (url: string) => boolean;
+  }
 }
 
 export const WhatsAppButton: React.FC = () => {
-  
-  const handleClick = () => {
-    // Dispara la conversión a Google Ads
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag('event', 'conversion', {
-          'send_to': 'AW-17522815085/maHaCPnNk5kbEO3gw6NB',
-          'transaction_id': ''
-      });
+  // Definimos el número y la URL aquí para usarlos en ambos lados
+  const whatsappUrl = "https://wa.me/5491170671050";
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // 1. Evitamos que el enlace te lleve a WhatsApp inmediatamente
+    e.preventDefault();
+
+    // 2. Intentamos disparar la conversión usando la función del index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // Esta función reporta a Google Y LUEGO redirige a la URL
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      // 3. Si hay bloqueador de anuncios o falló la carga, abrimos igual
+      window.open(whatsappUrl, '_blank');
     }
   };
 
   return (
     <a
-      href="https://wa.me/5491170671050"
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick} // <-- AQUÍ OCURRE LA MAGIA
+      onClick={handleClick} // <-- Ahora maneja el evento correctamente
       className="fixed bottom-8 right-8 z-50 group flex items-center justify-center bg-brand-orange hover:bg-orange-600 text-white p-4 rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 hover:scale-110"
       aria-label="WhatsApp"
     >

@@ -76,6 +76,20 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17522815085');
+
+      // Función añadida para reportar la conversión de WhatsApp
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17522815085/y71yCIrDv9UbEO3gw6NB',
+            'event_callback': callback
+        });
+        return false;
+      }
     </script>
     
   </head>

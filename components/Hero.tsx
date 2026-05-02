@@ -10,6 +10,11 @@ export const Hero: React.FC = () => {
         <img 
           src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" 
           alt="Videógrafo profesional filmando evento social nocturno en Buenos Aires con luces de cine" 
+          width={2070}
+          height={1380}
+          sizes="100vw"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover opacity-60 mix-blend-overlay"
         />
         {/* Gradientes para legibilidad */}
@@ -19,11 +24,15 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center justify-center h-full pt-20">
         
-        {/* H1 OPTIMIZADO PARA SEO Y VISUAL */}
-        <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white leading-[0.9] tracking-tighter mb-8 max-w-6xl mx-auto">
-          NO HACEMOS VIDEOS. <br/>
+        {/* H1 optimizado para SEO base sin cambiar la estructura visual. */}
+        <h1 className="font-display font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] md:leading-[0.9] tracking-normal mb-8 max-w-6xl mx-auto">
+          FOTOGRAFÍA Y VIDEO <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">
-            CONTAMOS TU HISTORIA.
+            PARA EVENTOS
+          </span>
+          <br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600 text-3xl sm:text-4xl md:text-7xl lg:text-8xl">
+            EN BUENOS AIRES.
           </span>
         </h1>
 

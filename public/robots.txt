@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://frame-estudio.com.ar/sitemap.xml
+Sitemap: https://frameba.com.ar/sitemap.xml

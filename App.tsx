@@ -9,7 +9,6 @@ import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
 function App() {
-  
   // Lógica para detectar #contacto en la URL y scrollear
   useEffect(() => {
     // Verificamos si hay un # en la URL (ej: #contacto)

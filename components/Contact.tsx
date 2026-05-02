@@ -52,9 +52,9 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-zinc-950 relative overflow-hidden">
-      {/* Fondo sutil */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <section id="contacto" className="py-24 bg-zinc-950 relative overflow-hidden scroll-mt-28">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#120d0c_0%,#0e0c0c_30%,#09090b_72%)]"></div>
+      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#120d0c] to-transparent"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         
@@ -68,10 +68,6 @@ export const Contact: React.FC = () => {
             <div className="flex items-center gap-2">
               <MapPin size={18} className="text-brand-orange" />
               <span>Buenos Aires (CABA & GBA)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-brand-orange" />
-              <span>Bahía Blanca</span>
             </div>
           </div>
         </div>

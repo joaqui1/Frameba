@@ -2,12 +2,27 @@ import React from 'react';
 
 // Using specific Unsplash images that match the "Cinematic/Flash/Party" vibe
 const PHOTOS = [
-  { url: "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?q=80&w=1974&auto=format&fit=crop", type: "landscape", cat: "Boda", alt: "Novios riendo natural en casamiento zona norte Buenos Aires" }, 
-  { url: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1920&auto=format&fit=crop", type: "portrait", cat: "15 Años", alt: "Book de fotos 15 años urbano con luces neón y glitter" }, 
-  { url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop", type: "landscape", cat: "Boda", alt: "Fotografía artística de boda civil en CABA elegante" }, 
-  { url: "https://images.unsplash.com/photo-1496337589254-7e19d01cec44?q=80&w=2070&auto=format&fit=crop", type: "portrait", cat: "Social", alt: "Fotografía de fiesta en boliche Buenos Aires estilo paparazzi" }, 
-  { url: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2062&auto=format&fit=crop", type: "landscape", cat: "Corporativo", alt: "Evento empresarial networking en hotel de Buenos Aires" }, 
-  { url: "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=2070&auto=format&fit=crop", type: "landscape", cat: "15 Años", alt: "Video de fiesta de 15 años entrada triunfal luces" }, 
+  {
+    url: "/images/fotografia-casamiento-buenos-aires-frame-1536.jpg",
+    srcSet: "/images/fotografia-casamiento-buenos-aires-frame-768.jpg 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.jpg 1536w",
+    type: "landscape",
+    cat: "Boda",
+    alt: "Fotografía de casamiento en Buenos Aires por FRAME Estudio"
+  },
+  {
+    url: "/images/fotografia-15-anos-caba-frame-1536.jpg",
+    srcSet: "/images/fotografia-15-anos-caba-frame-768.jpg 768w, /images/fotografia-15-anos-caba-frame-1536.jpg 1536w",
+    type: "landscape",
+    cat: "15 Años",
+    alt: "Fotografía de fiesta de 15 años en CABA por FRAME Estudio"
+  },
+  {
+    url: "/images/evento-corporativo-buenos-aires-frame-1536.jpg",
+    srcSet: "/images/evento-corporativo-buenos-aires-frame-768.jpg 768w, /images/evento-corporativo-buenos-aires-frame-1536.jpg 1536w",
+    type: "landscape",
+    cat: "Corporativo",
+    alt: "Cobertura de evento corporativo en Buenos Aires por FRAME Estudio"
+  }
 ];
 
 export const Portfolio: React.FC = () => {
@@ -15,9 +30,9 @@ export const Portfolio: React.FC = () => {
     <section id="portfolio" className="py-24 bg-zinc-950">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-16 text-center">
-          <h2 className="font-display font-black text-4xl md:text-6xl text-white tracking-tighter mb-4">
+          <h1 className="font-display font-black text-4xl md:text-6xl text-white tracking-tighter mb-4">
             CAPTURES
-          </h2>
+          </h1>
           <p className="text-zinc-500 uppercase tracking-widest text-sm">
             Un mix de nuestros mejores frames
           </p>
@@ -32,7 +47,13 @@ export const Portfolio: React.FC = () => {
             >
               <img 
                 src={photo.url} 
+                srcSet={photo.srcSet}
                 alt={photo.alt} 
+                width={photo.type === 'landscape' ? 1200 : 900}
+                height={photo.type === 'landscape' ? 675 : 1200}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -45,7 +66,7 @@ export const Portfolio: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <a href="#contacto" className="text-zinc-400 hover:text-brand-orange underline underline-offset-4 transition-colors">
+          <a href="/#contacto" className="text-zinc-400 hover:text-brand-orange underline underline-offset-4 transition-colors">
             Ver galería completa en Instagram
           </a>
         </div>

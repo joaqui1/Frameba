@@ -3,9 +3,9 @@ import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Mundos', href: '#mundos' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Mundos', href: '/#mundos' },
+  { label: 'Nosotros', href: '/#nosotros' },
+  { label: 'Contacto', href: '/#contacto' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -24,13 +24,13 @@ export const Navbar: React.FC = () => {
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
         scrolled 
-          ? 'bg-zinc-950/90 backdrop-blur-md border-zinc-800 py-4' 
+          ? 'bg-zinc-950 border-zinc-800 py-4'
           : 'bg-transparent border-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo - Bold & Industrial */}
-        <a href="#" className="relative z-50 group">
+        <a href="/" className="relative z-50 group">
           <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter text-white">
             FRAME<span className="text-brand-orange">.</span>
           </span>
@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
             </a>
           ))}
           <a 
-            href="#contacto"
+            href="/#contacto"
             className="px-6 py-2 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300"
           >
             Cotizar Ahora

@@ -4,41 +4,41 @@ import { Zap, Aperture, Clock, Film } from 'lucide-react';
 const FEATURES = [
   {
     icon: <Film size={32} />,
-    title: "Cine 4K",
-    desc: "Usamos cámaras de cine digital 4K y lentes prime. La misma tecnología que ves en tus series favoritas."
+    title: "Imagen cuidada",
+    desc: "Luz, encuadre, color y sonido bien resueltos."
   },
   {
     icon: <Aperture size={32} />,
-    title: "Registro Espontáneo",
-    desc: "Nuestro estilo es 90% documental. No vamos a interrumpir tu fiesta para hacerte posar 20 minutos."
+    title: "Registro natural",
+    desc: "Momentos reales, sin frenar la fiesta ni invadir."
   },
   {
     icon: <Zap size={32} />,
-    title: "Edición de Autor",
-    desc: "Color grading de autor y montaje con ritmo. Nada de videos largos y aburridos."
+    title: "Edición con intención",
+    desc: "Selección ágil, ritmo claro y estética consistente."
   },
   {
     icon: <Clock size={32} />,
-    title: "Entrega Rápida",
-    desc: "Te entregamos un teaser de 1 minuto a las 48hs del evento para que rompas las redes."
+    title: "Material organizado",
+    desc: "Fotos y videos listos para compartir, guardar o usar."
   }
 ];
 
 export const Differentiators: React.FC = () => {
   return (
-    <section id="nosotros" className="py-24 bg-zinc-900 border-y border-zinc-800">
+    <section id="nosotros" className="py-24 bg-zinc-900 border-y border-zinc-800 scroll-mt-28">
       <div className="container mx-auto px-6 md:px-12">
         
         {/* Intro Text / Who We Are */}
         <div className="max-w-3xl mx-auto text-center mb-20">
           <span className="text-brand-orange font-bold tracking-widest uppercase text-sm mb-4 block">
-            Nuestra Historia
+            Nuestra mirada
           </span>
           <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-6 leading-tight">
-            Somos una productora audiovisual impulsada por la excelencia.
+            Foto y video para recordar lo que pasó, no solo cómo se veía.
           </h2>
           <p className="text-zinc-400 text-lg leading-relaxed">
-            Con más de 5 años de experiencia, entendemos el peso de capturar un momento irrepetible. Combinamos narrativa cinematográfica con una visión moderna para entregarte un producto que no solo registra tu evento, sino que lo eleva. Recuerdos que vas a querer revivir en loop.
+            Cubrimos eventos con foto y video claros, naturales y bien editados. Registramos lo importante sin interrumpir el momento ni forzar poses.
           </p>
         </div>
 

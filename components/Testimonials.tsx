@@ -1,46 +1,56 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Aperture, Film, Layers } from 'lucide-react';
 
-const REVIEWS = [
+const PRINCIPLES = [
   {
-    text: "Literalmente parecen una película de Netflix. Mis 15 fueron un boliche y el video transmite exactamente esa energía. Nada de cosas cursis.",
-    author: "Sofi G.",
-    event: "15 Años en Puerto Salguero"
+    icon: <Aperture size={18} />,
+    title: "Dirección justa",
+    text: "Indicaciones breves, solo cuando hacen falta."
   },
   {
-    text: "Contratamos a FRAME para nuestro evento corporativo. Entendieron el branding al toque. Material súper usable para LinkedIn.",
-    author: "Marcos L.",
-    event: "Evento Corporativo Globant"
+    icon: <Film size={18} />,
+    title: "Ritmo real",
+    text: "Seguimos el pulso de la fiesta, la ceremonia o la marca."
   },
   {
-    text: "Odiamos posar. Ellos nos dijeron 'hagan la suya'. Las fotos salieron increíbles, naturales y con una luz espectacular. Unos genios.",
-    author: "Cami & Nico",
-    event: "Boda en Astilleros Milberg"
+    icon: <Layers size={18} />,
+    title: "Entrega clara",
+    text: "Material listo para revivir, compartir o publicar."
   }
 ];
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 bg-zinc-950">
-      <div className="container mx-auto px-6 md:px-12">
-        <h3 className="text-zinc-500 font-bold uppercase tracking-widest text-xs mb-10 text-center">Lo que dicen de nosotros</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {REVIEWS.map((review, idx) => (
-            <div key={idx} className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800/50">
-              <div className="flex gap-1 mb-4 text-brand-orange">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} fill="currentColor" />
-                ))}
+    <section className="relative overflow-hidden bg-zinc-950 py-24 md:py-32">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#09090b_0%,#14100f_48%,#120d0c_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-zinc-900 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#120d0c] to-transparent" />
+
+      <div className="container relative z-10 mx-auto px-6 md:px-12">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-brand-orange">
+              Cómo se siente la cobertura
+            </span>
+            <h2 className="font-display text-4xl font-black leading-tight text-white md:text-6xl">
+              Presente, estética y sin forzar nada.
+            </h2>
+            <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-zinc-300 md:text-lg">
+              Registramos lo importante sin apagar la energía del evento.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {PRINCIPLES.map((item) => (
+              <div key={item.title} className="group border-t border-white/10 pt-5 text-center">
+                <div className="mx-auto mb-5 flex h-10 w-10 items-center justify-center bg-white text-zinc-950 transition-colors group-hover:bg-brand-orange group-hover:text-white">
+                  {item.icon}
+                </div>
+                <h3 className="font-display text-lg font-bold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">{item.text}</p>
               </div>
-              <p className="text-zinc-300 text-sm leading-relaxed mb-6 italic">
-                "{review.text}"
-              </p>
-              <div>
-                <h4 className="text-white font-bold text-sm">{review.author}</h4>
-                <p className="text-zinc-500 text-xs">{review.event}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

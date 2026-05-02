@@ -61,7 +61,7 @@ export const Contact: React.FC = () => {
         {/* CABECERA */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-display font-black text-5xl md:text-6xl text-white mb-6 tracking-tighter">
-            HABLEMOS.
+            HABLEMOS DE TU EVENTO.
           </h2>
           
           <div className="flex flex-wrap justify-center gap-6 text-zinc-400 font-medium">
@@ -80,7 +80,7 @@ export const Contact: React.FC = () => {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-white mb-4">¿Hablamos ya?</h3>
               <p className="text-zinc-400 leading-relaxed">
-                Si tenés dudas puntuales, querés consultar disponibilidad urgente o simplemente preferís charlar directo, escribinos al WhatsApp.
+                Si querés consultar disponibilidad, pedir presupuesto o contarnos qué tipo de cobertura necesitás, escribinos directo por WhatsApp.
               </p>
             </div>
 
@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
               className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-900/20 hover:-translate-y-1"
             >
               <MessageCircle size={22} />
-              Enviar WhatsApp
+              Pedir presupuesto por WhatsApp
             </a>
           </div>
 
@@ -137,7 +137,7 @@ export const Contact: React.FC = () => {
               <>
                 <div className="mb-6">
                    <h3 className="text-2xl font-bold text-white mb-2">Pedir Presupuesto</h3>
-                   <p className="text-zinc-400 text-sm">Completá los datos y te armamos una propuesta.</p>
+                   <p className="text-zinc-400 text-sm">Completá los datos y te armamos una propuesta para tu cobertura.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -153,10 +153,12 @@ export const Contact: React.FC = () => {
                         className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-4 text-white focus:outline-none focus:border-brand-orange transition-colors"
                         />
                          <select name="evento" className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-4 text-white focus:outline-none focus:border-brand-orange transition-colors appearance-none">
-                            <option>Tipo...</option>
-                            <option>Boda</option>
-                            <option>15 Años</option>
-                            <option>Empresa</option>
+                            <option>Tipo de evento</option>
+                            <option>Fiesta de 15</option>
+                            <option>Book de 15</option>
+                            <option>Casamiento / Boda</option>
+                            <option>Evento corporativo</option>
+                            <option>Evento social</option>
                             <option>Otro</option>
                         </select>
                     </div>
@@ -168,7 +170,7 @@ export const Contact: React.FC = () => {
                   </div>
 
                   <textarea 
-                    name="mensaje" rows={4} placeholder="Contanos qué necesitas..."
+                    name="mensaje" rows={4} placeholder="Contanos qué necesitás: fecha, lugar, tipo de evento y si buscás foto, video o ambos..."
                     className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-4 text-white focus:outline-none focus:border-brand-orange transition-colors resize-none"
                   ></textarea>
 

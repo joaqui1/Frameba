@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
         </h1>
 
         <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-          Productora audiovisual en Buenos Aires especializada en <span className="text-white font-medium">Bodas, 15 Años y Eventos Corporativos</span>.
+          Foto y video para <span className="text-white font-medium">fiestas de 15, casamientos, bodas y eventos corporativos</span> en CABA y Buenos Aires.
         </p>
 
         {/* Botones */}
@@ -46,7 +46,7 @@ export const Hero: React.FC = () => {
             href="#contacto"
             className="w-full md:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm min-w-[160px]"
           >
-            Contactanos
+            Pedir presupuesto
           </a>
 
           <a 

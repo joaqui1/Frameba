@@ -2,31 +2,31 @@ import React from 'react';
 
 const WORLDS = [
   {
-    title: "SOCIAL & 15 AÑOS",
+    title: "FOTO Y VIDEO PARA 15 AÑOS",
     description: "Previa, fiesta y pista con ritmo real.",
-    details: "Previa, fiesta y momentos clave en foto y video, sin posar de más.",
+    details: "Fotografía y video para fiestas de 15 años en CABA y Buenos Aires: previa, entrada, baile, familia, amigos y momentos clave, sin posar de más.",
     image: "/images/fotografia-15-anos-caba-frame-1536.jpg",
     srcSet: "/images/fotografia-15-anos-caba-frame-768.jpg 768w, /images/fotografia-15-anos-caba-frame-1536.jpg 1536w",
-    tag: "Trending",
-    alt: "Fotografía de fiesta de 15 años en CABA por FRAME Estudio"
+    tag: "15 Años",
+    alt: "Foto y video para fiesta de 15 años en CABA por FRAME Estudio"
   },
   {
-    title: "BODAS DE AUTOR",
+    title: "CASAMIENTOS Y BODAS",
     description: "Natural, cercano y con emoción real.",
-    details: "Ceremonia, detalles y fiesta con una mirada natural, sin interrumpir lo que está pasando.",
+    details: "Fotografía y video para casamientos, bodas, civil, ceremonia y fiesta en Buenos Aires, con una mirada natural y cinematográfica.",
     image: "/images/fotografia-casamiento-buenos-aires-frame-1536.jpg",
     srcSet: "/images/fotografia-casamiento-buenos-aires-frame-768.jpg 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.jpg 1536w",
     tag: "Cinematic",
-    alt: "Fotografía de casamiento en Buenos Aires por FRAME Estudio"
+    alt: "Fotografía y video para casamiento en Buenos Aires por FRAME Estudio"
   },
   {
-    title: "CORPORATIVO & BRANDS",
+    title: "EVENTOS CORPORATIVOS",
     description: "Claro, prolijo y listo para comunicar.",
-    details: "Material para eventos, equipos, lanzamientos, redes y comunicación de marca.",
+    details: "Fotografía para empresas, video para eventos corporativos, lanzamientos, conferencias, fiestas de empresa y contenido audiovisual para marcas.",
     image: "/images/evento-corporativo-buenos-aires-frame-1536.jpg",
     srcSet: "/images/evento-corporativo-buenos-aires-frame-768.jpg 768w, /images/evento-corporativo-buenos-aires-frame-1536.jpg 1536w",
     tag: "Business",
-    alt: "Cobertura de evento corporativo en Buenos Aires por FRAME Estudio"
+    alt: "Fotografía y video para eventos corporativos en Buenos Aires por FRAME Estudio"
   }
 ];
 
@@ -37,11 +37,11 @@ export const BentoGrid: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-white">
-              NUESTRAS ESPECIALIDADES
+              FOTOGRAFÍA Y VIDEO PARA EVENTOS
             </h2>
           </div>
           <p className="text-zinc-400 max-w-md text-sm md:text-base">
-            Trabajamos cada cobertura según el tipo de evento: social, casamiento, corporativo o contenido para marcas.
+            Cubrimos fiestas de 15, casamientos, bodas, eventos corporativos y contenido para marcas en CABA y Buenos Aires.
           </p>
         </div>
 

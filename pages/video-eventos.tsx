@@ -9,7 +9,7 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <Layout ctaContext="video" ctaLabel="Consultar video para mi evento">
+      <Layout ctaContext="video">
         <VideoEventosPage />
       </Layout>
     </React.StrictMode>

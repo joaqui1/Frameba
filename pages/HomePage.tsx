@@ -51,7 +51,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-zinc-950">
+    <section data-page-hero className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-zinc-950">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-home.webp"

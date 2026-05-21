@@ -44,7 +44,7 @@ export const ServicePageHero: React.FC<Props> = ({
   const secondaryWhatsAppUrl = secondaryCta ? getWhatsAppUrl(secondaryCta.context) : null;
 
   return (
-    <section className="relative h-[80vh] min-h-[520px] max-h-[820px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950">
+    <section data-page-hero className="relative h-[80vh] min-h-[520px] max-h-[820px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <picture className="absolute inset-0 block h-full w-full">
           {responsive ? (

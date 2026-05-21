@@ -42,7 +42,7 @@ export const ContactoPage: React.FC = () => {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-zinc-950">
+      <section data-page-hero className="pt-32 pb-16 bg-zinc-950">
         <div className="container mx-auto px-6 md:px-12 text-center max-w-3xl">
           <h1 className="font-display font-black text-4xl md:text-6xl text-white mb-6 tracking-tight">
             Hablemos de tu evento

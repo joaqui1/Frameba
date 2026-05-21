@@ -19,7 +19,7 @@ export const WhatsAppCTASection: React.FC<Props> = ({
   const whatsappUrl = getWhatsAppUrl(context);
 
   return (
-    <section className="py-20 bg-zinc-950 relative overflow-hidden">
+    <section data-page-final-cta className="py-20 bg-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-transparent to-transparent"></div>
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl mx-auto text-center">

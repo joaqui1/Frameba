@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Film, Aperture, Clock, Zap, MapPin, ArrowRight } from 'lucide-react';
+import { Film, Aperture, Clock, Zap, MapPin, ArrowRight } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
@@ -85,36 +85,26 @@ export const HomePage: React.FC = () => {
             con una estética moderna, cuidada y natural.
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center w-full max-w-xl">
-            <a
-              href={heroWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => onWhatsAppLinkClick(e, heroWhatsAppUrl, 'general')}
-              className="w-full md:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm flex items-center justify-center gap-2 min-w-[160px]"
-            >
-              <MessageCircle size={18} />
-              Consultar por mi fecha
-            </a>
-            <a
-              href="#servicios"
-              className="w-full md:w-auto px-8 py-4 border border-zinc-700 text-white font-bold uppercase tracking-wider hover:border-white hover:bg-white/5 transition-all duration-300 rounded-sm flex items-center justify-center gap-2 min-w-[160px]"
-            >
-              <Play size={16} className="fill-current" /> Ver trabajos
-            </a>
-          </div>
+          <a
+            href={heroWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => onWhatsAppLinkClick(e, heroWhatsAppUrl, 'general')}
+            className="w-full md:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm flex items-center justify-center gap-2 min-w-[160px]"
+          >
+            <MessageCircle size={18} />
+            Consultar por mi fecha
+          </a>
         </div>
       </section>
 
       {/* ===== SERVICE CARDS ===== */}
       <section id="servicios" className="py-24 bg-zinc-950">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-              <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-3 block">Servicios</span>
-              <h2 className="font-display font-bold text-3xl md:text-5xl text-white">Qué cubrimos</h2>
-            </div>
-            <p className="text-zinc-400 max-w-md text-sm md:text-base">
+          <div className="mb-16 max-w-3xl">
+            <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-3 block">Servicios</span>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Qué cubrimos</h2>
+            <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
               Foto y video para distintos tipos de eventos en CABA y Buenos Aires.
             </p>
           </div>

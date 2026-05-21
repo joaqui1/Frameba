@@ -35,7 +35,6 @@ export const CorporativosPage: React.FC = () => {
         subtitle="Conferencias, lanzamientos, activaciones y fiestas de empresa con material claro, prolijo y listo para comunicar en redes, prensa o canales internos."
         ctaLabel="Solicitar cobertura"
         ctaContext="corporate"
-        secondaryCta={{ label: 'Pedir presupuesto', context: 'corporate' }}
         imageBase="/images/hero-corporativos-portada"
         imageAlt="Cobertura de video para eventos corporativos en Puerto Madero y conferencias en CABA por FRAME Estudio"
         responsive

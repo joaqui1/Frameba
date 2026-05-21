@@ -3,8 +3,6 @@ import { ServicePageHero } from '../components/ServicePageHero';
 import { Heart, Camera, Film, Sun, Clock, Star } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
-import { getWhatsAppUrl } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
 
 const WEDDING_MOMENTS = [
   { icon: <Sun size={20} />, label: 'Getting ready', desc: 'Preparativos, detalles, nervios y primeras fotos antes de salir.' },
@@ -23,8 +21,6 @@ const WEDDING_APPROACH = [
 ];
 
 export const CasamientosPage: React.FC = () => {
-  const handleClick = () => trackWhatsAppClick('wedding');
-
   return (
     <>
       <ServicePageHero
@@ -32,8 +28,7 @@ export const CasamientosPage: React.FC = () => {
         h1="Fotografía y video para casamientos y bodas"
         subtitle="Civil, ceremonia, retratos y fiesta con una mirada natural. Registramos el día completo sin convertirlo en una producción ni cortar lo que está pasando."
         ctaLabel="Consultar casamiento"
-        ctaHref={getWhatsAppUrl('wedding')}
-        onCtaClick={handleClick}
+        ctaContext="wedding"
         imageBase="/images/hero-casamiento-portada"
         imageAlt="Fotografía de boda civil en Palermo y recepción de casamiento en Buenos Aires por FRAME Estudio"
         responsive

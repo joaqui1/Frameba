@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 import { onWhatsAppLinkClick } from '../utils/whatsappClick';
-import { trackWhatsAppClick } from '../utils/analytics';
 
 const INTRO =
   'Video profesional y filmación de eventos sociales y corporativos en Buenos Aires, CABA, GBA y Zona Norte.';
@@ -199,7 +198,6 @@ function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; de
 }
 
 export const VideoEventosPage: React.FC = () => {
-  const handleClick = () => trackWhatsAppClick('video');
   const videoWhatsAppUrl = getWhatsAppUrl('video');
 
   return (
@@ -209,8 +207,7 @@ export const VideoEventosPage: React.FC = () => {
         h1="Video para eventos en Buenos Aires"
         subtitle={INTRO}
         ctaLabel="Consultar video para mi evento"
-        ctaHref={getWhatsAppUrl('video')}
-        onCtaClick={handleClick}
+        ctaContext="video"
         imageBase="/images/hero-video-portada"
         imageAlt="Filmación de eventos sociales y corporativos en Puerto Madero, CABA y GBA — FRAME Estudio"
         responsive

@@ -3,8 +3,6 @@ import { ServicePageHero } from '../components/ServicePageHero';
 import { Briefcase, Image, Clock, Megaphone, Users, Building, FileText } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
-import { getWhatsAppUrl } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
 
 const EVENT_TYPES = [
   { icon: <Megaphone size={20} />, label: 'Lanzamientos', desc: 'Productos, marcas y campañas' },
@@ -29,8 +27,6 @@ const CORPORATE_STANDARDS = [
 ];
 
 export const CorporativosPage: React.FC = () => {
-  const handleClick = () => trackWhatsAppClick('corporate');
-
   return (
     <>
       <ServicePageHero
@@ -38,9 +34,8 @@ export const CorporativosPage: React.FC = () => {
         h1="Fotografía para eventos corporativos y video institucional"
         subtitle="Conferencias, lanzamientos, activaciones y fiestas de empresa con material claro, prolijo y listo para comunicar en redes, prensa o canales internos."
         ctaLabel="Solicitar cobertura"
-        ctaHref={getWhatsAppUrl('corporate')}
-        onCtaClick={handleClick}
-        secondaryCta={{ label: 'Pedir presupuesto', href: getWhatsAppUrl('corporate'), onClick: handleClick }}
+        ctaContext="corporate"
+        secondaryCta={{ label: 'Pedir presupuesto', context: 'corporate' }}
         imageBase="/images/hero-corporativos-portada"
         imageAlt="Cobertura de video para eventos corporativos en Puerto Madero y conferencias en CABA por FRAME Estudio"
         responsive

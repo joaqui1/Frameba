@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
+import { getWhatsAppUrl, type CTA_Context } from '../utils/whatsapp';
 import { onWhatsAppLinkClick } from '../utils/whatsappClick';
-import { isWhatsAppUrl, openWhatsAppUrl } from '../utils/whatsapp';
 
 const HERO_IMG_CLASS_DEFAULT =
   'absolute inset-0 h-full w-full object-cover object-center blur-[3px] opacity-50';
@@ -14,9 +14,8 @@ interface Props {
   h1: string;
   subtitle: string;
   ctaLabel: string;
-  ctaHref: string;
-  onCtaClick?: () => void;
-  secondaryCta?: { label: string; href: string; onClick?: () => void };
+  ctaContext: CTA_Context;
+  secondaryCta?: { label: string; context: CTA_Context };
   /** Base path without extension, e.g. /images/hero-casamiento-portada */
   imageBase: string;
   imageAlt: string;
@@ -31,8 +30,7 @@ export const ServicePageHero: React.FC<Props> = ({
   h1,
   subtitle,
   ctaLabel,
-  ctaHref,
-  onCtaClick,
+  ctaContext,
   secondaryCta,
   imageBase,
   imageAlt,
@@ -42,6 +40,8 @@ export const ServicePageHero: React.FC<Props> = ({
   const desktopBase = `${imageBase}-desktop`;
   const mobileBase = `${imageBase}-mobile`;
   const heroImgClass = heroPolish ? HERO_IMG_CLASS_POLISHED : HERO_IMG_CLASS_DEFAULT;
+  const primaryWhatsAppUrl = getWhatsAppUrl(ctaContext);
+  const secondaryWhatsAppUrl = secondaryCta ? getWhatsAppUrl(secondaryCta.context) : null;
 
   return (
     <section className="relative h-[80vh] min-h-[520px] max-h-[820px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950">
@@ -114,34 +114,21 @@ export const ServicePageHero: React.FC<Props> = ({
           <p className="mx-auto mb-9 max-w-2xl text-base font-light leading-relaxed text-zinc-300 md:text-lg">{subtitle}</p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href={ctaHref}
+              href={primaryWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (!isWhatsAppUrl(ctaHref)) {
-                  onCtaClick?.();
-                  return;
-                }
-                e.preventDefault();
-                onCtaClick?.();
-                openWhatsAppUrl(ctaHref);
-              }}
+              onClick={(e) => onWhatsAppLinkClick(e, primaryWhatsAppUrl, ctaContext)}
               className="inline-flex items-center gap-2.5 rounded-sm bg-white px-8 py-4 font-bold uppercase tracking-wider text-zinc-950 transition-all duration-300 hover:bg-brand-orange hover:text-white"
             >
               <MessageCircle size={18} />
               {ctaLabel}
             </a>
-            {secondaryCta && (
+            {secondaryCta && secondaryWhatsAppUrl && (
               <a
-                href={secondaryCta.href}
-                target={isWhatsAppUrl(secondaryCta.href) ? '_blank' : undefined}
-                rel={isWhatsAppUrl(secondaryCta.href) ? 'noopener noreferrer' : undefined}
-                onClick={(e) => {
-                  if (!isWhatsAppUrl(secondaryCta.href)) return;
-                  e.preventDefault();
-                  secondaryCta.onClick?.();
-                  openWhatsAppUrl(secondaryCta.href);
-                }}
+                href={secondaryWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => onWhatsAppLinkClick(e, secondaryWhatsAppUrl, secondaryCta.context)}
                 className={
                   heroPolish
                     ? 'inline-flex items-center justify-center gap-2.5 rounded-sm border border-zinc-500/40 bg-white/[0.04] px-7 py-3.5 font-semibold uppercase tracking-wide text-zinc-100 transition-all duration-300 hover:border-zinc-400/60 hover:bg-white/[0.08] hover:text-white'

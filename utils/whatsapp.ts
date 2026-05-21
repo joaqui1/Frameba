@@ -21,9 +21,15 @@ export function isWhatsAppUrl(url: string): boolean {
   return /^https:\/\/wa\.me\//i.test(url);
 }
 
-/** Abre WhatsApp en pestaña nueva (fiable en móvil y con GTM/Ads activos). */
+/** Abre WhatsApp (móvil: misma pestaña; desktop: nueva pestaña). */
 export function openWhatsAppUrl(url: string): void {
-  window.open(url, '_blank', 'noopener,noreferrer');
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.location.assign(url);
+    return;
+  }
+  const opened = window.open(url, '_blank', 'noopener,noreferrer');
+  if (!opened) window.location.assign(url);
 }
 
 export function getWhatsAppNumber(): string {

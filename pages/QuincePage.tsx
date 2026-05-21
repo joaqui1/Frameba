@@ -3,8 +3,6 @@ import { ServicePageHero } from '../components/ServicePageHero';
 import { Camera, Film, Clock, Sparkles, Music, Users, Heart, Star } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
-import { getWhatsAppUrl } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
 
 const QUINCE_MOMENTS = [
   { icon: <Sparkles size={20} />, time: 'Previa', title: 'Preparativos con amigas y familia', desc: 'Maquillaje, vestido, detalles y esos minutos donde empieza a sentirse la noche.' },
@@ -21,18 +19,14 @@ const QUINCE_DELIVERABLES = [
 ];
 
 export const QuincePage: React.FC = () => {
-  const handleClick = () => trackWhatsAppClick('quince');
-
   return (
     <>
-      {/* ===== HERO — Portada con imagen ===== */}
       <ServicePageHero
         badge="15 Años"
         h1="Fotografía y video para fiestas de 15 años"
         subtitle="Una cobertura pensada para tu fiesta: preparativos, entrada, vals, familia, amigas, amigos y pista. Foto y video con energía real, sin hacer que la noche se sienta posada."
         ctaLabel="Estoy organizando un 15"
-        ctaHref={getWhatsAppUrl('quince')}
-        onCtaClick={handleClick}
+        ctaContext="quince"
         imageBase="/images/hero-quince-portada"
         imageAlt="Fotografía y video para fiesta de 15 años en salón de CABA y GBA por FRAME Estudio"
         responsive

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ServicePageHero } from '../components/ServicePageHero';
 import { FAQ } from '../components/FAQ';
-import { Gallery } from '../components/Gallery';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import {
   Film,
@@ -17,7 +16,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
-import { trackWhatsAppClick, trackPortfolioView } from '../utils/analytics';
+import { trackWhatsAppClick } from '../utils/analytics';
 
 const INTRO =
   'Video profesional y filmación de eventos sociales y corporativos en Buenos Aires, CABA, GBA y Zona Norte.';
@@ -159,35 +158,6 @@ const VIDEO_FAQ = [
   },
 ];
 
-const PORTFOLIO_IMAGES = [
-  {
-    src: '/images/hero-video-portada-desktop.webp',
-    alt: 'Video para eventos sociales en cocktail en Puerto Madero y CABA por FRAME Estudio',
-    aspect: 'video' as const,
-  },
-  {
-    src: '/images/evento-corporativo-buenos-aires-frame-1536.webp',
-    srcSet:
-      '/images/evento-corporativo-buenos-aires-frame-768.webp 768w, /images/evento-corporativo-buenos-aires-frame-1536.webp 1536w',
-    alt: 'Cobertura de video para eventos corporativos en Puerto Madero y conferencias en CABA por FRAME Estudio',
-    aspect: 'video' as const,
-  },
-  {
-    src: '/images/fotografia-15-anos-caba-frame-1536.webp',
-    srcSet:
-      '/images/fotografia-15-anos-caba-frame-768.webp 768w, /images/fotografia-15-anos-caba-frame-1536.webp 1536w',
-    alt: 'Filmación de fiesta de 15 años en salones de CABA, San Isidro y Pilar por FRAME Estudio',
-    aspect: 'video' as const,
-  },
-  {
-    src: '/images/fotografia-casamiento-buenos-aires-frame-1536.webp',
-    srcSet:
-      '/images/fotografia-casamiento-buenos-aires-frame-768.webp 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.webp 1536w',
-    alt: 'Video para casamiento y boda en Palermo y Buenos Aires por FRAME Estudio',
-    aspect: 'video' as const,
-  },
-];
-
 function H2Block({
   title,
   children,
@@ -229,11 +199,6 @@ function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; de
 
 export const VideoEventosPage: React.FC = () => {
   const handleClick = () => trackWhatsAppClick('video');
-
-  const handlePortfolioCta = () => {
-    trackPortfolioView('/video-para-eventos-buenos-aires/');
-    trackWhatsAppClick('video');
-  };
 
   return (
     <>
@@ -364,7 +329,7 @@ export const VideoEventosPage: React.FC = () => {
           Cada evento es distinto: fecha, zona, horas de cobertura, tipo de entrega y si necesitás solo video o
           también foto. Te armamos un presupuesto a medida según tu evento en CABA, GBA o Zona Norte.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row gap-4">
           <a
             href={getWhatsAppUrl('video')}
             target="_blank"
@@ -380,22 +345,6 @@ export const VideoEventosPage: React.FC = () => {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-zinc-700 text-white font-bold uppercase tracking-wider text-sm rounded-sm hover:border-white hover:bg-white/5 transition-all"
           >
             Formulario de contacto
-          </a>
-        </div>
-        <Gallery
-          images={PORTFOLIO_IMAGES}
-          subtitle="Algunos eventos que cubrimos. Escribinos y te compartimos referencias de video según tu tipo de evento."
-        />
-        <div className="text-center mt-8">
-          <a
-            href={getWhatsAppUrl('video')}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handlePortfolioCta}
-            className="inline-flex items-center gap-2 text-brand-orange text-sm font-bold uppercase tracking-wider hover:text-white transition-colors"
-          >
-            <Film size={16} />
-            Ver referencias de video
           </a>
         </div>
       </H2Block>

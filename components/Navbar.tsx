@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { getWhatsAppUrl } from '../utils/whatsapp';
+import { trackWhatsAppClick } from '../utils/analytics';
+
+const COTIZAR_WHATSAPP_URL = getWhatsAppUrl('contact');
 
 const NAV_ITEMS = [
   { label: '15 Años', href: '/fotografo-15-anos-caba-gba/' },
@@ -77,7 +81,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
               </a>
             ))}
             <a
-              href="/contacto/"
+              href={COTIZAR_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('contact')}
               className="px-6 py-2.5 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
             >
               Cotizar Ahora
@@ -145,9 +152,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
 
           <div className="shrink-0 border-t border-zinc-800/80 pt-5 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-auto">
             <a
-              href="/contacto/"
+              href={COTIZAR_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"
-              onClick={closeMenu}
+              onClick={() => {
+                trackWhatsAppClick('contact');
+                closeMenu();
+              }}
               tabIndex={isOpen ? 0 : -1}
             >
               Cotizar Ahora

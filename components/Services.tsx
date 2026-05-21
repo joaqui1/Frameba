@@ -64,12 +64,6 @@ export const Portfolio: React.FC = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 text-center">
-          <a href="/#contacto" className="text-zinc-400 hover:text-brand-orange underline underline-offset-4 transition-colors">
-            Ver galería completa en Instagram
-          </a>
-        </div>
       </div>
     </section>
   );

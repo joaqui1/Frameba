@@ -29,6 +29,26 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Verify dist output
+        run: |
+          set -e
+          test -f dist/index.html
+          test -f dist/fotografo-15-anos-caba-gba/index.html
+          test -f dist/fotografia-video-casamientos-buenos-aires/index.html
+          test -f dist/eventos-corporativos-buenos-aires/index.html
+          test -f dist/video-para-eventos-buenos-aires/index.html
+          test -f dist/contacto/index.html
+          test -f dist/sitemap.xml
+          test -f dist/robots.txt
+          test -f dist/404.html
+          test -f dist/og-image.png
+          test -f dist/favicon.svg
+          test -f dist/favicon-32.png
+          test -d dist/images
+          grep -q 'fotografo-15-anos-caba-gba/' dist/sitemap.xml
+          grep -q 'contacto/' dist/sitemap.xml
+          grep -q 'video-para-eventos-buenos-aires/' dist/sitemap.xml
+          echo "dist verification OK"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

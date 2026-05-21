@@ -1,51 +1,58 @@
 import React from 'react';
-import { Instagram, Facebook, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const footerLinks = [
-    { label: "Foto y video para eventos", href: "/#mundos" },
-    { label: "15 años", href: "/#mundos" },
-    { label: "Casamientos y bodas", href: "/#mundos" },
-    { label: "Eventos corporativos", href: "/#mundos" },
-    { label: "Contacto", href: "/#contacto" }
+  const serviceLinks = [
+    { label: '15 Años', href: '/fotografo-15-anos-caba-gba/' },
+    { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
+    { label: 'Video para eventos', href: '/video-para-eventos-buenos-aires/' },
+    { label: 'Eventos corporativos', href: '/eventos-corporativos-buenos-aires/' },
+    { label: 'Contacto', href: '/contacto/' },
   ];
 
   return (
-    <footer className="bg-zinc-950 py-12 border-t border-zinc-900">
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.6fr_1fr] gap-10 items-start">
-        <div className="text-center lg:text-left">
-          <a href="/" className="font-display font-black text-2xl text-white tracking-tighter">
-            FRAME<span className="text-brand-orange">.</span>
-          </a>
-          <p className="text-zinc-500 text-xs mt-2 uppercase tracking-wide">
-            Fotografía y video para eventos en CABA y Buenos Aires
-          </p>
+    <footer className="bg-zinc-950 py-16 border-t border-zinc-900">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+          {/* Brand */}
+          <div>
+            <a href="/" className="font-display font-black text-2xl text-white tracking-tighter">
+              FRAME<span className="text-brand-orange">.</span>
+            </a>
+            <p className="text-zinc-500 text-sm mt-3 leading-relaxed max-w-xs">
+              Fotografía y video para eventos en CABA y Buenos Aires. 15 años, casamientos, eventos sociales y corporativos.
+            </p>
+          </div>
+
+          {/* Service Links */}
+          <nav aria-label="Páginas de servicio" className="flex flex-col gap-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-1">Servicios</span>
+            {serviceLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-zinc-400 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Info */}
+          <div className="flex flex-col gap-6">
+            <div className="text-zinc-500 text-sm space-y-1">
+              <p>Buenos Aires, Argentina</p>
+              <p>CABA · GBA · Zona Norte · Zona Sur</p>
+            </div>
+          </div>
         </div>
 
-        <nav aria-label="Secciones" className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-center lg:justify-start">
-          {footerLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-zinc-500 hover:text-white transition-colors">
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex flex-col items-center lg:items-end gap-6">
-          <div className="flex gap-6">
-            <a href="#" aria-label="Instagram" className="p-2 bg-zinc-900 rounded-full text-zinc-400 hover:text-white hover:bg-brand-orange transition-all">
-              <Instagram size={20} />
-            </a>
-            <a href="#" aria-label="YouTube" className="p-2 bg-zinc-900 rounded-full text-zinc-400 hover:text-white hover:bg-brand-orange transition-all">
-              <Youtube size={20} />
-            </a>
-            <a href="#" aria-label="Facebook" className="p-2 bg-zinc-900 rounded-full text-zinc-400 hover:text-white hover:bg-brand-orange transition-all">
-              <Facebook size={20} />
-            </a>
-          </div>
-
-          <div className="text-zinc-600 text-xs">
-            <p>© {new Date().getFullYear()} FRAME ESTUDIO.</p>
-          </div>
+        <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-zinc-600 text-xs">
+            © {new Date().getFullYear()} FRAME Estudio. Todos los derechos reservados.
+          </p>
+          <p className="text-zinc-700 text-xs">
+            Fotografía y video para eventos en Buenos Aires
+          </p>
         </div>
       </div>
     </footer>

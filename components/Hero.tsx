@@ -7,12 +7,13 @@ export const Hero: React.FC = () => {
       
       {/* Background with dynamic overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" 
-          alt="Videógrafo profesional filmando evento social nocturno en Buenos Aires con luces de cine" 
-          width={2070}
-          height={1380}
+        <img
+          src="/images/hero-home.webp"
+          alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — FRAME Estudio"
+          width={1920}
+          height={1080}
           sizes="100vw"
+          loading="eager"
           fetchPriority="high"
           decoding="async"
           className="w-full h-full object-cover opacity-60 mix-blend-overlay"

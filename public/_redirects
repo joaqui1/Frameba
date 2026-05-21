@@ -1,0 +1,6 @@
+# Nota: GitHub Pages ignora este archivo. El redirect legacy /foto-video-eventos-buenos-aires
+# funciona vía foto-video-eventos-buenos-aires/index.html (meta refresh + JS).
+# Útil solo si el sitio se migra a Netlify, Cloudflare Pages, etc.
+
+/foto-video-eventos-buenos-aires    /eventos-corporativos-buenos-aires/    301
+/foto-video-eventos-buenos-aires/   /eventos-corporativos-buenos-aires/    301

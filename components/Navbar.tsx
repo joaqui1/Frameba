@@ -1,84 +1,162 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { NavItem } from '../types';
 
-const NAV_ITEMS: NavItem[] = [
-  { label: 'Mundos', href: '/#mundos' },
-  { label: 'Nosotros', href: '/#nosotros' },
-  { label: 'Contacto', href: '/#contacto' },
+const NAV_ITEMS = [
+  { label: '15 Años', href: '/fotografo-15-anos-caba-gba/' },
+  { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
+  { label: 'Video', href: '/video-para-eventos-buenos-aires/' },
+  { label: 'Corporativos', href: '/eventos-corporativos-buenos-aires/' },
+  { label: 'Contacto', href: '/contacto/' },
 ];
 
-export const Navbar: React.FC = () => {
+const MOBILE_NAV_ITEMS = NAV_ITEMS.filter((item) => item.label !== 'Contacto');
+
+interface NavbarProps {
+  onMenuOpenChange?: (open: boolean) => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const closeMenu = () => setIsOpen(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    onMenuOpenChange?.(isOpen);
+  }, [isOpen, onMenuOpenChange]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu();
+    };
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isOpen]);
+
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
-        scrolled 
-          ? 'bg-zinc-950 border-zinc-800 py-4'
-          : 'bg-transparent border-transparent py-6'
-      }`}
-    >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Logo - Bold & Industrial */}
-        <a href="/" className="relative z-50 group">
-          <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter text-white">
-            FRAME<span className="text-brand-orange">.</span>
-          </span>
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-10 items-center">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wide"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a 
-            href="/#contacto"
-            className="px-6 py-2 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300"
-          >
-            Cotizar Ahora
+    <>
+      <header
+        className={`fixed top-0 w-full z-[110] transition-all duration-500 border-b ${
+          isOpen
+            ? 'bg-zinc-950 border-zinc-800/60 py-3'
+            : scrolled
+              ? 'bg-zinc-950/95 backdrop-blur-md border-zinc-800/60 py-3'
+              : 'bg-transparent border-transparent py-5'
+        }`}
+      >
+        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+          <a href="/" className="group" aria-label="FRAME Estudio — Inicio" onClick={closeMenu}>
+            <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter text-white">
+              FRAME<span className="text-brand-orange">.</span>
+            </span>
           </a>
-        </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden z-50 text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Mobile Nav Overlay */}
-      <div className={`fixed inset-0 bg-zinc-950 z-40 flex flex-col items-center justify-center transition-transform duration-500 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-        <nav className="flex flex-col items-center gap-8">
-          {NAV_ITEMS.map((item) => (
+          <nav className="hidden md:flex gap-8 items-center" aria-label="Navegación principal">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wide"
+              >
+                {item.label}
+              </a>
+            ))}
             <a
-              key={item.label}
-              href={item.href}
-              className="text-3xl font-display font-bold text-zinc-500 hover:text-white transition-colors tracking-tighter"
-              onClick={() => setIsOpen(false)}
+              href="/contacto/"
+              className="px-6 py-2.5 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
             >
-              {item.label}
+              Cotizar Ahora
             </a>
-          ))}
-        </nav>
+          </nav>
+
+          <button
+            type="button"
+            className="md:hidden -mr-2 text-white p-2 rounded-sm hover:bg-zinc-800/60 transition-colors"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav-panel"
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+          >
+            {isOpen ? <X size={26} aria-hidden /> : <Menu size={26} aria-hidden />}
+          </button>
+        </div>
+      </header>
+
+      <div
+        id="mobile-nav-panel"
+        className={`fixed inset-0 z-[100] md:hidden transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        aria-hidden={!isOpen}
+      >
+        <button
+          type="button"
+          className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm"
+          aria-label="Cerrar menú"
+          tabIndex={isOpen ? 0 : -1}
+          onClick={closeMenu}
+        />
+
+        <div className="relative z-10 flex h-full flex-col pt-[4.5rem] pb-6 px-6 pointer-events-none">
+          <nav
+            className="flex-1 overflow-y-auto overscroll-contain py-4 pointer-events-auto"
+            aria-label="Menú móvil"
+          >
+            <ul className="flex flex-col gap-1">
+              <li>
+                <a
+                  href="/"
+                  className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                  onClick={closeMenu}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  Inicio
+                </a>
+              </li>
+              {MOBILE_NAV_ITEMS.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                    onClick={closeMenu}
+                    tabIndex={isOpen ? 0 : -1}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="shrink-0 border-t border-zinc-800/80 pt-5 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-auto">
+            <a
+              href="/contacto/"
+              className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"
+              onClick={closeMenu}
+              tabIndex={isOpen ? 0 : -1}
+            >
+              Cotizar Ahora
+            </a>
+          </div>
+        </div>
       </div>
-    </header>
+    </>
   );
 };
+
+

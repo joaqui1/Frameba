@@ -7,7 +7,6 @@ declare global {
 }
 
 export function trackWhatsAppClick(ctaContext: string): void {
-  // Push to dataLayer for GTM
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'click_whatsapp',
@@ -15,9 +14,10 @@ export function trackWhatsAppClick(ctaContext: string): void {
     page_location: window.location.pathname,
   });
 
-  // Fire Google Ads conversion if available
-  if (typeof window.gtag_report_conversion === 'function') {
-    window.gtag_report_conversion();
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-17522815085/y71yCIrDv9UbEO3gw6NB',
+    });
   }
 }
 

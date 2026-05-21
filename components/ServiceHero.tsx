@@ -1,7 +1,6 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
-import { getWhatsAppUrl, type CTA_Context } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
+import { type CTA_Context } from '../utils/whatsapp';
+import { WhatsAppLink } from './WhatsAppLink';
 
 interface Props {
   image: string;
@@ -24,10 +23,6 @@ export const ServiceHero: React.FC<Props> = ({
   ctaContext,
   secondaryCta,
 }) => {
-  const handleClick = () => {
-    trackWhatsAppClick(ctaContext);
-  };
-
   return (
     <section className="relative min-h-[70vh] md:min-h-[80vh] w-full flex items-center justify-center overflow-hidden bg-zinc-950">
       {/* Background image */}
@@ -57,18 +52,22 @@ export const ServiceHero: React.FC<Props> = ({
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg">
-          <a
-            href={getWhatsAppUrl(ctaContext)}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClick}
+          <WhatsAppLink
+            context={ctaContext}
             className="w-full sm:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm flex items-center justify-center gap-2"
           >
-            <MessageCircle size={18} />
             {ctaLabel}
-          </a>
+          </WhatsAppLink>
 
-          {secondaryCta && (
+          {secondaryCta && secondaryCta.href.startsWith('https://wa.me/') && (
+            <WhatsAppLink
+              context={ctaContext}
+              className="w-full sm:w-auto px-8 py-4 border border-zinc-700 text-white font-bold uppercase tracking-wider hover:border-white hover:bg-white/5 transition-all duration-300 rounded-sm text-center"
+            >
+              {secondaryCta.label}
+            </WhatsAppLink>
+          )}
+          {secondaryCta && !secondaryCta.href.startsWith('https://wa.me/') && (
             <a
               href={secondaryCta.href}
               className="w-full sm:w-auto px-8 py-4 border border-zinc-700 text-white font-bold uppercase tracking-wider hover:border-white hover:bg-white/5 transition-all duration-300 rounded-sm text-center"

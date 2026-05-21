@@ -1,4 +1,5 @@
 import React from 'react';
+import { WhatsAppLink } from './WhatsAppLink';
 
 export const Footer: React.FC = () => {
   const serviceLinks = [
@@ -6,14 +7,12 @@ export const Footer: React.FC = () => {
     { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
     { label: 'Video para eventos', href: '/video-para-eventos-buenos-aires/' },
     { label: 'Eventos corporativos', href: '/eventos-corporativos-buenos-aires/' },
-    { label: 'Contacto', href: '/contacto/' },
   ];
 
   return (
     <footer className="bg-zinc-950 py-16 border-t border-zinc-900">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-          {/* Brand */}
           <div>
             <a href="/" className="font-display font-black text-2xl text-white tracking-tighter">
               FRAME<span className="text-brand-orange">.</span>
@@ -23,21 +22,26 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Service Links */}
           <nav aria-label="Páginas de servicio" className="flex flex-col gap-3">
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-1">Servicios</span>
             {serviceLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className="text-sm text-zinc-400 hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
+            <WhatsAppLink
+              context="contact"
+              showIcon={false}
+              className="text-sm text-zinc-400 hover:text-white transition-colors text-left"
+            >
+              Contacto
+            </WhatsAppLink>
           </nav>
 
-          {/* Info */}
           <div className="flex flex-col gap-6">
             <div className="text-zinc-500 text-sm space-y-1">
               <p>Buenos Aires, Argentina</p>

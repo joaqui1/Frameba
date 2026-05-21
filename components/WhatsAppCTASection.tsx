@@ -1,7 +1,6 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
-import { getWhatsAppUrl, type CTA_Context } from '../utils/whatsapp';
-import { onWhatsAppLinkClick } from '../utils/whatsappClick';
+import { type CTA_Context } from '../utils/whatsapp';
+import { WhatsAppLink } from './WhatsAppLink';
 
 interface Props {
   title?: string;
@@ -16,8 +15,6 @@ export const WhatsAppCTASection: React.FC<Props> = ({
   ctaLabel = 'Consultar por WhatsApp',
   context = 'general',
 }) => {
-  const whatsappUrl = getWhatsAppUrl(context);
-
   return (
     <section data-page-final-cta className="py-20 bg-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-transparent to-transparent"></div>
@@ -29,16 +26,12 @@ export const WhatsAppCTASection: React.FC<Props> = ({
           <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
             {subtitle}
           </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => onWhatsAppLinkClick(e, whatsappUrl, context)}
+          <WhatsAppLink
+            context={context}
             className="inline-flex items-center gap-2.5 px-8 py-4 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider rounded-lg transition-all shadow-lg shadow-green-900/20 hover:-translate-y-0.5"
           >
-            <MessageCircle size={20} />
             {ctaLabel}
-          </a>
+          </WhatsAppLink>
         </div>
       </div>
     </section>

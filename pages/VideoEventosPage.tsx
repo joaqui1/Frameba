@@ -2,6 +2,7 @@ import React from 'react';
 import { ServicePageHero } from '../components/ServicePageHero';
 import { FAQ } from '../components/FAQ';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
+import { WhatsAppLink } from '../components/WhatsAppLink';
 import {
   Film,
   PartyPopper,
@@ -13,10 +14,7 @@ import {
   Play,
   Users,
   Mic2,
-  MessageCircle,
 } from 'lucide-react';
-import { getWhatsAppUrl } from '../utils/whatsapp';
-import { onWhatsAppLinkClick } from '../utils/whatsappClick';
 
 const INTRO =
   'Video profesional y filmación de eventos sociales y corporativos en Buenos Aires, CABA, GBA y Zona Norte.';
@@ -198,8 +196,6 @@ function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; de
 }
 
 export const VideoEventosPage: React.FC = () => {
-  const videoWhatsAppUrl = getWhatsAppUrl('video');
-
   return (
     <>
       <ServicePageHero
@@ -329,22 +325,12 @@ export const VideoEventosPage: React.FC = () => {
           también foto. Te armamos un presupuesto a medida según tu evento en CABA, GBA o Zona Norte.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href={videoWhatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => onWhatsAppLinkClick(e, videoWhatsAppUrl, 'video')}
+          <WhatsAppLink
+            context="video"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider text-sm rounded-sm hover:bg-brand-orange hover:text-white transition-all"
           >
-            <MessageCircle size={18} />
             Pedir presupuesto por WhatsApp
-          </a>
-          <a
-            href="/contacto/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-zinc-700 text-white font-bold uppercase tracking-wider text-sm rounded-sm hover:border-white hover:bg-white/5 transition-all"
-          >
-            Formulario de contacto
-          </a>
+          </WhatsAppLink>
         </div>
       </H2Block>
 

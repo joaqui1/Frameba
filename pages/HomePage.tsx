@@ -1,10 +1,8 @@
 import React from 'react';
 import { Film, Aperture, Clock, Zap, MapPin, ArrowRight } from 'lucide-react';
-import { MessageCircle } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
-import { getWhatsAppUrl } from '../utils/whatsapp';
-import { onWhatsAppLinkClick } from '../utils/whatsappClick';
+import { WhatsAppLink } from '../components/WhatsAppLink';
 
 const SERVICE_CARDS = [
   {
@@ -46,8 +44,6 @@ const SERVICE_CARDS = [
 ];
 
 export const HomePage: React.FC = () => {
-  const heroWhatsAppUrl = getWhatsAppUrl('general');
-
   return (
     <>
       {/* Hero */}
@@ -85,16 +81,12 @@ export const HomePage: React.FC = () => {
             con una estética moderna, cuidada y natural.
           </p>
 
-          <a
-            href={heroWhatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => onWhatsAppLinkClick(e, heroWhatsAppUrl, 'general')}
+          <WhatsAppLink
+            context="general"
             className="w-full md:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm flex items-center justify-center gap-2 min-w-[160px]"
           >
-            <MessageCircle size={18} />
             Consultar por mi fecha
-          </a>
+          </WhatsAppLink>
         </div>
       </section>
 

@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { getWhatsAppUrl } from '../utils/whatsapp';
-import { onWhatsAppLinkClick } from '../utils/whatsappClick';
-
-const COTIZAR_WHATSAPP_URL = getWhatsAppUrl('contact');
+import { WhatsAppLink } from './WhatsAppLink';
 
 const NAV_ITEMS = [
   { label: '15 Años', href: '/fotografo-15-anos-caba-gba/' },
   { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
   { label: 'Video', href: '/video-para-eventos-buenos-aires/' },
   { label: 'Corporativos', href: '/eventos-corporativos-buenos-aires/' },
-  { label: 'Contacto', href: '/contacto/' },
 ];
-
-const MOBILE_NAV_ITEMS = NAV_ITEMS.filter((item) => item.label !== 'Contacto');
 
 interface NavbarProps {
   onMenuOpenChange?: (open: boolean) => void;
@@ -80,15 +74,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
                 {item.label}
               </a>
             ))}
-            <a
-              href={COTIZAR_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => onWhatsAppLinkClick(e, COTIZAR_WHATSAPP_URL, 'contact')}
+            <WhatsAppLink
+              context="contact"
+              showIcon={false}
               className="px-6 py-2.5 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
             >
+              Contacto
+            </WhatsAppLink>
+            <WhatsAppLink
+              context="contact"
+              showIcon={false}
+              className="px-6 py-2.5 bg-brand-orange text-white text-sm font-bold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300 rounded-sm"
+            >
               Cotizar Ahora
-            </a>
+            </WhatsAppLink>
           </nav>
 
           <button
@@ -135,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
                   Inicio
                 </a>
               </li>
-              {MOBILE_NAV_ITEMS.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
@@ -147,28 +146,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
                   </a>
                 </li>
               ))}
+              <li>
+                <WhatsAppLink
+                  context="contact"
+                  showIcon={false}
+                  onNavigate={closeMenu}
+                  className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                >
+                  Contacto
+                </WhatsAppLink>
+              </li>
             </ul>
           </nav>
 
           <div className="shrink-0 border-t border-zinc-800/80 pt-5 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-auto">
-            <a
-              href={COTIZAR_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppLink
+              context="contact"
+              showIcon={false}
+              onNavigate={closeMenu}
               className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"
-              onClick={(e) => {
-                onWhatsAppLinkClick(e, COTIZAR_WHATSAPP_URL, 'contact');
-                closeMenu();
-              }}
-              tabIndex={isOpen ? 0 : -1}
             >
               Cotizar Ahora
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </div>
     </>
   );
 };
-
-

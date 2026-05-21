@@ -40,7 +40,7 @@ export const CorporativosPage: React.FC = () => {
         ctaLabel="Solicitar cobertura"
         ctaHref={getWhatsAppUrl('corporate')}
         onCtaClick={handleClick}
-        secondaryCta={{ label: 'Pedir presupuesto', href: '/contacto/' }}
+        secondaryCta={{ label: 'Pedir presupuesto', href: getWhatsAppUrl('corporate'), onClick: handleClick }}
         imageBase="/images/hero-corporativos-portada"
         imageAlt="Cobertura de video para eventos corporativos en Puerto Madero y conferencias en CABA por FRAME Estudio"
         responsive

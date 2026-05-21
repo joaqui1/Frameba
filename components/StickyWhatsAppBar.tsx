@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { getWhatsAppUrl, type CTA_Context } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
+import { onWhatsAppLinkClick } from '../utils/whatsappClick';
 
 interface Props {
   context?: CTA_Context;
@@ -22,19 +22,16 @@ export const StickyWhatsAppBar: React.FC<Props> = ({ context = 'general', label,
   if (hidden) return null;
 
   const displayLabel = label || CTA_LABELS[context] || CTA_LABELS.general;
-
-  const handleClick = () => {
-    trackWhatsAppClick(context);
-  };
+  const whatsappUrl = getWhatsAppUrl(context);
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 md:hidden">
       <div className="bg-zinc-950/90 backdrop-blur-lg border-t border-zinc-800/50 px-4 py-3">
         <a
-          href={getWhatsAppUrl(context)}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={handleClick}
+          onClick={(e) => onWhatsAppLinkClick(e, whatsappUrl, context)}
           className="flex items-center justify-center gap-2.5 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-green-900/20"
         >
           <MessageCircle size={20} />

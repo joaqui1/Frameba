@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
+import { onWhatsAppLinkClick } from '../utils/whatsappClick';
 
 const COTIZAR_WHATSAPP_URL = getWhatsAppUrl('contact');
 
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
               href={COTIZAR_WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('contact')}
+              onClick={(e) => onWhatsAppLinkClick(e, COTIZAR_WHATSAPP_URL, 'contact')}
               className="px-6 py-2.5 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
             >
               Cotizar Ahora
@@ -156,8 +156,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"
-              onClick={() => {
-                trackWhatsAppClick('contact');
+              onClick={(e) => {
+                onWhatsAppLinkClick(e, COTIZAR_WHATSAPP_URL, 'contact');
                 closeMenu();
               }}
               tabIndex={isOpen ? 0 : -1}

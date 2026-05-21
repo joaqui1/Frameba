@@ -4,7 +4,7 @@ import { MessageCircle } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { getWhatsAppUrl } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
+import { onWhatsAppLinkClick } from '../utils/whatsappClick';
 
 const SERVICE_CARDS = [
   {
@@ -46,7 +46,7 @@ const SERVICE_CARDS = [
 ];
 
 export const HomePage: React.FC = () => {
-  const handleHeroClick = () => trackWhatsAppClick('general');
+  const heroWhatsAppUrl = getWhatsAppUrl('general');
 
   return (
     <>
@@ -87,10 +87,10 @@ export const HomePage: React.FC = () => {
 
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center w-full max-w-xl">
             <a
-              href={getWhatsAppUrl('general')}
+              href={heroWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleHeroClick}
+              onClick={(e) => onWhatsAppLinkClick(e, heroWhatsAppUrl, 'general')}
               className="w-full md:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm flex items-center justify-center gap-2 min-w-[160px]"
             >
               <MessageCircle size={18} />

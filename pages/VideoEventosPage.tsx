@@ -16,6 +16,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
+import { onWhatsAppLinkClick } from '../utils/whatsappClick';
 import { trackWhatsAppClick } from '../utils/analytics';
 
 const INTRO =
@@ -199,6 +200,7 @@ function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; de
 
 export const VideoEventosPage: React.FC = () => {
   const handleClick = () => trackWhatsAppClick('video');
+  const videoWhatsAppUrl = getWhatsAppUrl('video');
 
   return (
     <>
@@ -331,10 +333,10 @@ export const VideoEventosPage: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href={getWhatsAppUrl('video')}
+            href={videoWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleClick}
+            onClick={(e) => onWhatsAppLinkClick(e, videoWhatsAppUrl, 'video')}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider text-sm rounded-sm hover:bg-brand-orange hover:text-white transition-all"
           >
             <MessageCircle size={18} />

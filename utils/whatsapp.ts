@@ -17,6 +17,15 @@ export function getWhatsAppUrl(context: CTA_Context = 'general'): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
 
+export function isWhatsAppUrl(url: string): boolean {
+  return /^https:\/\/wa\.me\//i.test(url);
+}
+
+/** Abre WhatsApp en pestaña nueva (fiable en móvil y con GTM/Ads activos). */
+export function openWhatsAppUrl(url: string): void {
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
 export function getWhatsAppNumber(): string {
   return WHATSAPP_NUMBER;
 }

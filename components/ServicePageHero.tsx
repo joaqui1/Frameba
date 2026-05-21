@@ -1,5 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
+import { onWhatsAppLinkClick } from '../utils/whatsappClick';
+import { isWhatsAppUrl, openWhatsAppUrl } from '../utils/whatsapp';
 
 const HERO_IMG_CLASS_DEFAULT =
   'absolute inset-0 h-full w-full object-cover object-center blur-[3px] opacity-50';
@@ -14,7 +16,7 @@ interface Props {
   ctaLabel: string;
   ctaHref: string;
   onCtaClick?: () => void;
-  secondaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string; onClick?: () => void };
   /** Base path without extension, e.g. /images/hero-casamiento-portada */
   imageBase: string;
   imageAlt: string;
@@ -115,7 +117,15 @@ export const ServicePageHero: React.FC<Props> = ({
               href={ctaHref}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={onCtaClick}
+              onClick={(e) => {
+                if (!isWhatsAppUrl(ctaHref)) {
+                  onCtaClick?.();
+                  return;
+                }
+                e.preventDefault();
+                onCtaClick?.();
+                openWhatsAppUrl(ctaHref);
+              }}
               className="inline-flex items-center gap-2.5 rounded-sm bg-white px-8 py-4 font-bold uppercase tracking-wider text-zinc-950 transition-all duration-300 hover:bg-brand-orange hover:text-white"
             >
               <MessageCircle size={18} />
@@ -124,6 +134,14 @@ export const ServicePageHero: React.FC<Props> = ({
             {secondaryCta && (
               <a
                 href={secondaryCta.href}
+                target={isWhatsAppUrl(secondaryCta.href) ? '_blank' : undefined}
+                rel={isWhatsAppUrl(secondaryCta.href) ? 'noopener noreferrer' : undefined}
+                onClick={(e) => {
+                  if (!isWhatsAppUrl(secondaryCta.href)) return;
+                  e.preventDefault();
+                  secondaryCta.onClick?.();
+                  openWhatsAppUrl(secondaryCta.href);
+                }}
                 className={
                   heroPolish
                     ? 'inline-flex items-center justify-center gap-2.5 rounded-sm border border-zinc-500/40 bg-white/[0.04] px-7 py-3.5 font-semibold uppercase tracking-wide text-zinc-100 transition-all duration-300 hover:border-zinc-400/60 hover:bg-white/[0.08] hover:text-white'

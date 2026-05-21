@@ -1,23 +1,21 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { getWhatsAppUrl, type CTA_Context } from '../utils/whatsapp';
-import { trackWhatsAppClick } from '../utils/analytics';
+import { onWhatsAppLinkClick } from '../utils/whatsappClick';
 
 interface Props {
   context?: CTA_Context;
 }
 
 export const WhatsAppButton: React.FC<Props> = ({ context = 'general' }) => {
-  const handleClick = () => {
-    trackWhatsAppClick(context);
-  };
+  const whatsappUrl = getWhatsAppUrl(context);
 
   return (
     <a
-      href={getWhatsAppUrl(context)}
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
+      onClick={(e) => onWhatsAppLinkClick(e, whatsappUrl, context)}
       className="fixed bottom-24 md:bottom-8 right-6 z-50 group hidden md:flex items-center justify-center bg-brand-orange hover:bg-orange-600 text-white p-4 rounded-full shadow-2xl shadow-orange-500/30 transition-all duration-300 hover:scale-110"
       aria-label="Consultar por WhatsApp"
     >

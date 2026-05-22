@@ -31,6 +31,8 @@ export const QuincePage: React.FC = () => {
         imageAlt="Fotografía y video para fiesta de 15 años en salón de CABA y GBA por FRAME Estudio"
         responsive
         heroPolish
+        mobileObjectPosition="52% 48%"
+        desktopObjectPosition="50% 48%"
       />
 
       {/* ===== TIMELINE — Recorrido de la fiesta ===== */}

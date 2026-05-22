@@ -208,6 +208,8 @@ export const VideoEventosPage: React.FC = () => {
         imageAlt="Filmación de eventos sociales y corporativos en Puerto Madero, CABA y GBA — FRAME Estudio"
         responsive
         heroPolish
+        mobileObjectPosition="50% 56%"
+        desktopObjectPosition="50% 50%"
       />
 
       <H2Block title="Servicio de filmación de eventos y fiestas profesionales" altBg={false}>

@@ -2,11 +2,15 @@ import React from 'react';
 import { type CTA_Context } from '../utils/whatsapp';
 import { WhatsAppLink } from './WhatsAppLink';
 
-const HERO_IMG_CLASS_DEFAULT =
-  'absolute inset-0 h-full w-full object-cover object-center blur-[3px] opacity-50';
+/** Mobile: sin blur y más luz. Desktop: blur suave + overlays más marcados. */
+const HERO_IMG_BASE = 'frame-art-directed absolute inset-0 h-full w-full object-cover';
+const HERO_IMG_DEFAULT =
+  `${HERO_IMG_BASE} blur-[3px] opacity-[0.52] md:blur-[4px] md:opacity-[0.42]`;
+const HERO_IMG_POLISHED =
+  `${HERO_IMG_BASE} blur-[3px] opacity-[0.56] md:blur-[4px] md:opacity-[0.45]`;
 
-const HERO_IMG_CLASS_POLISHED =
-  'absolute inset-0 h-full w-full object-cover object-center blur-[2px] opacity-[0.57]';
+const MOBILE_WIDTH = 900;
+const MOBILE_HEIGHT = 1600;
 
 interface Props {
   badge: string;
@@ -22,6 +26,8 @@ interface Props {
   responsive?: boolean;
   /** Lighter photo + vignette overlay (Corporativos, 15 años, Casamientos) */
   heroPolish?: boolean;
+  mobileObjectPosition?: string;
+  desktopObjectPosition?: string;
 }
 
 export const ServicePageHero: React.FC<Props> = ({
@@ -35,13 +41,19 @@ export const ServicePageHero: React.FC<Props> = ({
   imageAlt,
   responsive = false,
   heroPolish = false,
+  mobileObjectPosition = '50% 50%',
+  desktopObjectPosition = '50% 50%',
 }) => {
   const desktopBase = `${imageBase}-desktop`;
   const mobileBase = `${imageBase}-mobile`;
-  const heroImgClass = heroPolish ? HERO_IMG_CLASS_POLISHED : HERO_IMG_CLASS_DEFAULT;
+  const heroImgClass = heroPolish ? HERO_IMG_POLISHED : HERO_IMG_DEFAULT;
+  const imageStyle = {
+    '--frame-mobile-position': mobileObjectPosition,
+    '--frame-desktop-position': desktopObjectPosition,
+  } as React.CSSProperties;
 
   return (
-    <section data-page-hero className="relative h-[80vh] min-h-[520px] max-h-[820px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950">
+    <section data-page-hero className="relative h-[74svh] min-h-[560px] max-h-[680px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950 md:h-[80vh] md:min-h-[520px] md:max-h-[820px]">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <picture className="absolute inset-0 block h-full w-full">
           {responsive ? (
@@ -56,13 +68,14 @@ export const ServicePageHero: React.FC<Props> = ({
               <img
                 src={`${mobileBase}.jpg`}
                 alt={imageAlt}
-                width={900}
-                height={1125}
+                width={MOBILE_WIDTH}
+                height={MOBILE_HEIGHT}
                 sizes="100vw"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
                 className={heroImgClass}
+                style={imageStyle}
               />
             </>
           ) : (
@@ -83,20 +96,21 @@ export const ServicePageHero: React.FC<Props> = ({
                 fetchPriority="high"
                 decoding="async"
                 className={heroImgClass}
+                style={imageStyle}
               />
             </>
           )}
         </picture>
         {heroPolish ? (
           <>
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/55 to-zinc-950/25" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.32)_48%,rgba(9,9,11,0.88)_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.06),transparent_42%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-zinc-950/20 md:via-zinc-950/68 md:to-zinc-950/38" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.1)_0%,rgba(9,9,11,0.42)_52%,rgba(9,9,11,0.86)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.16)_0%,rgba(9,9,11,0.54)_48%,rgba(9,9,11,0.92)_100%)]" />
+            <div className="absolute inset-0 bg-zinc-950/10 md:bg-zinc-950/15" />
           </>
         ) : (
           <>
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/40" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.08),transparent_40%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/25 md:via-zinc-950/75 md:to-zinc-950/48" />
+            <div className="absolute inset-0 bg-zinc-950/10 md:bg-zinc-950/15" />
           </>
         )}
       </div>

@@ -13,6 +13,8 @@ const SERVICE_CARDS = [
     alt: 'Fotografía y video para fiesta de 15 años en CABA, San Isidro y Pilar por FRAME Estudio',
     href: '/fotografo-15-anos-caba-gba/',
     tag: '15 Años',
+    mobilePosition: '52% 48%',
+    desktopPosition: '52% 50%',
   },
   {
     title: 'Casamientos',
@@ -22,6 +24,8 @@ const SERVICE_CARDS = [
     alt: 'Fotografía de boda y casamiento en Palermo y Buenos Aires por FRAME Estudio',
     href: '/fotografia-video-casamientos-buenos-aires/',
     tag: 'Bodas',
+    mobilePosition: '48% 48%',
+    desktopPosition: '50% 50%',
   },
   {
     title: 'Video',
@@ -31,6 +35,8 @@ const SERVICE_CARDS = [
     alt: 'Filmación y video para eventos en Puerto Madero, CABA y GBA por FRAME Estudio',
     href: '/video-para-eventos-buenos-aires/',
     tag: 'Video',
+    mobilePosition: '50% 52%',
+    desktopPosition: '50% 50%',
   },
   {
     title: 'Corporativos',
@@ -40,28 +46,53 @@ const SERVICE_CARDS = [
     alt: 'Cobertura de video para eventos corporativos en Puerto Madero y CABA por FRAME Estudio',
     href: '/eventos-corporativos-buenos-aires/',
     tag: 'Empresas',
+    mobilePosition: '50% 58%',
+    desktopPosition: '50% 56%',
   },
 ];
 
+function imagePositionStyle(mobilePosition: string, desktopPosition: string): React.CSSProperties {
+  return {
+    '--frame-mobile-position': mobilePosition,
+    '--frame-desktop-position': desktopPosition,
+  } as React.CSSProperties;
+}
+
 export const HomePage: React.FC = () => {
+  const heroImageStyle = imagePositionStyle('50% 48%', '50% 50%');
+
   return (
     <>
       {/* Hero */}
-    <section data-page-hero className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-zinc-950">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero-home.webp"
-            alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — FRAME Estudio"
-            width={1920}
-            height={1080}
-            sizes="100vw"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent"></div>
-          <div className="absolute inset-0 bg-zinc-950/40"></div>
+    <section data-page-hero className="relative flex h-[78svh] min-h-[620px] max-h-[720px] w-full items-center justify-center overflow-hidden bg-zinc-950 md:h-screen md:min-h-[700px] md:max-h-none">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <picture className="absolute inset-0 block h-full w-full">
+            <source
+              media="(min-width: 768px)"
+              type="image/webp"
+              srcSet="/images/hero-home.webp"
+            />
+            <source
+              media="(max-width: 767px)"
+              type="image/webp"
+              srcSet="/images/hero-home-mobile.webp"
+            />
+            <source media="(min-width: 768px)" srcSet="/images/hero-home.jpg" />
+            <img
+              src="/images/hero-home-mobile.jpg"
+              alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — FRAME Estudio"
+              width={900}
+              height={1600}
+              sizes="100vw"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="frame-art-directed w-full h-full object-cover opacity-[0.78] max-md:opacity-[0.82] md:opacity-60 md:mix-blend-overlay"
+              style={heroImageStyle}
+            />
+          </picture>
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/35 to-transparent md:via-zinc-950/50" />
+          <div className="absolute inset-0 bg-zinc-950/25 md:bg-zinc-950/40" />
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center justify-center h-full pt-20">
@@ -105,7 +136,18 @@ export const HomePage: React.FC = () => {
             {SERVICE_CARDS.map((card, i) => (
               <a key={i} href={card.href} className="group relative h-[480px] w-full overflow-hidden border border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-600 block">
                 <div className="absolute inset-0 z-0 overflow-hidden">
-                  <img src={card.image} srcSet={card.srcSet} alt={card.alt} width={1024} height={1536} sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-50" />
+                  <img
+                    src={card.image}
+                    srcSet={card.srcSet}
+                    alt={card.alt}
+                    width={1024}
+                    height={1536}
+                    sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    loading="lazy"
+                    decoding="async"
+                    className="frame-art-directed h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-50"
+                    style={imagePositionStyle(card.mobilePosition, card.desktopPosition)}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
                 </div>
                 <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">

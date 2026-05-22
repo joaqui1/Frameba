@@ -5,9 +5,9 @@ import { WhatsAppLink } from './WhatsAppLink';
 /** Mobile: sin blur y más luz. Desktop: blur suave + overlays más marcados. */
 const HERO_IMG_BASE = 'frame-art-directed absolute inset-0 h-full w-full object-cover';
 const HERO_IMG_DEFAULT =
-  `${HERO_IMG_BASE} blur-[3px] opacity-[0.52] md:blur-[4px] md:opacity-[0.42]`;
+  `${HERO_IMG_BASE} blur-[3px] opacity-[0.6] md:blur-[4px] md:opacity-[0.5]`;
 const HERO_IMG_POLISHED =
-  `${HERO_IMG_BASE} blur-[3px] opacity-[0.56] md:blur-[4px] md:opacity-[0.45]`;
+  `${HERO_IMG_BASE} blur-[3px] opacity-[0.64] md:blur-[4px] md:opacity-[0.52]`;
 
 const MOBILE_WIDTH = 900;
 const MOBILE_HEIGHT = 1600;
@@ -53,7 +53,7 @@ export const ServicePageHero: React.FC<Props> = ({
   } as React.CSSProperties;
 
   return (
-    <section data-page-hero className="relative h-[74svh] min-h-[560px] max-h-[680px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950 md:h-[80vh] md:min-h-[520px] md:max-h-[820px]">
+    <section data-page-hero className="relative h-[82svh] min-h-[620px] max-h-[760px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950 md:h-[84vh] md:min-h-[560px] md:max-h-[880px]">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <picture className="absolute inset-0 block h-full w-full">
           {responsive ? (
@@ -103,14 +103,14 @@ export const ServicePageHero: React.FC<Props> = ({
         </picture>
         {heroPolish ? (
           <>
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-zinc-950/20 md:via-zinc-950/68 md:to-zinc-950/38" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.1)_0%,rgba(9,9,11,0.42)_52%,rgba(9,9,11,0.86)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.16)_0%,rgba(9,9,11,0.54)_48%,rgba(9,9,11,0.92)_100%)]" />
-            <div className="absolute inset-0 bg-zinc-950/10 md:bg-zinc-950/15" />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/34 to-zinc-950/10 md:via-zinc-950/52 md:to-zinc-950/22" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.04)_0%,rgba(9,9,11,0.24)_54%,rgba(9,9,11,0.72)_100%)] md:bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.08)_0%,rgba(9,9,11,0.38)_50%,rgba(9,9,11,0.82)_100%)]" />
+            <div className="absolute inset-0 bg-zinc-950/5 md:bg-zinc-950/10" />
           </>
         ) : (
           <>
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/25 md:via-zinc-950/75 md:to-zinc-950/48" />
-            <div className="absolute inset-0 bg-zinc-950/10 md:bg-zinc-950/15" />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/42 to-zinc-950/12 md:via-zinc-950/62 md:to-zinc-950/30" />
+            <div className="absolute inset-0 bg-zinc-950/5 md:bg-zinc-950/10" />
           </>
         )}
       </div>

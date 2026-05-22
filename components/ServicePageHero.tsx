@@ -53,7 +53,7 @@ export const ServicePageHero: React.FC<Props> = ({
   } as React.CSSProperties;
 
   return (
-    <section data-page-hero className="relative h-[82svh] min-h-[620px] max-h-[760px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950 md:h-[84vh] md:min-h-[560px] md:max-h-[880px]">
+    <section data-page-hero className="relative h-[88svh] min-h-[660px] max-h-[800px] w-full overflow-hidden border-b border-zinc-800/60 bg-zinc-950 md:h-[84vh] md:min-h-[560px] md:max-h-[880px]">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <picture className="absolute inset-0 block h-full w-full">
           {responsive ? (

@@ -59,7 +59,7 @@ function imagePositionStyle(mobilePosition: string, desktopPosition: string): Re
 }
 
 export const HomePage: React.FC = () => {
-  const heroImageStyle = imagePositionStyle('50% 48%', '50% 50%');
+  const heroImageStyle = imagePositionStyle('50% 58%', '50% 50%');
 
   return (
     <>

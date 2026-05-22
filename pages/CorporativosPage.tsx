@@ -39,7 +39,7 @@ export const CorporativosPage: React.FC = () => {
         imageAlt="Cobertura de video para eventos corporativos en Puerto Madero y conferencias en CABA por FRAME Estudio"
         responsive
         heroPolish
-        mobileObjectPosition="50% 54%"
+        mobileObjectPosition="50% 62%"
         desktopObjectPosition="50% 50%"
       />
 

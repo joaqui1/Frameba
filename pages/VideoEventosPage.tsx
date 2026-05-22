@@ -208,7 +208,7 @@ export const VideoEventosPage: React.FC = () => {
         imageAlt="Filmación de eventos sociales y corporativos en Puerto Madero, CABA y GBA — FRAME Estudio"
         responsive
         heroPolish
-        mobileObjectPosition="50% 56%"
+        mobileObjectPosition="50% 64%"
         desktopObjectPosition="50% 50%"
       />
 

@@ -33,7 +33,7 @@ export const CasamientosPage: React.FC = () => {
         imageAlt="Fotografía de boda civil en Palermo y recepción de casamiento en Buenos Aires por FRAME Estudio"
         responsive
         heroPolish
-        mobileObjectPosition="50% 54%"
+        mobileObjectPosition="50% 62%"
         desktopObjectPosition="50% 50%"
       />
 

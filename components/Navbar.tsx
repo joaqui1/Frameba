@@ -103,76 +103,67 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
         </div>
       </header>
 
-      <div
-        id="mobile-nav-panel"
-        className="fixed inset-0 z-[100] md:hidden"
-        style={{
-          opacity: isOpen ? 1 : 0,
-          pointerEvents: isOpen ? 'auto' : 'none',
-        }}
-        aria-hidden={!isOpen}
-      >
-        <button
-          type="button"
-          className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm"
-          aria-label="Cerrar menú"
-          tabIndex={isOpen ? 0 : -1}
-          onClick={closeMenu}
-        />
+      {isOpen && (
+        <div id="mobile-nav-panel" className="fixed inset-0 z-[100] md:hidden" aria-hidden="false">
+          <button
+            type="button"
+            className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm"
+            aria-label="Cerrar menú"
+            onClick={closeMenu}
+          />
 
-        <div className="relative z-10 flex h-full flex-col pt-[4.5rem] pb-6 px-6 pointer-events-none">
-          <nav
-            className="flex-1 overflow-y-auto overscroll-contain py-4 pointer-events-auto"
-            aria-label="Menú móvil"
-          >
-            <ul className="flex flex-col gap-1">
-              <li>
-                <a
-                  href="/"
-                  className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-white hover:bg-zinc-900 transition-colors tracking-tight"
-                  onClick={closeMenu}
-                  tabIndex={isOpen ? 0 : -1}
-                >
-                  Inicio
-                </a>
-              </li>
-              {NAV_ITEMS.map((item) => (
-                <li key={item.label}>
+          <div className="relative z-10 flex h-full flex-col pt-[4.5rem] pb-6 px-6 pointer-events-none">
+            <nav
+              className="flex-1 overflow-y-auto overscroll-contain py-4 pointer-events-auto"
+              aria-label="Menú móvil"
+            >
+              <ul className="flex flex-col gap-1">
+                <li>
                   <a
-                    href={item.href}
-                    className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                    href="/"
+                    className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-white hover:bg-zinc-900 transition-colors tracking-tight"
                     onClick={closeMenu}
-                    tabIndex={isOpen ? 0 : -1}
                   >
-                    {item.label}
+                    Inicio
                   </a>
                 </li>
-              ))}
-              <li>
-                <WhatsAppLink
-                  context="contact"
-                  showIcon={false}
-                  onNavigate={closeMenu}
-                  className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
-                >
-                  Contacto
-                </WhatsAppLink>
-              </li>
-            </ul>
-          </nav>
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <WhatsAppLink
+                    context="contact"
+                    showIcon={false}
+                    onNavigate={closeMenu}
+                    className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                  >
+                    Contacto
+                  </WhatsAppLink>
+                </li>
+              </ul>
+            </nav>
 
-          <div className="shrink-0 border-t border-zinc-800/80 pt-5 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-auto">
-            <WhatsAppLink
-              context="contact"
-              showIcon={false}
-              onNavigate={closeMenu}
-              className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"
-            >
-              Cotizar Ahora
-            </WhatsAppLink>
+            <div className="shrink-0 border-t border-zinc-800/80 pt-5 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-auto">
+              <WhatsAppLink
+                context="contact"
+                showIcon={false}
+                onNavigate={closeMenu}
+                className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"
+              >
+                Cotizar Ahora
+              </WhatsAppLink>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

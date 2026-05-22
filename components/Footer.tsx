@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           <div>
-            <a href="/" className="font-display font-black text-2xl text-white tracking-tighter">
+            <a href="/" className="inline-flex min-h-11 items-center font-display font-black text-2xl text-white tracking-tighter">
               FRAME<span className="text-brand-orange">.</span>
             </a>
             <p className="text-zinc-500 text-sm mt-3 leading-relaxed max-w-xs">
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
+                className="block py-1 text-sm text-zinc-400 hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
             <WhatsAppLink
               context="contact"
               showIcon={false}
-              className="text-sm text-zinc-400 hover:text-white transition-colors text-left"
+              className="block py-1 text-sm text-zinc-400 hover:text-white transition-colors text-left"
             >
               Contacto
             </WhatsAppLink>

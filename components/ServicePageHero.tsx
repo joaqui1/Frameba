@@ -2,7 +2,7 @@ import React from 'react';
 import { type CTA_Context } from '../utils/whatsapp';
 import { WhatsAppLink } from './WhatsAppLink';
 
-/** Mobile: sin blur y más luz. Desktop: blur suave + overlays más marcados. */
+/** Hero images stay secondary to the headline: light blur, controlled opacity and overlays. */
 const HERO_IMG_BASE = 'frame-art-directed absolute inset-0 h-full w-full object-cover';
 const HERO_IMG_DEFAULT =
   `${HERO_IMG_BASE} blur-[3px] opacity-[0.6] md:blur-[4px] md:opacity-[0.5]`;

@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <a href="/" className="group" aria-label="FRAME Estudio — Inicio" onClick={closeMenu}>
+          <a href="/" className="group inline-flex min-h-11 items-center" aria-label="FRAME Estudio — Inicio" onClick={closeMenu}>
             <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter text-white">
               FRAME<span className="text-brand-orange">.</span>
             </span>
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
 
           <button
             type="button"
-            className="md:hidden -mr-2 text-white p-2 rounded-sm hover:bg-zinc-800/60 transition-colors"
+            className="md:hidden -mr-2 text-white p-2.5 rounded-sm hover:bg-zinc-800/60 transition-colors"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-expanded={isOpen}
             aria-controls="mobile-nav-panel"
@@ -105,9 +105,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
 
       <div
         id="mobile-nav-panel"
-        className={`fixed inset-0 z-[100] md:hidden transition-opacity duration-300 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className="fixed inset-0 z-[100] md:hidden"
+        style={{
+          opacity: isOpen ? 1 : 0,
+          pointerEvents: isOpen ? 'auto' : 'none',
+        }}
         aria-hidden={!isOpen}
       >
         <button

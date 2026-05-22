@@ -23,16 +23,19 @@ const SOCIAL_VIDEO = [
   {
     icon: <PartyPopper size={20} />,
     title: 'Fiestas de 15',
+    href: '/fotografo-15-anos-caba-gba/',
     desc: 'Entrada, vals, pista y momentos con familia y amigas. Video con ritmo real de la noche.',
   },
   {
     icon: <Users size={20} />,
     title: 'Casamientos y bodas',
+    href: '/fotografia-video-casamientos-buenos-aires/',
     desc: 'Civil, ceremonia, brindis y fiesta. Registro cercano sin convertir el día en una producción.',
   },
   {
     icon: <Mic2 size={20} />,
     title: 'Eventos sociales',
+    href: '/contacto/',
     desc: 'Cumpleaños, aniversarios, fiestas privadas y celebraciones con cobertura audiovisual clara.',
   },
 ];
@@ -41,16 +44,19 @@ const CORPORATE_VIDEO = [
   {
     icon: <Briefcase size={20} />,
     title: 'Conferencias y congresos',
+    href: '/eventos-corporativos-buenos-aires/',
     desc: 'Speakers, paneles, público y ambientación para comunicación interna o externa.',
   },
   {
     icon: <Clapperboard size={20} />,
     title: 'Lanzamientos y activaciones',
+    href: '/eventos-corporativos-buenos-aires/',
     desc: 'Producto, marca, experiencias en vivo y material listo para redes o prensa.',
   },
   {
     icon: <Users size={20} />,
     title: 'Fiestas de empresa',
+    href: '/eventos-corporativos-buenos-aires/',
     desc: 'Fin de año, aniversarios y encuentros corporativos con una pieza usable después del evento.',
   },
 ];
@@ -178,19 +184,39 @@ function H2Block({
   );
 }
 
-function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; desc: string }[] }) {
+function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; desc: string; href?: string }[] }) {
   return (
     <div className="grid md:grid-cols-3 gap-5 max-w-5xl">
-      {items.map((item, i) => (
-        <div
-          key={i}
-          className="bg-zinc-900/60 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors group"
-        >
-          <div className="text-brand-orange mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
-          <h3 className="text-white font-bold text-base mb-2">{item.title}</h3>
-          <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
-        </div>
-      ))}
+      {items.map((item, i) => {
+        const content = (
+          <>
+            <div className="text-brand-orange mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
+            <h3 className="text-white font-bold text-base mb-2">{item.title}</h3>
+            <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+          </>
+        );
+
+        if (item.href) {
+          return (
+            <a
+              key={i}
+              href={item.href}
+              className="block bg-zinc-900/60 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors group"
+            >
+              {content}
+            </a>
+          );
+        }
+
+        return (
+          <div
+            key={i}
+            className="bg-zinc-900/60 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors group"
+          >
+            {content}
+          </div>
+        );
+      })}
     </div>
   );
 }

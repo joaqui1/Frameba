@@ -22,15 +22,19 @@ export const FAQ: React.FC<Props> = ({ items, title = 'Preguntas frecuentes' }) 
         </h2>
 
         <div className="space-y-3">
-          {items.map((item, i) => (
+          {items.map((item, i) => {
+            const panelId = `faq-panel-${i}`;
+            return (
             <div
               key={i}
               className="border border-zinc-800 rounded-xl overflow-hidden bg-zinc-900/40 hover:border-zinc-700 transition-colors"
             >
               <button
+                type="button"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left"
                 aria-expanded={openIndex === i}
+                aria-controls={panelId}
               >
                 <span className="font-medium text-white text-sm md:text-base pr-4">
                   {item.question}
@@ -43,15 +47,17 @@ export const FAQ: React.FC<Props> = ({ items, title = 'Preguntas frecuentes' }) 
                 />
               </button>
               <div
+                id={panelId}
                 className={`faq-content ${openIndex === i ? 'open' : ''}`}
-                style={{ maxHeight: openIndex === i ? '200px' : '0' }}
+                style={{ maxHeight: openIndex === i ? '320px' : '0' }}
               >
                 <p className="px-6 pb-5 text-zinc-400 text-sm leading-relaxed">
                   {item.answer}
                 </p>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

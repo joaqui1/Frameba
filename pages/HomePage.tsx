@@ -10,7 +10,7 @@ const SERVICE_CARDS = [
     description: 'Previa, fiesta y pista con ritmo real. Fotografía y video para tu fiesta de 15.',
     image: '/images/fotografia-15-anos-caba-frame-1536.webp',
     srcSet: '/images/fotografia-15-anos-caba-frame-768.webp 768w, /images/fotografia-15-anos-caba-frame-1536.webp 1024w',
-    alt: 'Fotografía y video para fiesta de 15 años en CABA, San Isidro y Pilar por FRAME Estudio',
+    alt: 'Fotografía y video para fiesta de 15 años en CABA, San Isidro y Pilar por Frame Estudio',
     href: '/fotografo-15-anos-caba-gba/',
     tag: '15 Años',
     mobilePosition: '52% 48%',
@@ -21,7 +21,7 @@ const SERVICE_CARDS = [
     description: 'Natural, cercano y con emoción real. Cobertura de civil, ceremonia y fiesta.',
     image: '/images/fotografia-casamiento-buenos-aires-frame-1536.webp',
     srcSet: '/images/fotografia-casamiento-buenos-aires-frame-768.webp 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.webp 1024w',
-    alt: 'Fotografía de boda y casamiento en Palermo y Buenos Aires por FRAME Estudio',
+    alt: 'Fotografía de boda y casamiento en Palermo y Buenos Aires por Frame Estudio',
     href: '/fotografia-video-casamientos-buenos-aires/',
     tag: 'Bodas',
     mobilePosition: '48% 48%',
@@ -32,7 +32,7 @@ const SERVICE_CARDS = [
     description: 'Filmación de fiestas y eventos sociales o corporativos. Resumen, reels y video completo.',
     image: '/images/video-eventos-buenos-aires-frame-1536.webp',
     srcSet: '/images/video-eventos-buenos-aires-frame-768.webp 768w, /images/video-eventos-buenos-aires-frame-1536.webp 1024w',
-    alt: 'Filmación y video para eventos en Puerto Madero, CABA y GBA por FRAME Estudio',
+    alt: 'Filmación y video para eventos en Puerto Madero, CABA y GBA por Frame Estudio',
     href: '/video-para-eventos-buenos-aires/',
     tag: 'Video',
     mobilePosition: '50% 52%',
@@ -43,7 +43,7 @@ const SERVICE_CARDS = [
     description: 'Claro, prolijo y listo para comunicar. Foto y video para eventos de empresa.',
     image: '/images/evento-corporativo-buenos-aires-frame-1536.webp',
     srcSet: '/images/evento-corporativo-buenos-aires-frame-768.webp 768w, /images/evento-corporativo-buenos-aires-frame-1536.webp 1024w',
-    alt: 'Cobertura de video para eventos corporativos en Puerto Madero y CABA por FRAME Estudio',
+    alt: 'Cobertura de video para eventos corporativos en Puerto Madero y CABA por Frame Estudio',
     href: '/eventos-corporativos-buenos-aires/',
     tag: 'Empresas',
     mobilePosition: '50% 58%',
@@ -80,7 +80,7 @@ export const HomePage: React.FC = () => {
             <source media="(min-width: 768px)" srcSet="/images/hero-home.jpg" />
             <img
               src="/images/hero-home-mobile.jpg"
-              alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — FRAME Estudio"
+              alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — Frame Estudio"
               width={900}
               height={1600}
               sizes="100vw"

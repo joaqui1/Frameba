@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 import { WhatsAppLink } from './WhatsAppLink';
 
 const NAV_ITEMS = [
@@ -58,10 +59,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <a href="/" className="group inline-flex min-h-11 items-center" aria-label="FRAME Estudio — Inicio" onClick={closeMenu}>
-            <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter text-white">
-              FRAME<span className="text-brand-orange">.</span>
-            </span>
+          <a href="/" className="group inline-flex min-h-11 items-center" aria-label="Frame Estudio — Inicio" onClick={closeMenu}>
+            <BrandLogo />
           </a>
 
           <nav className="hidden md:flex gap-8 items-center" aria-label="Navegación principal">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrandLogo } from './BrandLogo';
 import { WhatsAppLink } from './WhatsAppLink';
 
 export const Footer: React.FC = () => {
@@ -14,8 +15,8 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           <div>
-            <a href="/" className="inline-flex min-h-11 items-center font-display font-black text-2xl text-white tracking-tighter">
-              FRAME<span className="text-brand-orange">.</span>
+            <a href="/" className="inline-flex min-h-11 items-center">
+              <BrandLogo />
             </a>
             <p className="text-zinc-500 text-sm mt-3 leading-relaxed max-w-xs">
               Fotografía y video para eventos en CABA y Buenos Aires. 15 años, casamientos, eventos sociales y corporativos.
@@ -52,7 +53,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-zinc-600 text-xs">
-            © {new Date().getFullYear()} FRAME Estudio. Todos los derechos reservados.
+            © {new Date().getFullYear()} Frame Estudio. Todos los derechos reservados.
           </p>
           <p className="text-zinc-700 text-xs">
             Fotografía y video para eventos en Buenos Aires

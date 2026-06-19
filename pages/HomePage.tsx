@@ -1,49 +1,49 @@
 import React from 'react';
-import { Film, Aperture, Clock, Zap, MapPin, ArrowRight } from 'lucide-react';
+import { Film, Aperture, Clock, Zap, MapPin } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 
 const SERVICE_CARDS = [
   {
-    title: '15 Años',
-    description: 'Previa, fiesta y pista con ritmo real. Fotografía y video para tu fiesta de 15.',
-    image: '/images/fotografia-15-anos-caba-frame-1536.webp',
-    srcSet: '/images/fotografia-15-anos-caba-frame-768.webp 768w, /images/fotografia-15-anos-caba-frame-1536.webp 1024w',
-    alt: 'Fotografía y video para fiesta de 15 años en CABA, San Isidro y Pilar por Frame Estudio',
-    href: '/fotografo-15-anos-caba-gba/',
-    tag: '15 Años',
-    mobilePosition: '52% 48%',
-    desktopPosition: '52% 50%',
-  },
-  {
-    title: 'Casamientos',
-    description: 'Natural, cercano y con emoción real. Cobertura de civil, ceremonia y fiesta.',
-    image: '/images/fotografia-casamiento-buenos-aires-frame-1536.webp',
-    srcSet: '/images/fotografia-casamiento-buenos-aires-frame-768.webp 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.webp 1024w',
-    alt: 'Fotografía de boda y casamiento en Palermo y Buenos Aires por Frame Estudio',
-    href: '/fotografia-video-casamientos-buenos-aires/',
-    tag: 'Bodas',
-    mobilePosition: '48% 48%',
-    desktopPosition: '50% 50%',
-  },
-  {
-    title: 'Video',
-    description: 'Filmación de fiestas y eventos sociales o corporativos. Resumen, reels y video completo.',
+    title: 'Video para eventos en Buenos Aires',
+    description: 'Filmación para eventos sociales y corporativos en CABA y GBA.',
     image: '/images/video-eventos-buenos-aires-frame-1536.webp',
     srcSet: '/images/video-eventos-buenos-aires-frame-768.webp 768w, /images/video-eventos-buenos-aires-frame-1536.webp 1024w',
-    alt: 'Filmación y video para eventos en Puerto Madero, CABA y GBA por Frame Estudio',
+    alt: 'Filmación profesional para evento social en Buenos Aires',
     href: '/video-para-eventos-buenos-aires/',
     tag: 'Video',
     mobilePosition: '50% 52%',
     desktopPosition: '50% 50%',
   },
   {
-    title: 'Corporativos',
-    description: 'Claro, prolijo y listo para comunicar. Foto y video para eventos de empresa.',
+    title: 'Foto y video para 15 años',
+    description: 'Cobertura de fiestas de 15 con fotos, video y material editado para compartir.',
+    image: '/images/fotografia-15-anos-caba-frame-1536.webp',
+    srcSet: '/images/fotografia-15-anos-caba-frame-768.webp 768w, /images/fotografia-15-anos-caba-frame-1536.webp 1024w',
+    alt: 'Fotografía y video para fiesta de 15 años en CABA',
+    href: '/fotografo-15-anos-caba-gba/',
+    tag: '15 Años',
+    mobilePosition: '52% 48%',
+    desktopPosition: '52% 50%',
+  },
+  {
+    title: 'Fotografía y video para casamientos',
+    description: 'Registro natural de la ceremonia, la fiesta y los momentos principales.',
+    image: '/images/fotografia-casamiento-buenos-aires-frame-1536.webp',
+    srcSet: '/images/fotografia-casamiento-buenos-aires-frame-768.webp 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.webp 1024w',
+    alt: 'Fotografía para casamiento en Buenos Aires',
+    href: '/fotografia-video-casamientos-buenos-aires/',
+    tag: 'Bodas',
+    mobilePosition: '48% 48%',
+    desktopPosition: '50% 50%',
+  },
+  {
+    title: 'Foto y video para eventos corporativos',
+    description: 'Cobertura para eventos de empresa, presentaciones y contenido institucional.',
     image: '/images/evento-corporativo-buenos-aires-frame-1536.webp',
     srcSet: '/images/evento-corporativo-buenos-aires-frame-768.webp 768w, /images/evento-corporativo-buenos-aires-frame-1536.webp 1024w',
-    alt: 'Cobertura de video para eventos corporativos en Puerto Madero y CABA por Frame Estudio',
+    alt: 'Cobertura audiovisual para evento corporativo en CABA',
     href: '/eventos-corporativos-buenos-aires/',
     tag: 'Empresas',
     mobilePosition: '50% 58%',
@@ -97,26 +97,27 @@ export const HomePage: React.FC = () => {
 
         <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center justify-center h-full pt-20">
           <h1 className="font-display font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] md:leading-[0.9] tracking-normal mb-8 max-w-6xl mx-auto">
-            FOTOGRAFÍA Y VIDEO <br />
+            Fotógrafo <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">
-              PARA EVENTOS
+              para eventos{' '}
             </span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600 text-3xl sm:text-4xl md:text-7xl lg:text-8xl">
-              EN BUENOS AIRES.
+              en Buenos Aires
             </span>
           </h1>
 
           <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            Coberturas para <span className="text-white font-medium">15 años, casamientos, video y eventos corporativos</span>{' '}
-            con una estética moderna, cuidada y natural.
+            En FRAME realizamos fotografía y video para eventos sociales y corporativos en Buenos Aires, CABA y GBA.
+            Cubrimos fiestas de 15, casamientos y bodas, eventos empresariales y celebraciones privadas con una estética
+            moderna, profesional y cercana.
           </p>
 
           <WhatsAppLink
             context="general"
             className="w-full md:w-auto px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm flex items-center justify-center gap-2 min-w-[160px]"
           >
-            Consultar por mi fecha
+            Pedir presupuesto por WhatsApp
           </WhatsAppLink>
         </div>
       </section>
@@ -126,15 +127,15 @@ export const HomePage: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-16 max-w-3xl">
             <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-3 block">Servicios</span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Qué cubrimos</h2>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Servicios de fotografía y video</h2>
             <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
-              Foto y video para distintos tipos de eventos en CABA y Buenos Aires.
+              Coberturas pensadas para cada tipo de evento, con material listo para guardar, compartir o comunicar.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {SERVICE_CARDS.map((card, i) => (
-              <a key={i} href={card.href} className="group relative h-[480px] w-full overflow-hidden border border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-600 block">
+              <article key={i} className="group relative h-[480px] w-full overflow-hidden border border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-600">
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img
                     src={card.image}
@@ -154,13 +155,14 @@ export const HomePage: React.FC = () => {
                   <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                     <span className="text-[10px] font-bold uppercase text-white tracking-wider">{card.tag}</span>
                   </div>
-                  <h3 className="font-display font-black text-2xl md:text-3xl text-white mb-2 uppercase tracking-tighter">{card.title}</h3>
-                  <p className="text-zinc-300 text-sm mb-4 leading-relaxed">{card.description}</p>
-                  <span className="text-brand-orange text-sm font-bold uppercase tracking-wider flex items-center gap-2 group-hover:gap-3 transition-all">
-                    Ver más <ArrowRight size={14} />
-                  </span>
+                  <h3 className="font-display font-black text-2xl md:text-3xl text-white mb-2 uppercase tracking-tighter">
+                    <a href={card.href} className="hover:text-brand-orange transition-colors">
+                      {card.title}
+                    </a>
+                  </h3>
+                  <p className="text-zinc-300 text-sm leading-relaxed">{card.description}</p>
                 </div>
-              </a>
+              </article>
             ))}
           </div>
         </div>
@@ -175,7 +177,7 @@ export const HomePage: React.FC = () => {
               Foto y video para recordar lo que pasó, no solo cómo se veía.
             </h2>
             <p className="text-zinc-400 text-lg leading-relaxed">
-              Cubrimos fiestas de 15, casamientos, video para eventos, corporativos y eventos sociales en CABA y Buenos Aires con foto y video claros, naturales y bien editados.
+              Cubrimos fiestas de 15, casamientos, eventos corporativos y eventos sociales en CABA, GBA y Buenos Aires, con fotografía y video claros, naturales y bien editados.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-zinc-800/50 pt-16">
@@ -203,19 +205,22 @@ export const HomePage: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <MapPin size={18} className="text-brand-orange" />
-            <span className="text-zinc-400 font-medium">Cobertura en Buenos Aires</span>
+            <h2 className="text-zinc-200 font-display font-bold text-2xl md:text-3xl">
+              Cobertura en CABA, GBA y Buenos Aires
+            </h2>
           </div>
-          <p className="text-zinc-500 text-sm max-w-xl mx-auto leading-relaxed">
-            Cubrimos eventos en CABA, Gran Buenos Aires, Zona Norte, Zona Sur y Zona Oeste. Consultanos por coberturas en otras zonas.
+          <p className="text-zinc-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            Trabajamos en Buenos Aires, CABA, Capital Federal, Gran Buenos Aires, Zona Norte y otras zonas según disponibilidad de fecha.
+            Si tenés un evento, podés escribirnos con el lugar, fecha y tipo de cobertura que necesitás.
           </p>
         </div>
       </section>
 
       {/* ===== FINAL CTA ===== */}
       <WhatsAppCTASection
-        title="¿Tenés un evento?"
-        subtitle="Escribinos por WhatsApp con el tipo de evento, fecha y zona. Te respondemos en el día con una propuesta a medida."
-        ctaLabel="Pedir propuesta por WhatsApp"
+        title="Consultá disponibilidad para tu evento"
+        subtitle="Contanos la fecha, zona, duración y tipo de evento. Te respondemos por WhatsApp con una propuesta de fotografía y video acorde a lo que necesitás."
+        ctaLabel="Consultar disponibilidad"
         context="general"
       />
     </>

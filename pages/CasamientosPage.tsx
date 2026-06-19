@@ -3,9 +3,10 @@ import { ServicePageHero } from '../components/ServicePageHero';
 import { Heart, Camera, Film, Sun, Clock, Star } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
+import { WhatsAppLink } from '../components/WhatsAppLink';
 
 const WEDDING_MOMENTS = [
-  { icon: <Sun size={20} />, label: 'Getting ready', desc: 'Preparativos, detalles, nervios y primeras fotos antes de salir.' },
+  { icon: <Sun size={20} />, label: 'Preparativos', desc: 'Preparativos, detalles, nervios y primeras fotos antes de salir.' },
   { icon: <Star size={20} />, label: 'Civil', desc: 'Firma, abrazos, arroz, brindis y retratos con las personas más cercanas.' },
   { icon: <Heart size={20} />, label: 'Ceremonia', desc: 'Entrada, votos, anillos, miradas y salida sin interrumpir el momento.' },
   { icon: <Camera size={20} />, label: 'Retratos', desc: 'Fotos de pareja, familia y amigos con dirección simple y natural.' },
@@ -25,12 +26,12 @@ export const CasamientosPage: React.FC = () => {
     <>
       <ServicePageHero
         badge="Casamientos"
-        h1="Fotografía y video para casamientos y bodas"
-        subtitle="Civil, ceremonia, retratos y fiesta con una mirada natural. Registramos el día completo sin convertirlo en una producción ni cortar lo que está pasando."
+        h1="Fotógrafo para casamiento en Buenos Aires"
+        subtitle="Fotografía y video para casamientos y bodas en Buenos Aires, CABA y GBA. Cubrimos civil, ceremonia, retratos y fiesta con una mirada natural, sin convertir el día en una producción ni cortar lo que está pasando."
         ctaLabel="Consultar casamiento"
         ctaContext="wedding"
         imageBase="/images/hero-casamiento-portada"
-        imageAlt="Fotografía de boda civil en Palermo y recepción de casamiento en Buenos Aires por FRAME Estudio"
+        imageAlt="Fotografía para casamiento civil y recepción en Buenos Aires"
         responsive
         heroPolish
         mobileObjectPosition="50% 62%"
@@ -82,10 +83,9 @@ export const CasamientosPage: React.FC = () => {
             ))}
           </div>
           <p className="text-zinc-400 text-sm text-center mt-10 leading-relaxed max-w-2xl mx-auto">
-            Nos adaptamos al ritmo de tu casamiento. Cubrimos bodas en CABA, Buenos Aires, Zona Norte, Zona Sur, Zona Oeste y alrededores.
-          </p>
-          <p className="text-zinc-400 text-sm mt-8 text-center max-w-2xl mx-auto">
-            Ofrecemos cobertura fotográfica y packs de precios adaptados en salones y registros civiles de CABA, San Isidro, Pilar, Puerto Madero y Zona Norte.
+            Nos adaptamos al ritmo de tu casamiento. Realizamos cobertura fotográfica y de video para casamientos
+            civiles, ceremonias y fiestas en Buenos Aires, CABA, GBA, San Isidro, Zona Norte y otras zonas según
+            disponibilidad.
           </p>
         </div>
       </section>
@@ -100,10 +100,34 @@ export const CasamientosPage: React.FC = () => {
         ]}
       />
 
+      <section className="py-20 bg-zinc-950">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center mx-auto">
+            <div>
+              <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-4 block">Presupuesto</span>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-5">
+                Presupuesto para fotógrafo de casamiento
+              </h2>
+              <p className="text-zinc-400 leading-relaxed md:text-lg">
+                El presupuesto depende de la fecha, la duración de la cobertura, las locaciones, si necesitás civil,
+                ceremonia, fiesta, fotografía, video o ambos, y el tipo de entrega final. Escribinos por WhatsApp con
+                esos datos y te pasamos una propuesta acorde al casamiento.
+              </p>
+            </div>
+            <WhatsAppLink
+              context="wedding"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-950 transition-all hover:bg-brand-orange hover:text-white"
+            >
+              Pedir presupuesto
+            </WhatsAppLink>
+          </div>
+        </div>
+      </section>
+
       {/* ===== FINAL CTA ===== */}
       <WhatsAppCTASection
         title="¿Estás organizando tu casamiento?"
-        subtitle="Escribinos por WhatsApp con la fecha y zona. Te ayudamos a definir la cobertura ideal."
+        subtitle="Escribinos por WhatsApp con la fecha y zona. También realizamos cobertura como fotógrafo para bodas en Buenos Aires, CABA, GBA y Zona Norte, según disponibilidad de fecha."
         ctaLabel="Consultar disponibilidad"
         context="wedding"
       />

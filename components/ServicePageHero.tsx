@@ -14,7 +14,7 @@ const MOBILE_HEIGHT = 1600;
 
 interface Props {
   badge: string;
-  h1: string;
+  h1: React.ReactNode;
   subtitle: string;
   ctaLabel: string;
   ctaContext: CTA_Context;

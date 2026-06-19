@@ -38,7 +38,7 @@ export const Differentiators: React.FC = () => {
             Foto y video para recordar lo que pasó, no solo cómo se veía.
           </h2>
           <p className="text-zinc-400 text-lg leading-relaxed">
-            Cubrimos fiestas de 15, casamientos, bodas, eventos corporativos y eventos sociales en CABA y Buenos Aires con foto y video claros, naturales y bien editados. Registramos lo importante sin interrumpir el momento ni forzar poses.
+            Cubrimos fiestas de 15, casamientos y bodas, eventos corporativos y eventos sociales en CABA y Buenos Aires con foto y video claros, naturales y bien editados. Registramos lo importante sin interrumpir el momento ni forzar poses.
           </p>
         </div>
 

@@ -8,16 +8,16 @@ const WORLDS = [
     image: "/images/fotografia-15-anos-caba-frame-1536.jpg",
     srcSet: "/images/fotografia-15-anos-caba-frame-768.jpg 768w, /images/fotografia-15-anos-caba-frame-1536.jpg 1536w",
     tag: "15 Años",
-    alt: "Foto y video para fiesta de 15 años en CABA por FRAME Estudio"
+    alt: "Foto y video para fiesta de 15 años en CABA por Frame Estudio"
   },
   {
     title: "CASAMIENTOS Y BODAS",
     description: "Natural, cercano y con emoción real.",
-    details: "Fotografía y video para casamientos, bodas, civil, ceremonia y fiesta en Buenos Aires, con una mirada natural y cinematográfica.",
+    details: "Fotografía y video para casamientos y bodas, civil, ceremonia y fiesta en Buenos Aires, con una mirada natural y cinematográfica.",
     image: "/images/fotografia-casamiento-buenos-aires-frame-1536.jpg",
     srcSet: "/images/fotografia-casamiento-buenos-aires-frame-768.jpg 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.jpg 1536w",
     tag: "Cinematic",
-    alt: "Fotografía y video para casamiento en Buenos Aires por FRAME Estudio"
+    alt: "Fotografía y video para casamiento en Buenos Aires por Frame Estudio"
   },
   {
     title: "EVENTOS CORPORATIVOS",
@@ -26,7 +26,7 @@ const WORLDS = [
     image: "/images/evento-corporativo-buenos-aires-frame-1536.jpg",
     srcSet: "/images/evento-corporativo-buenos-aires-frame-768.jpg 768w, /images/evento-corporativo-buenos-aires-frame-1536.jpg 1536w",
     tag: "Business",
-    alt: "Fotografía y video para eventos corporativos en Buenos Aires por FRAME Estudio"
+    alt: "Fotografía y video para eventos corporativos en Buenos Aires por Frame Estudio"
   }
 ];
 
@@ -41,7 +41,7 @@ export const BentoGrid: React.FC = () => {
             </h2>
           </div>
           <p className="text-zinc-400 max-w-md text-sm md:text-base">
-            Cubrimos fiestas de 15, casamientos, bodas, eventos corporativos y contenido para marcas en CABA y Buenos Aires.
+            Cubrimos fiestas de 15, casamientos y bodas, eventos corporativos y contenido para marcas en CABA y Buenos Aires.
           </p>
         </div>
 

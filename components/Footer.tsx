@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrandLogo } from './BrandLogo';
 import { WhatsAppLink } from './WhatsAppLink';
+import { GOOGLE_BUSINESS_URL, PHONE_DISPLAY, PHONE_TEL } from '../utils/business';
 
 export const Footer: React.FC = () => {
   const serviceLinks = [
@@ -47,6 +48,21 @@ export const Footer: React.FC = () => {
             <div className="text-zinc-500 text-sm space-y-1">
               <p>Buenos Aires, Argentina</p>
               <p>CABA · GBA · Zona Norte · Zona Sur</p>
+              <p>
+                <a href={PHONE_TEL} className="hover:text-white transition-colors">
+                  {PHONE_DISPLAY}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={GOOGLE_BUSINESS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Ver en Google
+                </a>
+              </p>
             </div>
           </div>
         </div>

@@ -1,6 +1,13 @@
 import React from 'react';
 import { MapPin, Clock, Smartphone } from 'lucide-react';
 import { WhatsAppLink } from './WhatsAppLink';
+import {
+  BUSINESS_NAME,
+  GOOGLE_BUSINESS_URL,
+  OPENING_HOURS_LABEL,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+} from '../utils/business';
 
 export const Contact: React.FC = () => {
   return (
@@ -34,7 +41,7 @@ export const Contact: React.FC = () => {
               </div>
               <div>
                 <p className="text-xs text-zinc-500 uppercase font-bold tracking-wider">Horario de atención</p>
-                <p className="font-medium">Lunes a Sábado · 9:00 a 20:00</p>
+                <p className="font-medium">{OPENING_HOURS_LABEL}</p>
               </div>
             </div>
             <div className="flex items-center gap-4 text-zinc-300">
@@ -43,7 +50,9 @@ export const Contact: React.FC = () => {
               </div>
               <div>
                 <p className="text-xs text-zinc-500 uppercase font-bold tracking-wider">Teléfono / WhatsApp</p>
-                <p className="font-medium">+54 9 11 7067-1050</p>
+                <a href={PHONE_TEL} className="font-medium hover:text-white transition-colors">
+                  {PHONE_DISPLAY}
+                </a>
               </div>
             </div>
           </div>
@@ -55,6 +64,15 @@ export const Contact: React.FC = () => {
           >
             Pedir presupuesto por WhatsApp
           </WhatsAppLink>
+
+          <a
+            href={GOOGLE_BUSINESS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 block text-center text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+          >
+            Ver {BUSINESS_NAME} en Google
+          </a>
         </div>
       </div>
     </section>

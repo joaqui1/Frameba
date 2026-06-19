@@ -7,21 +7,21 @@ const PHOTOS = [
     srcSet: "/images/fotografia-casamiento-buenos-aires-frame-768.jpg 768w, /images/fotografia-casamiento-buenos-aires-frame-1536.jpg 1536w",
     type: "landscape",
     cat: "Boda",
-    alt: "Fotografía de casamiento en Buenos Aires por FRAME Estudio"
+    alt: "Fotografía de casamiento en Buenos Aires por Frame Estudio"
   },
   {
     url: "/images/fotografia-15-anos-caba-frame-1536.jpg",
     srcSet: "/images/fotografia-15-anos-caba-frame-768.jpg 768w, /images/fotografia-15-anos-caba-frame-1536.jpg 1536w",
     type: "landscape",
     cat: "15 Años",
-    alt: "Fotografía de fiesta de 15 años en CABA por FRAME Estudio"
+    alt: "Fotografía de fiesta de 15 años en CABA por Frame Estudio"
   },
   {
     url: "/images/evento-corporativo-buenos-aires-frame-1536.jpg",
     srcSet: "/images/evento-corporativo-buenos-aires-frame-768.jpg 768w, /images/evento-corporativo-buenos-aires-frame-1536.jpg 1536w",
     type: "landscape",
     cat: "Corporativo",
-    alt: "Cobertura de evento corporativo en Buenos Aires por FRAME Estudio"
+    alt: "Cobertura de evento corporativo en Buenos Aires por Frame Estudio"
   }
 ];
 

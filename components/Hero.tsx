@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero-home.webp"
-          alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — FRAME Estudio"
+          alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — Frame Estudio"
           width={1920}
           height={1080}
           sizes="100vw"
@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
         </h1>
 
         <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-          Foto y video para <span className="text-white font-medium">fiestas de 15, casamientos, bodas y eventos corporativos</span> en CABA y Buenos Aires.
+          Foto y video para <span className="text-white font-medium">fiestas de 15, casamientos y bodas, y eventos corporativos</span> en CABA y Buenos Aires.
         </p>
 
         {/* Botones */}

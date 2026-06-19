@@ -1,223 +1,72 @@
 import React from 'react';
 import { ServicePageHero } from '../components/ServicePageHero';
-import { FAQ } from '../components/FAQ';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
-import {
-  Film,
-  PartyPopper,
-  Briefcase,
-  Clapperboard,
-  Package,
-  Send,
-  MapPin,
-  Play,
-  Users,
-  Mic2,
-} from 'lucide-react';
+import { Check, Film, MapPin, Sparkles } from 'lucide-react';
 
 const INTRO =
-  'Video profesional y filmación de eventos sociales y corporativos en Buenos Aires, CABA, GBA y Zona Norte.';
+  'Filmación profesional para eventos sociales y corporativos en Buenos Aires, CABA, Capital Federal, GBA y Zona Norte. En FRAME realizamos cobertura audiovisual para fiestas, casamientos, 15 años, eventos empresariales y celebraciones privadas, con videos resumen, reels y piezas editadas listas para compartir.';
 
-const SOCIAL_VIDEO = [
-  {
-    icon: <PartyPopper size={20} />,
-    title: 'Fiestas de 15',
-    href: '/fotografo-15-anos-caba-gba/',
-    desc: 'Entrada, vals, pista y momentos con familia y amigas. Video con ritmo real de la noche.',
-  },
-  {
-    icon: <Users size={20} />,
-    title: 'Casamientos y bodas',
-    href: '/fotografia-video-casamientos-buenos-aires/',
-    desc: 'Civil, ceremonia, brindis y fiesta. Registro cercano sin convertir el día en una producción.',
-  },
-  {
-    icon: <Mic2 size={20} />,
-    title: 'Eventos sociales',
-    href: '/contacto/',
-    desc: 'Cumpleaños, aniversarios, fiestas privadas y celebraciones con cobertura audiovisual clara.',
-  },
+const SERVICE_INCLUDES = [
+  'Filmación profesional del evento',
+  'Video resumen o highlight',
+  'Reels verticales para redes sociales',
+  'Edición con música y ritmo audiovisual',
+  'Entrega digital del material final',
 ];
 
-const CORPORATE_VIDEO = [
-  {
-    icon: <Briefcase size={20} />,
-    title: 'Conferencias y congresos',
-    href: '/eventos-corporativos-buenos-aires/',
-    desc: 'Speakers, paneles, público y ambientación para comunicación interna o externa.',
-  },
-  {
-    icon: <Clapperboard size={20} />,
-    title: 'Lanzamientos y activaciones',
-    href: '/eventos-corporativos-buenos-aires/',
-    desc: 'Producto, marca, experiencias en vivo y material listo para redes o prensa.',
-  },
-  {
-    icon: <Users size={20} />,
-    title: 'Fiestas de empresa',
-    href: '/eventos-corporativos-buenos-aires/',
-    desc: 'Fin de año, aniversarios y encuentros corporativos con una pieza usable después del evento.',
-  },
-];
-
-const PARTY_FILMING = [
-  'Previa y preparativos cuando el cronograma lo incluye',
-  'Entrada, recepción y momentos protocolares',
-  'Pista, shows, brindis y reacciones del público',
-  'Detalle de ambientación, mesas, decoración y luces',
-  'Cierre según horas contratadas, sin cortar la fiesta',
-];
-
-const FILMMAKER_POINTS = [
-  {
-    icon: <Film size={24} />,
-    title: 'Mirada documental',
-    desc: 'Registramos lo que pasa sin armar escenas ni frenar la dinámica del evento.',
-  },
-  {
-    icon: <Clapperboard size={24} />,
-    title: 'Criterio social y corporativo',
-    desc: 'Adaptamos la cobertura a fiestas, casamientos, lanzamientos o conferencias según el objetivo.',
-  },
-  {
-    icon: <Package size={24} />,
-    title: 'Material usable',
-    desc: 'Piezas pensadas para compartir, comunicar en redes o integrar en presentaciones de marca.',
-  },
-];
-
-const INCLUDES = [
-  {
-    icon: <Film size={24} />,
-    title: 'Filmación profesional',
-    desc: 'Cobertura con cámaras dedicadas, audio cuidado y encuadre pensado para eventos.',
-  },
-  {
-    icon: <Clapperboard size={24} />,
-    title: 'Dirección en el momento',
-    desc: 'Priorizamos momentos fuertes sin detener la celebración ni la agenda del evento.',
-  },
-  {
-    icon: <Package size={24} />,
-    title: 'Edición y selección',
-    desc: 'Armamos una pieza con ritmo, música y estructura para volver a sentir el evento.',
-  },
-  {
-    icon: <Send size={24} />,
-    title: 'Entrega organizada',
-    desc: 'Archivos listos para compartir, publicar o guardar según lo acordado en la propuesta.',
-  },
-];
-
-const DELIVERY_TYPES = [
-  {
-    title: 'Video resumen',
-    desc: 'Pieza corta y dinámica con los mejores momentos. Ideal para revivir la noche y compartir rápido.',
-  },
-  {
-    title: 'Reels',
-    desc: 'Clips verticales u horizontales pensados para Instagram, TikTok y redes de tu evento o marca.',
-  },
-  {
-    title: 'Video completo',
-    desc: 'Recorrido más amplio del evento, con más contexto y momentos clave ordenados con intención.',
-  },
-];
-
-const COVERAGE_ZONES = [
-  'Ciudad Autónoma de Buenos Aires (CABA)',
-  'Capital Federal',
-  'Gran Buenos Aires (GBA)',
-  'Zona Norte',
-  'Zona Sur y Zona Oeste',
-  'Otras zonas del AMBA — consultanos disponibilidad',
-];
+const COVERAGE_ZONES = ['Buenos Aires', 'CABA', 'GBA', 'Zona Norte', 'San Isidro'];
 
 const VIDEO_FAQ = [
   {
-    question: '¿Hacen solo video o también foto?',
-    answer:
-      'Ofrecemos cobertura de video, foto o ambos según el evento. En esta página nos enfocamos en filmación y entrega audiovisual; si necesitás pack completo, lo armamos en la propuesta.',
+    question: '¿Cubren eventos en CABA y Capital Federal?',
+    answer: 'Sí, realizamos filmación de eventos en CABA y distintas zonas de Buenos Aires.',
   },
   {
-    question: '¿Cuánto dura el video resumen?',
-    answer:
-      'Depende del tipo de evento y las horas de cobertura. Lo definimos en el brief para que tenga ritmo y no se sienta ni muy corto ni eterno.',
+    question: '¿También trabajan en GBA y Zona Norte?',
+    answer: 'Sí, cubrimos eventos en GBA y Zona Norte, incluyendo zonas como San Isidro y alrededores, según disponibilidad.',
   },
   {
-    question: '¿En cuánto tiempo entregan el material?',
-    answer:
-      'Los plazos varían según temporada, duración del evento y tipo de entrega. Al consultar por WhatsApp te pasamos tiempos estimados según tu fecha.',
+    question: '¿Qué tipo de videos entregan?',
+    answer: 'Podemos entregar video resumen, reels verticales para redes sociales y piezas editadas según el tipo de evento.',
   },
   {
-    question: '¿Trabajan con empresas y eventos corporativos?',
-    answer:
-      'Sí. Cubrimos conferencias, lanzamientos, activaciones y fiestas de empresa con material útil para marketing, prensa o comunicación interna.',
+    question: '¿Hacen video para fiestas y eventos sociales?',
+    answer: 'Sí, realizamos video para fiestas, casamientos, 15 años, cumpleaños y celebraciones privadas.',
   },
   {
-    question: '¿Pueden filmar en salones de CABA y Zona Norte?',
-    answer:
-      'Sí, cubrimos eventos en CABA, Capital Federal, GBA y Zona Norte. Contanos la locación y la fecha para confirmar logística.',
+    question: '¿Hacen video para eventos corporativos?',
+    answer: 'Sí, también cubrimos eventos empresariales, presentaciones, encuentros institucionales y eventos de marca.',
+  },
+  {
+    question: '¿Cómo pido presupuesto?',
+    answer: 'Podés escribirnos por WhatsApp indicando fecha, lugar, duración y tipo de evento.',
   },
 ];
 
 function H2Block({
   title,
   children,
-  className = 'py-24 bg-zinc-950',
   altBg = false,
+  eyebrow,
 }: {
   title: string;
   children: React.ReactNode;
-  className?: string;
   altBg?: boolean;
+  eyebrow?: string;
 }) {
-  const bg = altBg ? 'py-24 bg-zinc-900 border-y border-zinc-800' : className;
   return (
-    <section className={bg}>
+    <section className={altBg ? 'bg-zinc-900 py-24 border-y border-zinc-800' : 'bg-zinc-950 py-24'}>
       <div className="container mx-auto px-6 md:px-12">
-        <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-10 leading-tight max-w-4xl">{title}</h2>
+        {eyebrow && (
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">{eyebrow}</span>
+        )}
+        <h2 className="font-display mb-8 max-w-4xl text-3xl font-bold leading-tight text-white md:text-4xl">
+          {title}
+        </h2>
         {children}
       </div>
     </section>
-  );
-}
-
-function CardGrid({ items }: { items: { icon: React.ReactNode; title: string; desc: string; href?: string }[] }) {
-  return (
-    <div className="grid md:grid-cols-3 gap-5 max-w-5xl">
-      {items.map((item, i) => {
-        const content = (
-          <>
-            <div className="text-brand-orange mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
-            <h3 className="text-white font-bold text-base mb-2">{item.title}</h3>
-            <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
-          </>
-        );
-
-        if (item.href) {
-          return (
-            <a
-              key={i}
-              href={item.href}
-              className="block bg-zinc-900/60 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors group"
-            >
-              {content}
-            </a>
-          );
-        }
-
-        return (
-          <div
-            key={i}
-            className="bg-zinc-900/60 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors group"
-          >
-            {content}
-          </div>
-        );
-      })}
-    </div>
   );
 }
 
@@ -226,161 +75,144 @@ export const VideoEventosPage: React.FC = () => {
     <>
       <ServicePageHero
         badge="Video para eventos"
-        h1="Video para eventos en Buenos Aires"
+        h1={
+          <>
+            Video para eventos en <span className="whitespace-nowrap">Buenos Aires</span>
+          </>
+        }
         subtitle={INTRO}
         ctaLabel="Consultar video para mi evento"
         ctaContext="video"
         imageBase="/images/hero-video-portada"
-        imageAlt="Filmación de eventos sociales y corporativos en Puerto Madero, CABA y GBA — FRAME Estudio"
+        imageAlt="Filmación de eventos sociales y corporativos en Puerto Madero, CABA y GBA - Frame Estudio"
         responsive
         heroPolish
         mobileObjectPosition="50% 64%"
         desktopObjectPosition="50% 50%"
       />
 
-      <H2Block title="Servicio de filmación de eventos y fiestas profesionales" altBg={false}>
-        <p className="text-zinc-400 leading-relaxed max-w-3xl mb-8">
-          Registramos la noche y los momentos clave con criterio documental y ritmo de edición, sin frenar la
-          celebración.
+      <H2Block title="Qué incluye el servicio de video para eventos" eyebrow="Cobertura audiovisual">
+        <p className="mb-10 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
+          Cubrimos los momentos principales del evento y entregamos material editado con una estética moderna,
+          dinámica y profesional.
         </p>
-        <ul className="space-y-3 max-w-3xl">
-          {PARTY_FILMING.map((item, i) => (
-            <li
-              key={i}
-              className="flex items-start gap-4 bg-zinc-900/40 border border-zinc-800/50 rounded-xl px-5 py-4"
+        <div className="grid max-w-5xl gap-4 md:grid-cols-5">
+          {SERVICE_INCLUDES.map((item, i) => (
+            <div
+              key={item}
+              className="group border border-zinc-800/70 bg-zinc-900/45 p-5 transition-colors hover:border-brand-orange/50 md:min-h-[180px]"
             >
-              <span className="text-brand-orange font-display font-black text-lg leading-none">
+              <span className="mb-8 block font-display text-sm font-black text-brand-orange">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <p className="text-zinc-300 text-sm leading-relaxed">{item}</p>
-            </li>
-          ))}
-        </ul>
-      </H2Block>
-
-      <H2Block title="Filmmaker para eventos sociales y corporativos" altBg>
-        <p className="text-zinc-400 leading-relaxed max-w-3xl mb-10">
-          Somos filmmakers para eventos en Buenos Aires: cubrimos fiestas, casamientos, lanzamientos y
-          encuentros corporativos con una mirada cercana, profesional y pensada para el uso del material
-          después del evento.
-        </p>
-        <div className="grid sm:grid-cols-3 gap-5 max-w-5xl">
-          {FILMMAKER_POINTS.map((item, i) => (
-            <div
-              key={i}
-              className="bg-zinc-950/60 border border-zinc-800/50 rounded-xl p-6 text-center hover:border-zinc-700 transition-colors group"
-            >
-              <div className="text-brand-orange mb-4 flex justify-center group-hover:scale-110 transition-transform">
-                {item.icon}
-              </div>
-              <h3 className="text-white font-bold text-sm mb-2">{item.title}</h3>
-              <p className="text-zinc-500 text-xs leading-relaxed">{item.desc}</p>
+              <Check size={18} className="mb-4 text-zinc-500 transition-colors group-hover:text-brand-orange" />
+              <p className="text-sm font-medium leading-relaxed text-zinc-200">{item}</p>
             </div>
           ))}
         </div>
       </H2Block>
 
-      <H2Block title="Video para eventos sociales">
-        <p className="text-zinc-400 leading-relaxed max-w-3xl mb-10">
-          Fiestas, celebraciones y momentos que merecen quedar en movimiento, con una mirada cercana y
-          profesional.
-        </p>
-        <CardGrid items={SOCIAL_VIDEO} />
-        <p className="text-zinc-400 text-sm leading-relaxed max-w-3xl mt-10">
-          También cubrimos{' '}
-          <a href="/fotografo-15-anos-caba-gba/" className="text-white underline-offset-4 hover:underline">
-            fiestas de 15
-          </a>{' '}
-          y{' '}
-          <a href="/fotografia-video-casamientos-buenos-aires/" className="text-white underline-offset-4 hover:underline">
-            casamientos
-          </a>{' '}
-          con video pensado para la emoción del día y la energía de la fiesta.
-        </p>
-      </H2Block>
-
-      <H2Block title="Video para eventos corporativos" altBg>
-        <p className="text-zinc-400 leading-relaxed max-w-3xl mb-10">
-          Material claro y útil para equipos de marketing, comunicación, prensa o producción.
-        </p>
-        <CardGrid items={CORPORATE_VIDEO} />
-        <p className="text-zinc-400 text-sm leading-relaxed max-w-3xl mt-10">
-          Más detalle en nuestra página de{' '}
-          <a href="/eventos-corporativos-buenos-aires/" className="text-white underline-offset-4 hover:underline">
-            eventos corporativos
-          </a>
-          .
-        </p>
-      </H2Block>
-
-      <H2Block title="¿Qué incluye nuestro servicio de producción de video profesional?">
-        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl">
-          {INCLUDES.map((item, i) => (
-            <div
-              key={i}
-              className="flex gap-5 bg-zinc-900/40 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors"
-            >
-              <div className="text-brand-orange shrink-0">{item.icon}</div>
-              <div>
-                <h3 className="font-display font-bold text-lg text-white mb-2">{item.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
-          ))}
+      <H2Block title="Filmación para eventos sociales y corporativos" altBg eyebrow="Servicio">
+        <div className="max-w-4xl border border-zinc-800/70 bg-zinc-950/55 p-7 md:p-10">
+          <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand-orange/30 bg-brand-orange/10 text-brand-orange">
+            <Film size={22} />
+          </div>
+          <div className="space-y-5 text-base leading-relaxed text-zinc-400 md:text-lg">
+            <p>
+              Realizamos video para fiestas, casamientos, cumpleaños de 15, eventos empresariales, presentaciones,
+              celebraciones privadas y encuentros sociales.
+            </p>
+            <p>
+              El objetivo es registrar los momentos importantes del evento con una mirada moderna, cuidando el ritmo,
+              la estética y la emoción del material final.
+            </p>
+          </div>
         </div>
       </H2Block>
 
-      <H2Block title="Formatos de entrega: Clips de LinkedIn, Reels de alto impacto y videos completos" altBg>
-        <div className="space-y-4 max-w-4xl">
-          {DELIVERY_TYPES.map((item, i) => (
-            <div
-              key={i}
-              className="flex gap-5 items-start bg-zinc-950/60 border border-zinc-800/50 rounded-xl p-6 hover:border-zinc-700 transition-colors"
-            >
-              <Play size={20} className="text-brand-orange shrink-0 mt-1" />
-              <div>
-                <h3 className="font-display font-bold text-xl text-white mb-2">{item.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
-              </div>
+      <H2Block title="Video para eventos en CABA, GBA y Zona Norte">
+        <div className="grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="mb-8 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+              Trabajamos en Buenos Aires, CABA, Capital Federal, Gran Buenos Aires y Zona Norte. También cubrimos
+              eventos en zonas como San Isidro y alrededores, según disponibilidad de fecha.
+            </p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-orange">
+              Zonas de cobertura principales
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {COVERAGE_ZONES.map((zone) => (
+                <span
+                  key={zone}
+                  className="inline-flex items-center gap-2 border border-zinc-800 bg-zinc-900/60 px-4 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300"
+                >
+                  <MapPin size={14} className="text-brand-orange" />
+                  {zone}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="border-l border-zinc-800 pl-6 md:pl-10">
+            <p className="font-display text-3xl font-black leading-tight text-white md:text-5xl">
+              Cobertura audiovisual adaptada al lugar, la duración del evento y el tipo de material que necesitás
+              entregar o compartir.
+            </p>
+          </div>
         </div>
       </H2Block>
 
-      <H2Block title="Presupuestos y tarifas de producción de video">
-        <p className="text-zinc-400 leading-relaxed max-w-3xl mb-8">
-          Cada evento es distinto: fecha, zona, horas de cobertura, tipo de entrega y si necesitás solo video o
-          también foto. Te armamos un presupuesto a medida según tu evento en CABA, GBA o Zona Norte.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+      <H2Block title="Videos para redes, reels y cobertura completa" altBg>
+        <div className="max-w-4xl border border-zinc-800 bg-zinc-950/60 p-7 md:p-10">
+          <div className="mb-6 flex items-center gap-3 text-brand-orange">
+            <Sparkles size={22} />
+            <span className="text-xs font-bold uppercase tracking-[0.28em]">Entrega flexible</span>
+          </div>
+          <div className="space-y-5 text-base leading-relaxed text-zinc-400 md:text-lg">
+            <p>
+              Además del video principal, podemos preparar piezas cortas en formato vertical para Instagram, TikTok o
+              WhatsApp, ideales para compartir los momentos más importantes del evento.
+            </p>
+            <p>
+              El material puede adaptarse al tipo de evento: desde un video resumen más emocional hasta reels breves,
+              dinámicos y listos para publicar.
+            </p>
+          </div>
+        </div>
+      </H2Block>
+
+      <H2Block title="Pedí presupuesto para tu evento">
+        <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
+          <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+            Contanos la fecha, lugar, duración del evento y tipo de cobertura que necesitás. Te respondemos por
+            WhatsApp con una propuesta acorde al evento.
+          </p>
           <WhatsAppLink
             context="video"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-zinc-950 font-bold uppercase tracking-wider text-sm rounded-sm hover:bg-brand-orange hover:text-white transition-all"
+            className="inline-flex items-center justify-center gap-2 rounded-sm bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-950 transition-all hover:bg-brand-orange hover:text-white"
           >
-            Pedir presupuesto por WhatsApp
+            Pedir presupuesto
           </WhatsAppLink>
         </div>
       </H2Block>
 
-      <H2Block title="Grabación de video para eventos con drones en Buenos Aires, CABA, Federal y GBA" altBg>
-        <p className="text-zinc-400 leading-relaxed max-w-3xl mb-8">
-          Filmamos eventos en la Ciudad de Buenos Aires, Capital Federal, Gran Buenos Aires y Zona Norte. Contanos
-          la locación de tu fiesta o evento corporativo para confirmar disponibilidad.
-        </p>
-        <ul className="grid sm:grid-cols-2 gap-3 max-w-2xl">
-          {COVERAGE_ZONES.map((zone) => (
-            <li
-              key={zone}
-              className="flex items-start gap-3 bg-zinc-950/60 border border-zinc-800/50 rounded-xl px-4 py-3 text-sm text-zinc-300"
-            >
-              <MapPin size={16} className="text-brand-orange shrink-0 mt-0.5" />
-              {zone}
-            </li>
-          ))}
-        </ul>
-      </H2Block>
-
-      <FAQ items={VIDEO_FAQ} title="Preguntas frecuentes" />
+      <section className="bg-zinc-900 py-24 border-y border-zinc-800">
+        <div className="container mx-auto max-w-4xl px-6 md:px-12">
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">
+            Dudas comunes
+          </span>
+          <h2 className="font-display mb-12 text-3xl font-bold leading-tight text-white md:text-4xl">
+            Preguntas frecuentes sobre video para eventos
+          </h2>
+          <div className="space-y-4">
+            {VIDEO_FAQ.map((item) => (
+              <article key={item.question} className="border border-zinc-800 bg-zinc-950/60 p-6">
+                <h3 className="mb-3 font-display text-lg font-bold text-white">{item.question}</h3>
+                <p className="text-sm leading-relaxed text-zinc-400">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <WhatsAppCTASection
         title="Consultá disponibilidad para tu evento"

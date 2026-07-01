@@ -1,5 +1,5 @@
 import React from 'react';
-import { Film, Aperture, Clock, Zap, MapPin } from 'lucide-react';
+import { Camera, Aperture, Clock, Zap, MapPin } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
@@ -48,6 +48,29 @@ const SERVICE_CARDS = [
     tag: 'Empresas',
     mobilePosition: '50% 58%',
     desktopPosition: '50% 56%',
+  },
+];
+
+const HOME_FAQ = [
+  {
+    question: '¿Qué incluye el servicio de fotografía para eventos?',
+    answer:
+      'Incluye cobertura fotográfica del evento, selección del material, edición de color y entrega digital de las fotos finales.',
+  },
+  {
+    question: '¿Por qué contratar un fotógrafo profesional para un evento?',
+    answer:
+      'Porque ayuda a registrar momentos importantes con criterio de luz, encuadre, timing y edición, sin depender de fotos improvisadas.',
+  },
+  {
+    question: '¿En qué zonas realizan coberturas?',
+    answer:
+      'Trabajamos principalmente en Buenos Aires, CABA, Capital Federal, GBA y Zona Norte, sujeto a disponibilidad de fecha.',
+  },
+  {
+    question: '¿Cómo se entregan las fotos después del evento?',
+    answer:
+      'Las fotos se entregan en formato digital, editadas y listas para guardar, compartir o usar en comunicación.',
   },
 ];
 
@@ -108,9 +131,8 @@ export const HomePage: React.FC = () => {
           </h1>
 
           <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            En FRAME realizamos fotografía profesional para eventos sociales y corporativos en Buenos Aires, CABA y GBA.
-            Cubrimos fiestas de 15, casamientos y bodas, eventos empresariales y celebraciones privadas con una estética
-            moderna, profesional y cercana.
+            Servicio de fotografía para eventos sociales, empresariales y celebraciones privadas en CABA, Capital Federal,
+            GBA y Zona Norte. En FRAME realizamos coberturas con una estética moderna, natural y cuidada.
           </p>
 
           <WhatsAppLink
@@ -127,9 +149,10 @@ export const HomePage: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-16 max-w-3xl">
             <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-3 block">Servicios</span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Servicios para eventos</h2>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Fotografía profesional para eventos</h2>
             <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
-              Coberturas pensadas para cada tipo de evento, con material listo para guardar, compartir o comunicar.
+              Desde la home podés elegir la cobertura específica que mejor corresponde a tu evento. Las páginas de 15 años,
+              casamientos, video y eventos corporativos desarrollan cada servicio en detalle.
             </p>
           </div>
 
@@ -177,12 +200,12 @@ export const HomePage: React.FC = () => {
               Fotografía para recordar lo que pasó, no solo cómo se veía.
             </h2>
             <p className="text-zinc-400 text-lg leading-relaxed">
-              Cubrimos fiestas de 15, casamientos, eventos corporativos y eventos sociales en CABA, GBA y Buenos Aires, con fotografías claras, naturales y bien editadas.
+              Cubrimos eventos sociales, empresariales y celebraciones privadas en CABA, GBA y Buenos Aires, con fotografías claras, naturales y bien editadas.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-zinc-800/50 pt-16">
             {[
-              { icon: <Film size={32} />, title: 'Imagen cuidada', desc: 'Luz, encuadre y color bien resueltos.' },
+              { icon: <Camera size={32} />, title: 'Imagen cuidada', desc: 'Luz, encuadre y color bien resueltos.' },
               { icon: <Aperture size={32} />, title: 'Registro natural', desc: 'Momentos reales, sin frenar la fiesta ni invadir.' },
               { icon: <Zap size={32} />, title: 'Edición con intención', desc: 'Selección ágil, ritmo claro y estética consistente.' },
               { icon: <Clock size={32} />, title: 'Material organizado', desc: 'Fotos listas para compartir, guardar o usar.' },
@@ -213,6 +236,26 @@ export const HomePage: React.FC = () => {
             Trabajamos en Buenos Aires, CABA, Capital Federal, Gran Buenos Aires, Zona Norte y otras zonas según disponibilidad de fecha.
             Si tenés un evento, podés escribirnos con el lugar, fecha y tipo de cobertura que necesitás.
           </p>
+        </div>
+      </section>
+
+      {/* ===== FAQ ===== */}
+      <section className="py-24 bg-zinc-950">
+        <div className="container mx-auto max-w-4xl px-6 md:px-12">
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">
+            Dudas comunes
+          </span>
+          <h2 className="font-display mb-12 text-3xl font-bold leading-tight text-white md:text-4xl">
+            Preguntas frecuentes sobre fotografía para eventos
+          </h2>
+          <div className="space-y-4">
+            {HOME_FAQ.map((item) => (
+              <article key={item.question} className="border border-zinc-800 bg-zinc-900/60 p-6">
+                <h3 className="mb-3 font-display text-lg font-bold text-white">{item.question}</h3>
+                <p className="text-sm leading-relaxed text-zinc-400">{item.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

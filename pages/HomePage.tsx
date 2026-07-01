@@ -80,7 +80,7 @@ export const HomePage: React.FC = () => {
             <source media="(min-width: 768px)" srcSet="/images/hero-home.jpg" />
             <img
               src="/images/hero-home-mobile.jpg"
-              alt="Fotografía y video profesional para eventos sociales nocturnos en CABA y Buenos Aires — Frame Estudio"
+              alt="Fotografía profesional para eventos sociales nocturnos en CABA y Buenos Aires — Frame Estudio"
               width={900}
               height={1600}
               sizes="100vw"
@@ -108,7 +108,7 @@ export const HomePage: React.FC = () => {
           </h1>
 
           <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            En FRAME realizamos fotografía y video para eventos sociales y corporativos en Buenos Aires, CABA y GBA.
+            En FRAME realizamos fotografía profesional para eventos sociales y corporativos en Buenos Aires, CABA y GBA.
             Cubrimos fiestas de 15, casamientos y bodas, eventos empresariales y celebraciones privadas con una estética
             moderna, profesional y cercana.
           </p>
@@ -127,7 +127,7 @@ export const HomePage: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-16 max-w-3xl">
             <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-3 block">Servicios</span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Servicios de fotografía y video</h2>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Servicios para eventos</h2>
             <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
               Coberturas pensadas para cada tipo de evento, con material listo para guardar, compartir o comunicar.
             </p>
@@ -174,18 +174,18 @@ export const HomePage: React.FC = () => {
           <div className="max-w-3xl mx-auto text-center mb-20">
             <span className="text-brand-orange font-bold tracking-widest uppercase text-sm mb-4 block">Nuestra mirada</span>
             <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-6 leading-tight">
-              Foto y video para recordar lo que pasó, no solo cómo se veía.
+              Fotografía para recordar lo que pasó, no solo cómo se veía.
             </h2>
             <p className="text-zinc-400 text-lg leading-relaxed">
-              Cubrimos fiestas de 15, casamientos, eventos corporativos y eventos sociales en CABA, GBA y Buenos Aires, con fotografía y video claros, naturales y bien editados.
+              Cubrimos fiestas de 15, casamientos, eventos corporativos y eventos sociales en CABA, GBA y Buenos Aires, con fotografías claras, naturales y bien editadas.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-zinc-800/50 pt-16">
             {[
-              { icon: <Film size={32} />, title: 'Imagen cuidada', desc: 'Luz, encuadre, color y sonido bien resueltos.' },
+              { icon: <Film size={32} />, title: 'Imagen cuidada', desc: 'Luz, encuadre y color bien resueltos.' },
               { icon: <Aperture size={32} />, title: 'Registro natural', desc: 'Momentos reales, sin frenar la fiesta ni invadir.' },
               { icon: <Zap size={32} />, title: 'Edición con intención', desc: 'Selección ágil, ritmo claro y estética consistente.' },
-              { icon: <Clock size={32} />, title: 'Material organizado', desc: 'Fotos y videos listos para compartir, guardar o usar.' },
+              { icon: <Clock size={32} />, title: 'Material organizado', desc: 'Fotos listas para compartir, guardar o usar.' },
             ].map((feat, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <div className="mb-6 p-4 bg-zinc-800 rounded-2xl text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-lg shadow-black/20">{feat.icon}</div>
@@ -219,7 +219,7 @@ export const HomePage: React.FC = () => {
       {/* ===== FINAL CTA ===== */}
       <WhatsAppCTASection
         title="Consultá disponibilidad para tu evento"
-        subtitle="Contanos la fecha, zona, duración y tipo de evento. Te respondemos por WhatsApp con una propuesta de fotografía y video acorde a lo que necesitás."
+        subtitle="Contanos la fecha, zona, duración y tipo de evento. Te respondemos por WhatsApp con una propuesta de fotografía acorde a lo que necesitás."
         ctaLabel="Consultar disponibilidad"
         context="general"
       />

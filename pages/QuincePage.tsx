@@ -6,7 +6,7 @@ import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 
 const INTRO =
-  'Servicio de fotografía y video para fiestas de 15 años en Buenos Aires, CABA y GBA. En FRAME cubrimos la previa, la fiesta, la entrada, los momentos familiares, el baile y la pista con una estética moderna, natural y cuidada.';
+  'Fotografía y video para fiestas de 15 años en Buenos Aires, CABA y GBA. Cubrimos previa, entrada, vals, familia, pista, book de 15 y reels con una estética moderna, natural y cuidada.';
 
 const QUINCE_MOMENTS = [
   {
@@ -29,7 +29,7 @@ const QUINCE_MOMENTS = [
   },
   {
     icon: <Music size={20} />,
-    time: 'Fiesta',
+    time: 'Pista',
     title: 'Movimiento, luces, abrazos y la energía real de la fiesta hasta el cierre contratado.',
     desc: '',
   },
@@ -44,28 +44,28 @@ const QUINCE_INCLUDES = [
 
 const FAQ_ITEMS = [
   {
-    question: '¿Hacen fotografía para fiestas de 15 años en Buenos Aires?',
-    answer: 'Sí, realizamos cobertura fotográfica para fiestas de 15 años en Buenos Aires, CABA y GBA.',
+    question: '¿Qué incluye una cobertura de fotografía para 15 años?',
+    answer: 'Puede incluir previa, entrada, vals, familia, pista y momentos principales de la fiesta, según el cronograma del evento.',
   },
   {
-    question: '¿También hacen video para 15 años?',
-    answer: 'Sí, podemos cubrir el evento con fotografía, video resumen, reels y piezas editadas para compartir.',
+    question: '¿Hacen foto y video para fiestas de 15?',
+    answer: 'Sí, podemos cubrir fiestas de 15 con fotografía, video resumen, reels y piezas editadas para compartir.',
   },
   {
     question: '¿Se puede sumar book de 15 años?',
-    answer: 'Sí, podemos coordinar una sesión previa o en exteriores para sumar fotos más producidas antes de la fiesta.',
+    answer: 'Sí, el book de 15 puede hacerse antes de la fiesta, en exteriores o en una locación a definir.',
   },
   {
-    question: '¿Cuánto cuesta un fotógrafo para 15 años?',
-    answer: 'El presupuesto depende de la fecha, la duración del evento, la zona, la cantidad de horas de cobertura y si necesitás fotografía, video, book o reels.',
+    question: '¿Cubren previa, entrada, vals, familia y pista?',
+    answer: 'Sí, podemos organizar la cobertura alrededor de esos momentos para registrar la historia completa del evento.',
   },
   {
-    question: '¿Cubren la previa además de la fiesta?',
-    answer: 'Sí, podemos cubrir la previa, la entrada, momentos familiares, baile, pista y momentos principales del evento.',
+    question: '¿Trabajan en CABA y GBA?',
+    answer: 'Sí, trabajamos en Buenos Aires, CABA y Gran Buenos Aires, sujeto a disponibilidad de fecha y logística.',
   },
   {
-    question: '¿Cómo pido presupuesto?',
-    answer: 'Podés escribirnos por WhatsApp indicando fecha, lugar, duración del evento y si buscás fotografía, video o ambos.',
+    question: '¿Cómo se calcula un presupuesto de fotografía y video para 15 años?',
+    answer: 'Se calcula según fecha, duración, zona, horas de cobertura, tipo de entrega y si se suma fotografía, video, book o reels.',
   },
 ];
 
@@ -105,14 +105,14 @@ export const QuincePage: React.FC = () => {
         ctaLabel="Estoy organizando un 15"
         ctaContext="quince"
         imageBase="/images/hero-quince-portada"
-        imageAlt="Fotografía y video para fiesta de 15 años en CABA"
+        imageAlt="Fotógrafo para 15 años en Buenos Aires"
         responsive
         heroPolish
         mobileObjectPosition="52% 58%"
         desktopObjectPosition="50% 48%"
       />
 
-      <SectionBlock title="Qué incluye la cobertura de 15 años" eyebrow="Cobertura completa">
+      <SectionBlock title="Foto y video para fiestas de 15 años" eyebrow="Cobertura completa">
         <p className="mb-10 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
           Armamos la cobertura según el cronograma de la fiesta y el tipo de material que querés recibir: fotografía,
           video, book de 15 años, reels o una entrega combinada.
@@ -131,7 +131,7 @@ export const QuincePage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Fotografía y video para la previa y la fiesta" altBg eyebrow="Momentos del evento">
+      <SectionBlock title="Cobertura de previa, entrada, vals, familia y pista" altBg eyebrow="Momentos del evento">
         <div className="max-w-3xl">
           {QUINCE_MOMENTS.map((item, i) => (
             <div key={item.title} className="group mb-8 flex gap-5 last:mb-0">
@@ -153,17 +153,16 @@ export const QuincePage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Book de 15 años y sesión en exteriores">
+      <SectionBlock title="Book de 15 años y sesión previa">
         <div className="max-w-4xl border border-zinc-800/70 bg-zinc-900/45 p-7 md:p-10">
           <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
-            Si querés sumar un book de 15 años, podemos coordinar una sesión previa o en exteriores para tener fotos
-            más producidas antes de la fiesta. El book se puede combinar con la cobertura del evento, video resumen o
-            reels para redes.
+            El book puede hacerse antes de la fiesta, en exteriores o en una locación a definir, y combinarse con la
+            cobertura del evento, video resumen o reels.
           </p>
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Cobertura en CABA, GBA y Buenos Aires" altBg>
+      <SectionBlock title="Fotógrafo para 15 años en CABA y GBA" altBg>
         <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <p className="max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
             Trabajamos en Buenos Aires, CABA, Gran Buenos Aires y otras zonas según disponibilidad de fecha. Contanos
@@ -188,12 +187,11 @@ export const QuincePage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Presupuesto para fotografía de 15 años">
+      <SectionBlock title="Presupuesto para fotografía y video de 15 años">
         <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
-            El presupuesto para una cobertura de 15 años depende de la fecha, la duración del evento, la zona, si
-            necesitás solo fotografía o también video, y si querés sumar book, reels o piezas editadas. Escribinos por
-            WhatsApp con esos datos y te pasamos una propuesta acorde al evento.
+            El presupuesto depende de la fecha, la duración, la zona, el tipo de cobertura y la entrega final. Podemos
+            armar una propuesta para fotografía, video, book, reels o cobertura completa de la fiesta.
           </p>
           <WhatsAppLink
             context="quince"

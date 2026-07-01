@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
               <BrandLogo />
             </a>
             <p className="text-zinc-500 text-sm mt-3 leading-relaxed max-w-xs">
-              Fotografía y video para eventos en CABA y Buenos Aires. 15 años, casamientos, eventos sociales y corporativos.
+              Fotografía profesional para eventos en CABA y Buenos Aires. 15 años, casamientos, eventos sociales y corporativos.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Frame Estudio. Todos los derechos reservados.
           </p>
           <p className="text-zinc-700 text-xs">
-            Fotografía y video para eventos en Buenos Aires
+            Fotógrafo para eventos en Buenos Aires
           </p>
         </div>
       </div>

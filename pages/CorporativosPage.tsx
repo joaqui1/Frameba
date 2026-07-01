@@ -6,14 +6,14 @@ import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 
 const INTRO =
-  'Cobertura audiovisual para empresas, conferencias, lanzamientos, presentaciones, jornadas internas y eventos institucionales en Buenos Aires, CABA y GBA. En FRAME realizamos fotografía, video, reels y piezas editadas para comunicación interna, redes, prensa y archivo de marca.';
+  'Fotografia, video, reels y highlights para empresas, conferencias, congresos, lanzamientos, jornadas internas y eventos institucionales en Buenos Aires, CABA y GBA.';
 
 const COVERAGE_INCLUDES = [
-  { icon: <Camera size={18} />, title: 'Fotografía del evento', desc: 'Registro profesional de momentos clave, ambientación, equipo, speakers y público.' },
-  { icon: <Film size={18} />, title: 'Video resumen o highlight', desc: 'Pieza editada para comunicar lo más importante del evento de forma clara y dinámica.' },
+  { icon: <Camera size={18} />, title: 'Fotografia del evento', desc: 'Registro profesional de momentos clave, ambientacion, marca, equipo, speakers y publico.' },
+  { icon: <Film size={18} />, title: 'Video resumen o highlight', desc: 'Pieza editada para comunicar lo mas importante del evento de forma clara y dinamica.' },
   { icon: <Linkedin size={18} />, title: 'Reels para redes y LinkedIn', desc: 'Clips breves para compartir en redes sociales, LinkedIn o canales internos.' },
-  { icon: <Users size={18} />, title: 'Registro de speakers, público y equipo', desc: 'Cobertura de personas, marca, networking y momentos clave de la jornada.' },
-  { icon: <Send size={18} />, title: 'Entrega digital del material editado', desc: 'Archivos organizados y listos para usar en comunicación, prensa, redes o archivo.' },
+  { icon: <Users size={18} />, title: 'Speakers, publico y networking', desc: 'Cobertura de autoridades, charlas, invitados, interacciones y momentos clave de la jornada.' },
+  { icon: <Send size={18} />, title: 'Entrega digital organizada', desc: 'Archivos editados y listos para usar en comunicacion, prensa, redes, web o archivo de marca.' },
 ];
 
 const EVENT_TYPES = [
@@ -23,40 +23,47 @@ const EVENT_TYPES = [
   { icon: <FileText size={20} />, label: 'Presentaciones' },
   { icon: <Briefcase size={20} />, label: 'Lanzamientos' },
   { icon: <Building size={20} />, label: 'Jornadas internas' },
-  { icon: <Camera size={20} />, label: 'Eventos de marca' },
+  { icon: <Camera size={20} />, label: 'Activaciones de marca' },
   { icon: <Megaphone size={20} />, label: 'Premiaciones' },
   { icon: <Building size={20} />, label: 'Inauguraciones' },
+  { icon: <Users size={20} />, label: 'Capacitaciones' },
+  { icon: <MessageCircle size={20} />, label: 'Workshops' },
+  { icon: <Briefcase size={20} />, label: 'Fiestas de empresa' },
 ];
 
 const COMMUNICATION_USES = [
-  { icon: <Megaphone size={22} />, title: 'Redes sociales', desc: 'Fotos, reels y clips para publicar después del evento.' },
+  { icon: <Megaphone size={22} />, title: 'Redes sociales', desc: 'Fotos, reels y clips para publicar despues del evento.' },
   { icon: <Linkedin size={22} />, title: 'LinkedIn', desc: 'Material profesional para comunicar hitos, equipos y novedades de empresa.' },
-  { icon: <Building size={22} />, title: 'Web institucional', desc: 'Imágenes y videos para actualizar la presencia digital de la marca.' },
+  { icon: <Building size={22} />, title: 'Web institucional', desc: 'Imagenes y videos para actualizar la presencia digital de la marca.' },
   { icon: <FileText size={22} />, title: 'Prensa', desc: 'Material visual para notas, comunicados y cobertura posterior.' },
-  { icon: <Users size={22} />, title: 'Comunicación interna', desc: 'Contenido para newsletters, presentaciones y equipos internos.' },
+  { icon: <Users size={22} />, title: 'Comunicacion interna', desc: 'Contenido para newsletters, presentaciones y equipos internos.' },
   { icon: <Briefcase size={22} />, title: 'Archivo de marca', desc: 'Registro organizado para futuras piezas comerciales o institucionales.' },
 ];
 
 const FAQ_ITEMS = [
   {
-    question: '¿Hacen fotografía para eventos corporativos?',
-    answer: 'Sí, realizamos fotografía para eventos de empresa, conferencias, presentaciones, lanzamientos, jornadas internas y eventos institucionales.',
+    question: '¿Hacen cobertura audiovisual para empresas?',
+    answer: 'Si, realizamos fotografia, video, reels y piezas editadas para eventos corporativos, institucionales y empresariales.',
   },
   {
-    question: '¿También hacen video para eventos corporativos?',
-    answer: 'Sí, podemos entregar video resumen, reels, piezas editadas para redes, comunicación interna o material institucional.',
+    question: '¿Cubren conferencias, congresos y lanzamientos?',
+    answer: 'Si, cubrimos conferencias, congresos, presentaciones, lanzamientos, capacitaciones, jornadas internas y eventos de marca.',
+  },
+  {
+    question: '¿Entregan material para LinkedIn, prensa y comunicacion interna?',
+    answer: 'Si, podemos entregar fotos, video resumen y clips pensados para LinkedIn, redes sociales, web institucional, prensa y comunicacion interna.',
+  },
+  {
+    question: '¿Tambien hacen reels o videos cortos?',
+    answer: 'Si, ademas del video resumen podemos preparar reels verticales y clips breves con momentos clave del evento.',
   },
   {
     question: '¿Cubren eventos en CABA y GBA?',
-    answer: 'Sí, trabajamos en Buenos Aires, CABA, Gran Buenos Aires y otras zonas según disponibilidad.',
+    answer: 'Si, trabajamos en Buenos Aires, CABA, Gran Buenos Aires y otras zonas segun disponibilidad.',
   },
   {
-    question: '¿Organizan eventos corporativos?',
-    answer: 'No organizamos el evento completo. Nos enfocamos en la cobertura audiovisual: fotografía, video y material editado del evento.',
-  },
-  {
-    question: '¿Qué datos necesitan para cotizar?',
-    answer: 'Fecha, lugar, duración, tipo de evento, cantidad aproximada de asistentes y tipo de entrega que necesitás.',
+    question: '¿Que datos necesitan para cotizar?',
+    answer: 'Fecha, lugar, duracion, tipo de evento, cantidad aproximada de asistentes y tipo de entrega que necesitás.',
   },
 ];
 
@@ -91,7 +98,7 @@ export const CorporativosPage: React.FC = () => {
     <>
       <ServicePageHero
         badge="Corporativos"
-        h1="Fotografía y video para eventos corporativos en Buenos Aires"
+        h1="Cobertura audiovisual para eventos corporativos en Buenos Aires"
         subtitle={INTRO}
         ctaLabel="Solicitar cobertura"
         ctaContext="corporate"
@@ -118,16 +125,29 @@ export const CorporativosPage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Eventos corporativos que cubrimos" altBg>
+      <SectionBlock title="Fotografía corporativa del evento" altBg>
+        <div className="max-w-4xl space-y-5 text-base leading-relaxed text-zinc-400 md:text-lg">
+          <p>
+            Ademas del registro general, cubrimos imagenes utiles para comunicacion de empresa: speakers,
+            autoridades, equipo, publico, networking, ambientacion, marca y detalles institucionales.
+          </p>
+          <p>
+            El material puede usarse en LinkedIn, prensa, web corporativa, redes sociales, presentaciones internas
+            y archivo de marca, manteniendo una estetica profesional y coherente con el evento.
+          </p>
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Eventos corporativos que cubrimos">
         <p className="mb-10 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
-          Nos adaptamos al tipo de evento y al objetivo de comunicación: desde una jornada interna hasta un lanzamiento,
-          una conferencia o una presentación institucional.
+          Nos adaptamos al tipo de evento y al objetivo de comunicacion: desde una jornada interna hasta un lanzamiento,
+          una conferencia, una capacitacion o una presentacion institucional.
         </p>
-        <div className="grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {EVENT_TYPES.map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-3 border border-zinc-800/60 bg-zinc-950/60 px-4 py-4 text-sm font-bold text-white transition-colors hover:border-zinc-700"
+              className="flex items-center gap-3 border border-zinc-800/60 bg-zinc-900/45 px-4 py-4 text-sm font-bold text-white transition-colors hover:border-zinc-700"
             >
               <span className="text-brand-orange">{item.icon}</span>
               {item.label}
@@ -136,12 +156,12 @@ export const CorporativosPage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Material para comunicación de empresa" eyebrow="Después del evento">
+      <SectionBlock title="Material para comunicación de empresa" eyebrow="Después del evento" altBg>
         <div className="grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {COMMUNICATION_USES.map((item) => (
             <article
               key={item.title}
-              className="flex gap-5 border border-zinc-800/60 bg-zinc-900/45 p-6 transition-colors hover:border-zinc-700"
+              className="flex gap-5 border border-zinc-800/60 bg-zinc-950/60 p-6 transition-colors hover:border-zinc-700"
             >
               <div className="mt-1 shrink-0 text-brand-orange">{item.icon}</div>
               <div>
@@ -153,11 +173,11 @@ export const CorporativosPage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Cobertura en CABA, GBA y Buenos Aires" altBg>
+      <SectionBlock title="Cobertura en CABA, GBA y Buenos Aires">
         <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <p className="max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
-            Trabajamos en Buenos Aires, CABA, Gran Buenos Aires y otras zonas según disponibilidad de fecha. Contanos
-            dónde es el evento para confirmar logística, horarios y tipo de cobertura.
+            Trabajamos en Buenos Aires, CABA, Capital Federal, Gran Buenos Aires y otras zonas segun disponibilidad
+            de fecha. Contanos donde es el evento para confirmar logistica, horarios y tipo de cobertura.
           </p>
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-orange">
@@ -178,10 +198,10 @@ export const CorporativosPage: React.FC = () => {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Presupuesto para eventos corporativos">
+      <SectionBlock title="Presupuesto para eventos corporativos" altBg>
         <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
-            El presupuesto depende de la fecha, el lugar, la duración del evento, la cantidad aproximada de asistentes,
+            El presupuesto depende de la fecha, el lugar, la duracion del evento, la cantidad aproximada de asistentes,
             el tipo de cobertura y los entregables que necesitás. Escribinos por WhatsApp con esos datos y te pasamos
             una propuesta acorde al evento.
           </p>
@@ -200,7 +220,7 @@ export const CorporativosPage: React.FC = () => {
             Dudas comunes
           </span>
           <h2 className="font-display mb-10 text-3xl font-bold leading-tight text-white md:text-4xl">
-            Preguntas frecuentes sobre eventos corporativos
+            Preguntas frecuentes sobre cobertura audiovisual corporativa
           </h2>
           <div className="space-y-4">
             {FAQ_ITEMS.map((item) => (
@@ -215,16 +235,16 @@ export const CorporativosPage: React.FC = () => {
 
       <HowWeWork
         steps={[
-          { number: '01', title: 'Nos pasan el brief', description: 'Evento, fecha, locación, horarios, marca y prioridades de comunicación.' },
+          { number: '01', title: 'Nos pasan el brief', description: 'Evento, fecha, locacion, horarios, marca y prioridades de comunicacion.' },
           { number: '02', title: 'Definimos la cobertura', description: 'Acordamos foto, video, cantidad de horas, entregables y tiempos.' },
-          { number: '03', title: 'Cubrimos los momentos clave', description: 'Speakers, público, networking, ambientación, producto y equipo.' },
-          { number: '04', title: 'Entregamos material usable', description: 'Archivos editados y organizados para redes, prensa, web o comunicación interna.' },
+          { number: '03', title: 'Cubrimos los momentos clave', description: 'Speakers, publico, networking, ambientacion, producto y equipo.' },
+          { number: '04', title: 'Entregamos material usable', description: 'Archivos editados y organizados para redes, prensa, web o comunicacion interna.' },
         ]}
       />
 
       <WhatsAppCTASection
         title="¿Tenés un evento corporativo?"
-        subtitle="Escribinos por WhatsApp con fecha, lugar, duración y tipo de entrega. Te armamos una propuesta de foto y video a medida."
+        subtitle="Escribinos por WhatsApp con fecha, lugar, duracion y tipo de entrega. Te armamos una propuesta de cobertura audiovisual a medida."
         ctaLabel="Solicitar cobertura"
         context="corporate"
       />

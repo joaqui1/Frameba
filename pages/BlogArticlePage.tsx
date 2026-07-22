@@ -1,15 +1,21 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, CalendarDays, Clock3 } from 'lucide-react';
 import { BLOG_ARTICLES, type BlogArticle } from './blogData';
+import { BlogEditorialVisual } from './BlogEditorialVisual';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 
 function ArticleCard({ article }: { article: BlogArticle }) {
   return (
     <a href={`/blog/${article.slug}/`} className="group overflow-hidden border border-zinc-800 bg-zinc-900/60 transition hover:border-zinc-700">
       <div className="relative h-56 overflow-hidden">
-        <img src={article.image} alt={article.imageAlt} className="h-full w-full object-cover opacity-65 transition duration-700 group-hover:scale-105 group-hover:opacity-80" style={{ objectPosition: article.imagePosition }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-        <span className="absolute bottom-3 right-4 font-display text-6xl font-black text-white/15">{article.number}</span>
+        <BlogEditorialVisual
+          number={article.number}
+          category={article.category}
+          title={article.shortTitle}
+          mode="card"
+          className="absolute inset-0 transition duration-700 group-hover:scale-[1.025]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/35 via-transparent to-transparent" />
       </div>
       <div className="p-6">
         <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-brand-orange">{article.category}</span>
@@ -29,11 +35,14 @@ export const BlogArticlePage: React.FC<{ article: BlogArticle }> = ({ article })
     <>
       <article>
         <header className="relative min-h-[760px] overflow-hidden border-b border-zinc-800/60 bg-zinc-950 md:min-h-[820px]">
-          <div className="absolute inset-0" aria-hidden="true">
-            <img src={article.image} alt="" className="h-full w-full object-cover opacity-55 blur-[1px]" style={{ objectPosition: article.imagePosition }} />
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/55 to-zinc-950/25" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.35)_55%,rgba(9,9,11,0.88)_100%)]" />
-          </div>
+          <BlogEditorialVisual
+            number={article.number}
+            category={article.category}
+            mode="hero"
+            className="absolute inset-0"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/58 to-zinc-950/22" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(9,9,11,0.30)_55%,rgba(9,9,11,0.88)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-orange/55 to-transparent" />
           <div className="container relative z-10 mx-auto flex min-h-[760px] flex-col justify-end px-6 pb-20 pt-36 md:min-h-[820px] md:px-12 md:pb-24">
             <nav aria-label="Breadcrumb" className="mb-10 flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-zinc-400">

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowUpRight, CalendarDays, Camera, Clock3, Sparkles } from 'lucide-react';
+import { Aperture, ArrowUpRight, CalendarDays, Clock3, Sparkles } from 'lucide-react';
 import { BLOG_ARTICLES } from './blogData';
+import { BlogEditorialVisual } from './BlogEditorialVisual';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 
 const FEATURED = BLOG_ARTICLES[0];
@@ -43,22 +44,16 @@ export const BlogIndexPage: React.FC = () => {
 
             <div className="relative hidden min-h-[480px] lg:block" aria-hidden="true">
               <div className="absolute left-0 top-14 h-[330px] w-[58%] overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/40">
-                <img src="/images/hero-quince-portada-desktop.webp" alt="" className="h-full w-full object-cover opacity-75" style={{ objectPosition: '50% 48%' }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-                <span className="absolute bottom-5 left-5 font-display text-5xl font-black text-white/20">01</span>
+                <BlogEditorialVisual number="01" category="Presupuesto" mode="collage" className="absolute inset-0" />
               </div>
               <div className="absolute right-0 top-0 h-[260px] w-[48%] overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/40">
-                <img src="/images/hero-casamiento-portada-desktop.webp" alt="" className="h-full w-full object-cover opacity-70" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent" />
-                <span className="absolute bottom-4 right-5 font-display text-4xl font-black text-white/20">02</span>
+                <BlogEditorialVisual number="02" category="Casamientos" mode="collage" className="absolute inset-0" />
               </div>
               <div className="absolute bottom-0 right-8 h-[210px] w-[44%] overflow-hidden border border-brand-orange/30 bg-zinc-900 shadow-2xl shadow-black/50">
-                <img src="/images/hero-home.webp" alt="" className="h-full w-full object-cover opacity-65" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
-                <span className="absolute bottom-4 left-5 font-display text-4xl font-black text-brand-orange/50">03</span>
+                <BlogEditorialVisual number="03" category="Planificación" mode="collage" className="absolute inset-0" />
               </div>
               <div className="absolute left-[46%] top-[43%] flex h-24 w-24 items-center justify-center rounded-full border border-brand-orange/40 bg-zinc-950 text-brand-orange shadow-xl shadow-black/40">
-                <Camera size={30} />
+                <Aperture size={30} strokeWidth={1.6} />
               </div>
             </div>
           </div>
@@ -79,15 +74,15 @@ export const BlogIndexPage: React.FC = () => {
 
           <a href={`/blog/${FEATURED.slug}/`} className="group relative mb-8 grid min-h-[620px] overflow-hidden border border-zinc-800 bg-zinc-900 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="relative min-h-[360px] overflow-hidden lg:min-h-full">
-              <img
-                src={FEATURED.image}
-                alt={FEATURED.imageAlt}
-                className="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-80"
-                style={{ objectPosition: FEATURED.imagePosition }}
+              <BlogEditorialVisual
+                number={FEATURED.number}
+                category={FEATURED.category}
+                title={FEATURED.shortTitle}
+                mode="featured"
+                className="absolute inset-0 transition duration-700 group-hover:scale-[1.018]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-zinc-950/10 lg:to-zinc-950" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-zinc-950/5 lg:to-zinc-950" />
               <div className="absolute left-6 top-6 border border-white/20 bg-black/30 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-white backdrop-blur-md">Destacada</div>
-              <span className="absolute bottom-4 left-6 font-display text-[120px] font-black leading-none text-white/10 md:text-[180px]">01</span>
             </div>
             <div className="relative flex flex-col justify-center p-8 md:p-14 lg:p-16">
               <span className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-brand-orange">{FEATURED.category}</span>
@@ -106,9 +101,14 @@ export const BlogIndexPage: React.FC = () => {
                 className={`group flex overflow-hidden border border-zinc-800 bg-zinc-900/60 transition hover:border-zinc-700 ${index === 0 ? 'lg:col-span-2 lg:grid lg:grid-cols-[0.95fr_1.05fr]' : 'flex-col'}`}
               >
                 <div className={`relative overflow-hidden ${index === 0 ? 'min-h-[360px]' : 'h-72'}`}>
-                  <img src={article.image} alt={article.imageAlt} className="h-full w-full object-cover opacity-65 transition duration-700 group-hover:scale-105 group-hover:opacity-78" style={{ objectPosition: article.imagePosition }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 right-5 font-display text-7xl font-black text-white/15">{article.number}</span>
+                  <BlogEditorialVisual
+                    number={article.number}
+                    category={article.category}
+                    title={article.shortTitle}
+                    mode="card"
+                    className="absolute inset-0 transition duration-700 group-hover:scale-[1.025]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/35 via-transparent to-transparent" />
                 </div>
                 <div className="flex flex-1 flex-col p-7 md:p-9">
                   <span className="mb-4 text-[10px] font-bold uppercase tracking-[0.24em] text-brand-orange">{article.category}</span>

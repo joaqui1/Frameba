@@ -32,10 +32,7 @@ export const BlogArticlePage: React.FC<{ article: BlogArticle }> = ({ article })
     .filter((item): item is BlogArticle => Boolean(item));
 
   const quickAnswerHtml = article.slug === 'cuanto-cuesta-fotografo-15-anos-buenos-aires'
-    ? article.quickAnswerHtml.replace(
-        'fiesta sola parte de $380.000',
-        'fiesta sola cuesta aproximadamente $500.000',
-      )
+    ? '<p>Como referencia de <strong>julio de 2026</strong>, en FRAME: <strong>Fiesta: aproximadamente $500.000</strong>.</p><p>El valor final depende de horas, ubicación, equipo y entregas.</p>'
     : article.quickAnswerHtml;
 
   return (

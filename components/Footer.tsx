@@ -9,6 +9,7 @@ export const Footer: React.FC = () => {
     { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
     { label: 'Video para eventos', href: '/video-para-eventos-buenos-aires/' },
     { label: 'Eventos corporativos', href: '/eventos-corporativos-buenos-aires/' },
+    { label: 'Guías para organizar tu evento', href: '/blog/' },
   ];
 
   return (
@@ -24,8 +25,8 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <nav aria-label="Páginas de servicio" className="flex flex-col gap-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-1">Servicios</span>
+          <nav aria-label="Páginas de servicio y guías" className="flex flex-col gap-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-1">Explorar</span>
             {serviceLinks.map((link) => (
               <a
                 key={link.label}

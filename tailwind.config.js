@@ -8,6 +8,7 @@ export default {
     './eventos-corporativos-buenos-aires/**/*.html',
     './video-para-eventos-buenos-aires/**/*.html',
     './contacto/**/*.html',
+    './blog/**/*.html',
     './components/**/*.{ts,tsx}',
     './pages/**/*.{ts,tsx}',
     './*.{ts,tsx}',

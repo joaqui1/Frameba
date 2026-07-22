@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
   { label: 'Video', href: '/video-para-eventos-buenos-aires/' },
   { label: 'Corporativos', href: '/eventos-corporativos-buenos-aires/' },
+  { label: 'Guías', href: '/blog/' },
 ];
 
 interface NavbarProps {
@@ -63,12 +64,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
             <BrandLogo />
           </a>
 
-          <nav className="hidden md:flex gap-8 items-center" aria-label="Navegación principal">
+          <nav className="hidden md:flex gap-5 lg:gap-7 items-center" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wide"
+                className="text-xs lg:text-sm font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wide"
               >
                 {item.label}
               </a>
@@ -76,14 +77,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
             <WhatsAppLink
               context="contact"
               showIcon={false}
-              className="px-6 py-2.5 bg-white text-zinc-950 text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
+              className="px-5 lg:px-6 py-2.5 bg-white text-zinc-950 text-xs lg:text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
             >
               Contacto
             </WhatsAppLink>
             <WhatsAppLink
               context="contact"
               showIcon={false}
-              className="px-6 py-2.5 bg-brand-orange text-white text-sm font-bold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300 rounded-sm"
+              className="hidden xl:inline-flex px-6 py-2.5 bg-brand-orange text-white text-sm font-bold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300 rounded-sm"
             >
               Cotizar Ahora
             </WhatsAppLink>

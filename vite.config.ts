@@ -9,6 +9,11 @@ const PAGE_PATHS = [
   '/eventos-corporativos-buenos-aires',
   '/video-para-eventos-buenos-aires',
   '/contacto',
+  '/blog',
+  '/blog/cuanto-cuesta-fotografo-15-anos-buenos-aires',
+  '/blog/fotografo-video-casamiento-que-incluye',
+  '/blog/cuantas-horas-contratar-fotografo-evento',
+  '/blog/fotos-que-no-pueden-faltar-fiesta-15',
 ];
 
 export default defineConfig(({ mode }) => {
@@ -69,6 +74,11 @@ export default defineConfig(({ mode }) => {
           corporativos: path.resolve(__dirname, 'eventos-corporativos-buenos-aires/index.html'),
           videoEventos: path.resolve(__dirname, 'video-para-eventos-buenos-aires/index.html'),
           contacto: path.resolve(__dirname, 'contacto/index.html'),
+          blog: path.resolve(__dirname, 'blog/index.html'),
+          blogPrecioQuince: path.resolve(__dirname, 'blog/cuanto-cuesta-fotografo-15-anos-buenos-aires/index.html'),
+          blogCasamientoIncluye: path.resolve(__dirname, 'blog/fotografo-video-casamiento-que-incluye/index.html'),
+          blogHorasEvento: path.resolve(__dirname, 'blog/cuantas-horas-contratar-fotografo-evento/index.html'),
+          blogFotosQuince: path.resolve(__dirname, 'blog/fotos-que-no-pueden-faltar-fiesta-15/index.html'),
         },
       },
     },

@@ -31,6 +31,13 @@ export const BlogArticlePage: React.FC<{ article: BlogArticle }> = ({ article })
     .map((slug) => BLOG_ARTICLES.find((item) => item.slug === slug))
     .filter((item): item is BlogArticle => Boolean(item));
 
+  const quickAnswerHtml = article.slug === 'cuanto-cuesta-fotografo-15-anos-buenos-aires'
+    ? article.quickAnswerHtml.replace(
+        'fiesta sola parte de $380.000',
+        'fiesta sola cuesta aproximadamente $500.000',
+      )
+    : article.quickAnswerHtml;
+
   return (
     <>
       <article>
@@ -73,7 +80,7 @@ export const BlogArticlePage: React.FC<{ article: BlogArticle }> = ({ article })
                   <span className="text-[10px] font-bold uppercase tracking-[0.26em] text-brand-orange">FRAME recomienda</span>
                   <h2 className="mt-3 font-display text-2xl font-black text-white">{article.quickAnswerTitle}</h2>
                 </div>
-                <div className="article-quick-answer text-sm leading-relaxed text-zinc-300 md:text-base" dangerouslySetInnerHTML={{ __html: article.quickAnswerHtml }} />
+                <div className="article-quick-answer text-sm leading-relaxed text-zinc-300 md:text-base" dangerouslySetInnerHTML={{ __html: quickAnswerHtml }} />
               </div>
             </div>
           </div>
@@ -135,7 +142,20 @@ export const BlogArticlePage: React.FC<{ article: BlogArticle }> = ({ article })
           <span className="mb-5 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">Consultar fecha</span>
           <h2 className="mx-auto max-w-4xl font-display text-3xl font-black leading-tight text-white md:text-6xl">{article.ctaTitle}</h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-400">{article.ctaText}</p>
-          <WhatsAppLink context={article.ctaContext} className="mt-9 inline-flex items-center justify-center rounded-sm bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-950 transition hover:bg-brand-orange hover:text-white">{article.ctaLabel}</WhatsAppLink>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={article.serviceHref}
+              className="inline-flex min-w-[220px] items-center justify-center gap-2 rounded-sm bg-brand-orange px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-orange-600"
+            >
+              {article.serviceLabel}<ArrowRight size={17} />
+            </a>
+            <WhatsAppLink
+              context={article.ctaContext}
+              className="inline-flex min-w-[220px] items-center justify-center rounded-sm bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-950 transition hover:bg-zinc-200"
+            >
+              {article.ctaLabel}
+            </WhatsAppLink>
+          </div>
         </div>
       </section>
     </>

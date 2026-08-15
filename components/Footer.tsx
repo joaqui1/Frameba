@@ -72,8 +72,12 @@ export const Footer: React.FC = () => {
           <p className="text-zinc-600 text-xs">
             © {new Date().getFullYear()} Frame Estudio. Todos los derechos reservados.
           </p>
-          <p className="text-zinc-700 text-xs">
-            Fotógrafo para eventos en Buenos Aires
+          <p className="text-zinc-700 text-xs flex items-center gap-3">
+            <span>Fotógrafo para eventos en Buenos Aires</span>
+            <span aria-hidden="true">·</span>
+            <a href="/desarrollo-web/" className="hover:text-zinc-400 transition-colors">
+              Desarrollo web
+            </a>
           </p>
         </div>
       </div>

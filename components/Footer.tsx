@@ -10,6 +10,7 @@ export const Footer: React.FC = () => {
     { label: 'Video para eventos', href: '/video-para-eventos-buenos-aires/' },
     { label: 'Eventos corporativos', href: '/eventos-corporativos-buenos-aires/' },
     { label: 'Guías para organizar tu evento', href: '/blog/' },
+    { label: 'Desarrollo web', href: '/desarrollo-web/' },
   ];
 
   return (
@@ -72,12 +73,8 @@ export const Footer: React.FC = () => {
           <p className="text-zinc-600 text-xs">
             © {new Date().getFullYear()} Frame Estudio. Todos los derechos reservados.
           </p>
-          <p className="text-zinc-700 text-xs flex items-center gap-3">
-            <span>Fotógrafo para eventos en Buenos Aires</span>
-            <span aria-hidden="true">·</span>
-            <a href="/desarrollo-web/" className="hover:text-zinc-400 transition-colors">
-              Desarrollo web
-            </a>
+          <p className="text-zinc-700 text-xs">
+            Fotógrafo para eventos en Buenos Aires
           </p>
         </div>
       </div>

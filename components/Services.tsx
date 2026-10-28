@@ -14,7 +14,7 @@ const PHOTOS = [
     srcSet: "/images/fotografia-15-anos-caba-frame-768.jpg 768w, /images/fotografia-15-anos-caba-frame-1536.jpg 1536w",
     type: "landscape",
     cat: "15 Años",
-    alt: "Fotografía de fiesta de 15 años en CABA por Frame Estudio"
+    alt: "Fotografía de fiesta de 15 años por Frame Estudio"
   },
   {
     url: "/images/evento-corporativo-buenos-aires-frame-1536.jpg",

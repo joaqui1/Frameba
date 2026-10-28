@@ -1,155 +1,125 @@
 import React from 'react';
-import { Aperture, ArrowUpRight, CalendarDays, Clock3, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CalendarDays, Clock3 } from 'lucide-react';
 import { BLOG_ARTICLES } from './blogData';
 import { BlogEditorialVisual } from './BlogEditorialVisual';
 import { WhatsAppLink } from '../components/WhatsAppLink';
+import { GoogleRating } from '../components/GoogleRating';
 
 const FEATURED = BLOG_ARTICLES[0];
 const SECONDARY = BLOG_ARTICLES.slice(1);
+const MOSAIC = [BLOG_ARTICLES[3], BLOG_ARTICLES[1], BLOG_ARTICLES[5]].filter(Boolean);
 
 function ArticleMeta({ readingTime, updatedLabel }: { readingTime: string; updatedLabel: string }) {
   return (
-    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-      <span className="inline-flex items-center gap-2"><Clock3 size={14} className="text-brand-orange" />{readingTime}</span>
-      <span className="inline-flex items-center gap-2"><CalendarDays size={14} className="text-brand-orange" />{updatedLabel.replace('Actualizado el ', '')}</span>
+    <div className="guide-meta">
+      <span><Clock3 size={14} aria-hidden />{readingTime}</span>
+      <span><CalendarDays size={14} aria-hidden />{updatedLabel.replace('Actualizado el ', '')}</span>
     </div>
   );
 }
 
-export const BlogIndexPage: React.FC = () => {
-  return (
-    <>
-      <section className="relative overflow-hidden border-b border-zinc-800/60 bg-zinc-950 pb-20 pt-36 md:pb-28 md:pt-44">
-        <div className="pointer-events-none absolute -left-40 top-24 h-96 w-96 rounded-full bg-brand-orange/10 blur-[120px]" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_30%,rgba(255,69,0,0.12),transparent_48%)]" />
-        <div className="container relative z-10 mx-auto px-6 md:px-12">
-          <div className="grid items-end gap-14 lg:grid-cols-[1.02fr_0.98fr]">
-            <div className="max-w-4xl">
-              <span className="mb-6 inline-flex items-center gap-2 border border-brand-orange/30 bg-brand-orange/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-orange">
-                <Sparkles size={13} /> Guías de FRAME
-              </span>
-              <h1 className="font-display text-5xl font-black leading-[0.92] tracking-tight text-white sm:text-6xl md:text-8xl">
-                Elegir mejor.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-700">Recordar más.</span>
-              </h1>
-              <p className="mt-8 max-w-2xl text-base font-light leading-relaxed text-zinc-400 md:text-xl">
-                Consejos escritos desde la experiencia de cubrir eventos: presupuestos, tiempos, momentos importantes y decisiones que conviene resolver antes de la fecha.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
-                {['15 años', 'Casamientos', 'Planificación', 'Fotografía'].map((tag) => (
-                  <span key={tag} className="border border-zinc-800 bg-zinc-900/60 px-4 py-2">{tag}</span>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative hidden min-h-[480px] lg:block" aria-hidden="true">
-              <div className="absolute left-0 top-14 h-[330px] w-[58%] overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/40">
-                <BlogEditorialVisual number="01" category="Presupuesto" mode="collage" className="absolute inset-0" />
-              </div>
-              <div className="absolute right-0 top-0 h-[260px] w-[48%] overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/40">
-                <BlogEditorialVisual number="02" category="Casamientos" mode="collage" className="absolute inset-0" />
-              </div>
-              <div className="absolute bottom-0 right-8 h-[210px] w-[44%] overflow-hidden border border-brand-orange/30 bg-zinc-900 shadow-2xl shadow-black/50">
-                <BlogEditorialVisual number="03" category="Planificación" mode="collage" className="absolute inset-0" />
-              </div>
-              <div className="absolute left-[46%] top-[43%] flex h-24 w-24 items-center justify-center rounded-full border border-brand-orange/40 bg-zinc-950 text-brand-orange shadow-xl shadow-black/40">
-                <Aperture size={30} strokeWidth={1.6} />
-              </div>
-            </div>
+export const BlogIndexPage: React.FC = () => (
+  <div className="frame-guide-index">
+    <section data-page-hero className="guide-index-masthead">
+      <div className="guide-index-masthead__inner">
+        <div className="guide-index-intro">
+          <span className="guide-eyebrow"><span>FRAME</span><i />Cuaderno de ideas</span>
+          <h1>Guías de <em>fotografía y video</em><br />para eventos</h1>
+          <p>Ideas prácticas para llegar a tu evento con las decisiones importantes resueltas: tiempos, fotos, video y presupuesto.</p>
+          <div className="guide-index-tags" aria-label="Temas de las guías">
+            {['15 años', 'Casamientos', 'Eventos', 'Planificación'].map((tag) => <span key={tag}>{tag}</span>)}
           </div>
         </div>
-      </section>
 
-      <section className="bg-zinc-950 py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-12 flex flex-col justify-between gap-5 border-b border-zinc-800 pb-8 md:flex-row md:items-end">
-            <div>
-              <span className="mb-3 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">Últimas guías</span>
-              <h2 className="font-display text-3xl font-bold text-white md:text-5xl">Información útil antes del evento</h2>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-zinc-500 md:text-right">
-              Sin fórmulas vacías ni listas copiadas: cada nota responde dudas reales que aparecen al organizar una cobertura.
-            </p>
-          </div>
-
-          <a href={`/blog/${FEATURED.slug}/`} className="group relative mb-8 grid min-h-[620px] overflow-hidden border border-zinc-800 bg-zinc-900 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative min-h-[360px] overflow-hidden lg:min-h-full">
+        <div className="guide-index-mosaic" aria-label="Fotografías de las guías">
+          {MOSAIC.map((article, index) => (
+            <figure key={article.slug} className={`guide-index-mosaic__tile guide-index-mosaic__tile--${index + 1}`}>
               <BlogEditorialVisual
-                number={FEATURED.number}
-                category={FEATURED.category}
-                title={FEATURED.shortTitle}
-                mode="featured"
-                className="absolute inset-0 transition duration-700 group-hover:scale-[1.018]"
+                number={article.number}
+                category={article.category}
+                mode="collage"
+                className="absolute inset-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-zinc-950/5 lg:to-zinc-950" />
-              <div className="absolute left-6 top-6 border border-white/20 bg-black/30 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-white backdrop-blur-md">Destacada</div>
-            </div>
-            <div className="relative flex flex-col justify-center p-8 md:p-14 lg:p-16">
-              <span className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-brand-orange">{FEATURED.category}</span>
-              <h3 className="font-display text-3xl font-black leading-tight text-white transition-colors group-hover:text-brand-orange md:text-5xl">{FEATURED.title}</h3>
-              <p className="mt-6 text-base leading-relaxed text-zinc-400">{FEATURED.intro}</p>
-              <div className="mt-8"><ArticleMeta readingTime={FEATURED.readingTime} updatedLabel={FEATURED.updatedLabel} /></div>
-              <span className="mt-10 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-white">Leer la guía <ArrowUpRight size={18} className="text-brand-orange transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></span>
-            </div>
-          </a>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
 
-          <div className="grid gap-8 lg:grid-cols-3">
-            {SECONDARY.map((article, index) => (
-              <a
-                key={article.slug}
-                href={`/blog/${article.slug}/`}
-                className={`group flex overflow-hidden border border-zinc-800 bg-zinc-900/60 transition hover:border-zinc-700 ${index === 0 ? 'lg:col-span-2 lg:grid lg:grid-cols-[0.95fr_1.05fr]' : 'flex-col'}`}
-              >
-                <div className={`relative overflow-hidden ${index === 0 ? 'min-h-[360px]' : 'h-72'}`}>
-                  <BlogEditorialVisual
-                    number={article.number}
-                    category={article.category}
-                    title={article.shortTitle}
-                    mode="card"
-                    className="absolute inset-0 transition duration-700 group-hover:scale-[1.025]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/35 via-transparent to-transparent" />
-                </div>
-                <div className="flex flex-1 flex-col p-7 md:p-9">
-                  <span className="mb-4 text-[10px] font-bold uppercase tracking-[0.24em] text-brand-orange">{article.category}</span>
-                  <h3 className="font-display text-2xl font-bold leading-tight text-white transition-colors group-hover:text-brand-orange md:text-3xl">{article.title}</h3>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-500">{article.intro}</p>
-                  <div className="mt-7"><ArticleMeta readingTime={article.readingTime} updatedLabel={article.updatedLabel} /></div>
-                  <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-zinc-200">Leer guía <ArrowUpRight size={16} className="text-brand-orange" /></span>
-                </div>
-              </a>
-            ))}
+    <section className="guide-index-library">
+      <div className="guide-index-library__inner">
+        <div className="guide-section-heading">
+          <div>
+            <span className="guide-eyebrow"><span>01—06</span><i />Lecturas FRAME</span>
+            <h2>Una buena cobertura<br /><em>empieza antes.</em></h2>
           </div>
+          <p>Experiencias reales convertidas en respuestas claras para organizar tu fecha con más tranquilidad.</p>
         </div>
-      </section>
 
-      <section className="border-y border-zinc-800/60 bg-zinc-900 py-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              ['01', 'Decisiones más claras', 'Entendé qué incluye cada servicio antes de comparar propuestas.'],
-              ['02', 'Cronogramas mejor armados', 'Ubicá las horas alrededor de los momentos que realmente importan.'],
-              ['03', 'Recuerdos más completos', 'Evitá olvidos sin convertir el evento en una lista interminable de poses.'],
-            ].map(([number, title, text]) => (
-              <article key={number} className="border-l border-zinc-700 pl-6">
-                <span className="font-display text-sm font-black text-brand-orange">{number}</span>
-                <h3 className="mt-4 font-display text-xl font-bold text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-500">{text}</p>
-              </article>
-            ))}
+        <a href={`/blog/${FEATURED.slug}/`} className="guide-featured-card group" aria-label={FEATURED.title}>
+          <div className="guide-featured-card__image">
+            <BlogEditorialVisual
+              number={FEATURED.number}
+              category={FEATURED.category}
+              mode="featured"
+              className="absolute inset-0 transition duration-700 group-hover:scale-[1.025]"
+            />
+            <span className="guide-featured-card__stamp">Lectura destacada</span>
           </div>
-        </div>
-      </section>
+          <div className="guide-featured-card__copy">
+            <span className="guide-category">{FEATURED.category}</span>
+            <h3>{FEATURED.title}</h3>
+            <p>{FEATURED.intro}</p>
+            <ArticleMeta readingTime={FEATURED.readingTime} updatedLabel={FEATURED.updatedLabel} />
+            <span className="guide-read-link">Leer la guía <ArrowUpRight size={17} aria-hidden /></span>
+          </div>
+        </a>
 
-      <section className="relative overflow-hidden bg-zinc-950 py-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(255,69,0,0.12),transparent_45%)]" />
-        <div className="container relative z-10 mx-auto px-6 text-center md:px-12">
-          <span className="mb-5 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">Tu evento</span>
-          <h2 className="mx-auto max-w-4xl font-display text-3xl font-black leading-tight text-white md:text-6xl">La guía ayuda. El cronograma real define la cobertura.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-400">Contanos fecha, zona y tipo de evento. Te orientamos sobre horas, equipo y entrega sin sumar cosas que no necesitás.</p>
-          <WhatsAppLink context="general" className="mt-9 inline-flex items-center justify-center rounded-sm bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-950 transition hover:bg-brand-orange hover:text-white">Consultar mi evento</WhatsAppLink>
+        <div className="guide-article-grid">
+          {SECONDARY.map((article) => (
+            <a key={article.slug} href={`/blog/${article.slug}/`} className="guide-article-card group" aria-label={article.title}>
+              <div className="guide-article-card__image">
+                <BlogEditorialVisual
+                  number={article.number}
+                  category={article.category}
+                  mode="card"
+                  className="absolute inset-0 transition duration-700 group-hover:scale-[1.035]"
+                />
+              </div>
+              <div className="guide-article-card__copy">
+                <span className="guide-category">{article.category}</span>
+                <h3>{article.title}</h3>
+                <p>{article.intro}</p>
+                <ArticleMeta readingTime={article.readingTime} updatedLabel={article.updatedLabel} />
+                <span className="guide-read-link">Leer guía <ArrowUpRight size={15} aria-hidden /></span>
+              </div>
+            </a>
+          ))}
         </div>
-      </section>
-    </>
-  );
-};
+      </div>
+    </section>
+
+    <section data-page-final-cta className="guide-index-cta">
+      <span className="guide-eyebrow"><span>FRAME / EVENTOS</span><i />Tu fecha</span>
+      <h2>La guía orienta.<br /><em>Tu historia es única.</em></h2>
+      <p>Contanos qué estás organizando y vemos juntos qué cobertura tiene sentido para vos.</p>
+      <WhatsAppLink context="general" className="guide-cta-link">Consultar mi evento <ArrowUpRight size={17} aria-hidden /></WhatsAppLink>
+      <GoogleRating />
+    </section>
+
+    <section className="guide-index-values">
+      <div className="guide-index-values__inner">
+        {[
+          ['01', 'Decisiones claras', 'Entendé qué incluye cada servicio antes de comparar propuestas.'],
+          ['02', 'Mejor planificación', 'Ubicá cada momento en un cronograma que funcione para vos.'],
+          ['03', 'Recuerdos completos', 'Elegí qué registrar y dejá espacio para lo espontáneo.'],
+        ].map(([number, title, text]) => (
+          <article key={number}>
+            <span>{number}</span><h3>{title}</h3><p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+  </div>
+);

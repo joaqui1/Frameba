@@ -6,11 +6,13 @@ import { GOOGLE_BUSINESS_URL, PHONE_DISPLAY, PHONE_TEL } from '../utils/business
 export const Footer: React.FC = () => {
   const serviceLinks = [
     { label: '15 Años', href: '/fotografo-15-anos-caba-gba/' },
+    { label: 'Book de fotos de 15 años', href: '/book-15-anos-buenos-aires/' },
+    { label: 'Fotografía corporativa y LinkedIn', href: '/fotografia-corporativa-buenos-aires/' },
+    { label: 'Sesión de fotos en Buenos Aires', href: '/sesion-de-fotos-buenos-aires/' },
     { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
     { label: 'Video para eventos', href: '/video-para-eventos-buenos-aires/' },
     { label: 'Eventos corporativos', href: '/eventos-corporativos-buenos-aires/' },
     { label: 'Guías para organizar tu evento', href: '/blog/' },
-    { label: 'Desarrollo web', href: '/desarrollo-web/' },
   ];
 
   return (
@@ -21,13 +23,13 @@ export const Footer: React.FC = () => {
             <a href="/" className="inline-flex min-h-11 items-center">
               <BrandLogo />
             </a>
-            <p className="text-zinc-500 text-sm mt-3 leading-relaxed max-w-xs">
-              Fotografía profesional para eventos en CABA y Buenos Aires. 15 años, casamientos, eventos sociales y corporativos.
+            <p className="text-zinc-400 text-sm mt-3 leading-relaxed max-w-xs">
+              Fotografía y video para fiestas de 15, casamientos, eventos sociales y corporativos.
             </p>
           </div>
 
           <nav aria-label="Páginas de servicio y guías" className="flex flex-col gap-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-1">Explorar</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-1">Explorar</span>
             {serviceLinks.map((link) => (
               <a
                 key={link.label}
@@ -47,9 +49,8 @@ export const Footer: React.FC = () => {
           </nav>
 
           <div className="flex flex-col gap-6">
-            <div className="text-zinc-500 text-sm space-y-1">
-              <p>Buenos Aires, Argentina</p>
-              <p>CABA · GBA · Zona Norte · Zona Sur</p>
+            <div className="text-zinc-400 text-sm space-y-1">
+              <p>Cubrimos eventos en CABA y el Gran Buenos Aires. Si tu evento es en otra zona, consultanos.</p>
               <p>
                 <a href={PHONE_TEL} className="hover:text-white transition-colors">
                   {PHONE_DISPLAY}
@@ -70,12 +71,13 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-600 text-xs">
+          <p className="text-zinc-400 text-xs">
             © {new Date().getFullYear()} Frame Estudio. Todos los derechos reservados.
           </p>
-          <p className="text-zinc-700 text-xs">
-            Fotógrafo para eventos en Buenos Aires
-          </p>
+          <nav aria-label="Otros idiomas" className="flex items-center gap-4 text-xs text-zinc-400">
+            <a href="/en/buenos-aires-photographer/" hrefLang="en" lang="en" className="hover:text-white transition-colors">English</a>
+            <a href="/pt/fotografo-em-buenos-aires/" hrefLang="pt-BR" lang="pt-BR" className="hover:text-white transition-colors">Português</a>
+          </nav>
         </div>
       </div>
     </footer>

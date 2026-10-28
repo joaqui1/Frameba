@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/prerender-content.mjs && node scripts/prerender-photoshoots.mjs && vite",
+    "build": "node scripts/prerender-content.mjs && node scripts/prerender-photoshoots.mjs && vite build",
+    "content:generate": "node scripts/prerender-content.mjs && node scripts/prerender-photoshoots.mjs",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "optimize:heroes": "node scripts/optimize-hero-images.mjs"
   },
@@ -16,6 +18,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.14",

@@ -6,9 +6,9 @@ import { BlogIndexPage } from './BlogIndexPage';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
+  ReactDOM.hydrateRoot(rootElement,
     <React.StrictMode>
-      <Layout ctaContext="general" ctaLabel="Consultar cobertura">
+      <Layout ctaContext="general" ctaLabel="Consultar cobertura" homeEditorial>
         <BlogIndexPage />
       </Layout>
     </React.StrictMode>,

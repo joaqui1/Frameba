@@ -2,19 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { WhatsAppLink } from './WhatsAppLink';
+import type { CTA_Context } from '../utils/whatsapp';
 
 const NAV_ITEMS = [
   { label: '15 Años', href: '/fotografo-15-anos-caba-gba/' },
   { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
   { label: 'Video', href: '/video-para-eventos-buenos-aires/' },
   { label: 'Corporativos', href: '/eventos-corporativos-buenos-aires/' },
+  { label: 'Guías', href: '/blog/' },
 ];
 
 interface NavbarProps {
   onMenuOpenChange?: (open: boolean) => void;
+  homeEditorial?: boolean;
+  ctaContext?: CTA_Context;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange, homeEditorial = false, ctaContext = 'contact' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -50,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-[110] transition-all duration-500 border-b ${
+        className={`fixed top-0 w-full z-[110] transition-all duration-500 border-b ${homeEditorial ? `home-editorial-header ${scrolled ? 'home-editorial-header--scrolled' : ''}` : ''} ${
           isOpen
             ? 'bg-zinc-950 border-zinc-800/60 py-3'
             : scrolled
@@ -63,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
             <BrandLogo />
           </a>
 
-          <nav className="hidden md:flex gap-5 lg:gap-7 items-center" aria-label="Navegación principal">
+          <nav className="hidden lg:flex gap-4 xl:gap-5 items-center" aria-label="Navegación principal">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
@@ -73,17 +77,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
                 {item.label}
               </a>
             ))}
-            <WhatsAppLink
-              context="contact"
-              showIcon={false}
+            <a
+              href="/contacto/"
               className="px-5 lg:px-6 py-2.5 bg-white text-zinc-950 text-xs lg:text-sm font-bold uppercase tracking-wider hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-sm"
             >
               Contacto
-            </WhatsAppLink>
+            </a>
             <WhatsAppLink
-              context="contact"
+              context={ctaContext}
               showIcon={false}
-              className="hidden xl:inline-flex px-6 py-2.5 bg-brand-orange text-white text-sm font-bold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300 rounded-sm"
+              className="hidden 2xl:inline-flex px-6 py-2.5 bg-brand-orange text-white text-sm font-bold uppercase tracking-wider hover:bg-orange-600 transition-all duration-300 rounded-sm"
             >
               Cotizar Ahora
             </WhatsAppLink>
@@ -91,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
 
           <button
             type="button"
-            className="md:hidden -mr-2 text-white p-2.5 rounded-sm hover:bg-zinc-800/60 transition-colors"
+            className="lg:hidden -mr-2 text-white p-2.5 rounded-sm hover:bg-zinc-800/60 transition-colors"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-expanded={isOpen}
             aria-controls="mobile-nav-panel"
@@ -103,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
       </header>
 
       {isOpen && (
-        <div id="mobile-nav-panel" className="fixed inset-0 z-[100] md:hidden" aria-hidden="false">
+        <div id="mobile-nav-panel" className="fixed inset-0 z-[100] lg:hidden" aria-hidden="false">
           <button
             type="button"
             className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm"
@@ -138,21 +141,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuOpenChange }) => {
                   </li>
                 ))}
                 <li>
-                  <WhatsAppLink
-                    context="contact"
-                    showIcon={false}
-                    onNavigate={closeMenu}
+                  <a
+                    href="/contacto/"
                     className="block rounded-lg px-3 py-3.5 text-lg font-display font-semibold text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors tracking-tight"
+                    onClick={closeMenu}
                   >
                     Contacto
-                  </WhatsAppLink>
+                  </a>
                 </li>
               </ul>
             </nav>
 
             <div className="shrink-0 border-t border-zinc-800/80 pt-5 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-auto">
               <WhatsAppLink
-                context="contact"
+                context={ctaContext}
                 showIcon={false}
                 onNavigate={closeMenu}
                 className="flex w-full items-center justify-center rounded-sm bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-orange-600 transition-colors"

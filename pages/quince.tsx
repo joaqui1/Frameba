@@ -9,7 +9,7 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <Layout ctaContext="quince" ctaLabel="Estoy organizando un 15">
+      <Layout ctaContext="quince" ctaLabel="Pedir presupuesto" homeEditorial>
         <QuincePage />
       </Layout>
     </React.StrictMode>

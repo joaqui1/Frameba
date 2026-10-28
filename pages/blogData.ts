@@ -1,16 +1,19 @@
 import type { CTA_Context } from '../utils/whatsapp';
+import { NEW_BLOG_ARTICLES } from './newBlogData';
 
 export interface BlogArticle {
   slug: string;
   number: string;
   category: string;
   title: string;
+  seoTitle?: string;
   shortTitle: string;
   description: string;
   intro: string;
   readingTime: string;
   updatedLabel: string;
   publishedIso: string;
+  modifiedIso?: string;
   image: string;
   imageAlt: string;
   imagePosition: string;
@@ -29,8 +32,11 @@ export interface BlogArticle {
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  ...NEW_BLOG_ARTICLES,
   {
     slug: 'cuanto-cuesta-fotografo-15-anos-buenos-aires',
+    seoTitle: 'Cuánto cuesta un fotógrafo para una fiesta de 15 | Frame Estudio',
+    modifiedIso: '2026-09-12',
     number: '01',
     category: '15 años · Precios',
     title: 'Cuánto cuesta un fotógrafo para una fiesta de 15 en Buenos Aires',
@@ -38,7 +44,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     description: 'Precios orientativos de fotografía para una fiesta de 15, qué modifica el presupuesto y qué debería incluir una propuesta clara.',
     intro: 'El precio no depende solamente de la cantidad de fotos. Horas, sesión previa, video, equipo y entregas pueden cambiar por completo una propuesta.',
     readingTime: '5 min de lectura',
-    updatedLabel: 'Actualizado el 22 de julio de 2026',
+    updatedLabel: 'Actualizado el 12 de septiembre de 2026',
     publishedIso: '2026-07-22',
     image: '/images/hero-quince-portada-desktop.webp',
     imageAlt: 'Guía de precios para fotografía de una fiesta de 15',
@@ -50,7 +56,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ctaText: 'Compartinos fecha, salón, zona, horas aproximadas y si buscás fotografía, video o ambos.',
     ctaLabel: 'Consultar presupuesto',
     quickAnswerTitle: 'Referencia rápida',
-    quickAnswerHtml: '<p>Como referencia de <strong>julio de 2026</strong>, en FRAME una cobertura de <strong>fiesta sola parte de $380.000</strong> y una propuesta con <strong>fiesta más sesión previa parte de $550.000</strong>.</p><p>El valor final depende de horas, ubicación, equipo y entregas.</p>',
+    quickAnswerHtml: '<p>Como referencia de <strong>julio de 2026</strong>, en FRAME: <strong>Fiesta: aproximadamente $500.000 ARS</strong>.</p><p>Es una referencia de esa fecha. El presupuesto actual se confirma según horas, ubicación, equipo y entregas.</p>',
     toc: [
       { id: 'que-modifica-el-precio', label: 'Qué modifica el precio' },
       { id: 'que-deberia-incluir', label: 'Qué debería incluir' },
@@ -84,19 +90,19 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       <aside class="article-quote"><span>“</span><p>El presupuesto más conveniente es el que cubre los momentos importantes y explica con claridad qué vas a recibir.</p></aside>
 
       <h2 id="sesion-previa">Cuándo sumar una sesión previa o book de 15</h2>
-      <p>La sesión previa conviene cuando se buscan retratos producidos, una locación elegida y fotografías para invitaciones, cuadros o recepción. Es un trabajo distinto de la fiesta: requiere planificación, sesión, selección y edición propias.</p>
+      <p>La sesión previa conviene cuando se buscan retratos producidos, una locación elegida y fotografías para invitaciones, cuadros o recepción. Es un trabajo distinto de la fiesta: requiere planificación, sesión, selección y edición propias. Podés consultar el <a href="/book-15-anos-buenos-aires/">book de fotos de 15 años</a> o explorar <a href="/blog/ideas-sesion-fotos-15-anos/">ideas para tu sesión de 15</a>.</p>
       <p>Para calcular mejor la duración de la cobertura, podés consultar nuestra <a class="article-inline-link" href="/blog/cuantas-horas-contratar-fotografo-evento/">guía sobre cuántas horas contratar</a>.</p>
       <h2 id="preguntas-frecuentes">Preguntas frecuentes</h2>
     `,
     faqs: [
       { question: '¿Las fotos se entregan editadas?', answer: 'Sí. La propuesta debería aclarar selección, corrección de luz y color, formato y plazo de entrega.' },
       { question: '¿Se puede contratar solamente la fiesta?', answer: 'Sí. La sesión previa, el video y los reels pueden cotizarse por separado.' },
-      { question: '¿El precio cambia por la zona?', answer: 'Puede cambiar por traslados, peajes, horarios y logística. Conviene informar el salón desde el primer contacto.' },
     ],
-    relatedSlugs: ['cuantas-horas-contratar-fotografo-evento', 'fotos-que-no-pueden-faltar-fiesta-15', 'fotografo-video-casamiento-que-incluye'],
+    relatedSlugs: ['ideas-sesion-fotos-15-anos', 'cuanto-cuesta-fotografo-eventos-buenos-aires', 'fotos-que-no-pueden-faltar-fiesta-15'],
   },
   {
     slug: 'fotografo-video-casamiento-que-incluye',
+    seoTitle: 'Qué incluye fotografía y video para casamiento | Frame Estudio',
     number: '02',
     category: 'Casamientos · Qué incluye',
     title: 'Qué incluye un servicio de fotografía y video para casamiento',
@@ -104,8 +110,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     description: 'Qué incluye una cobertura de fotografía y video para casamiento: momentos, edición, entregas y preguntas importantes antes de contratar.',
     intro: 'Una cobertura bien definida explica qué momentos se registran, cuánto dura el trabajo y qué material se entrega después del casamiento.',
     readingTime: '5 min de lectura',
-    updatedLabel: 'Actualizado el 22 de julio de 2026',
+    updatedLabel: 'Actualizado el 22 de octubre de 2026',
     publishedIso: '2026-07-22',
+    modifiedIso: '2026-10-22',
     image: '/images/hero-casamiento-portada-desktop.webp',
     imageAlt: 'Guía sobre qué incluye fotografía y video para casamiento',
     imagePosition: '50% 50%',
@@ -134,6 +141,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         <article><span>03</span><div><h3>Retratos y grupos</h3><p>Pareja, padres, hermanos, abuelos, padrinos y amistades cercanas.</p></div></article>
         <article><span>04</span><div><h3>Recepción y fiesta</h3><p>Ambientación, discursos, brindis, torta, baile y momentos espontáneos.</p></div></article>
       </div>
+      <p>Algunas parejas suman además una sesión de novios antes de la boda, para el save the date, las invitaciones o para proyectar en la fiesta. Mirá como ejemplo <a class="article-inline-link" href="/casos/sesion-novios-recoleta-marcelo-noelia/">la sesión de Marcelo y Noelia en Recoleta</a>.</p>
 
       <h2 id="trabajo-posterior">Qué incluye el trabajo después del casamiento</h2>
       <div class="article-process-grid">
@@ -157,10 +165,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       { question: '¿Hay que preparar una lista de fotos?', answer: 'Conviene indicar familiares y grupos imprescindibles. El resto del registro debería fluir con naturalidad.' },
       { question: '¿Fotografía y video deben contratarse juntos?', answer: 'No necesariamente. Pueden contratarse por separado, aunque la cobertura combinada conserva imagen, movimiento y sonido.' },
     ],
-    relatedSlugs: ['cuantas-horas-contratar-fotografo-evento', 'cuanto-cuesta-fotografo-15-anos-buenos-aires', 'fotos-que-no-pueden-faltar-fiesta-15'],
+    relatedSlugs: ['cuantas-horas-contratar-fotografo-evento', 'cuanto-cuesta-fotografo-eventos-buenos-aires', 'fotos-que-no-pueden-faltar-fiesta-15'],
   },
   {
     slug: 'cuantas-horas-contratar-fotografo-evento',
+    seoTitle: 'Cuántas horas contratar un fotógrafo para un evento',
     number: '03',
     category: 'Eventos · Duración',
     title: '¿Cuántas horas contratar un fotógrafo para un evento?',
@@ -200,6 +209,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         <article><span>2–5 h</span><h3>Corporativo</h3><p>Presentaciones, oradores, activaciones y networking.</p></article>
       </div>
 
+      <p>Cada tipo de evento tiene su propio ritmo: podés ver cómo organizamos la <a class="article-inline-link" href="/fotografo-15-anos-caba-gba/">cobertura de fiestas de 15</a>, la <a class="article-inline-link" href="/fotografia-video-casamientos-buenos-aires/">fotografía y video para casamientos</a> y la <a class="article-inline-link" href="/eventos-corporativos-buenos-aires/">cobertura de eventos corporativos</a>.</p>
       <h2 id="calcular">Cómo calcular las horas de cobertura</h2>
       <ol class="article-steps">
         <li><span>01</span><div><h3>Anotá el cronograma</h3><p>Entrada, ceremonia, brindis, discursos, torta, shows y pista.</p></div></li>
@@ -211,7 +221,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       <h2 id="ejemplos">Dos ejemplos de cronograma</h2>
       <div class="article-schedule">
         <div><span>Fiesta de 15</span><ul><li><b>21:30</b> Ambientación y recepción</li><li><b>22:30</b> Entrada</li><li><b>23:30</b> Vals</li><li><b>01:30</b> Torta</li></ul><p>Cinco o seis horas pueden cubrir los momentos centrales y una parte amplia de la pista.</p></div>
-        <div><span>Casamiento</span><ul><li><b>18:00</b> Ceremonia</li><li><b>19:00</b> Retratos</li><li><b>20:00</b> Recepción</li><li><b>23:00</b> Pista</li></ul><p>Para sumar preparativos y traslados, la cobertura debe empezar antes.</p></div>
+        <div><span>Casamiento</span><ul><li><b>18:00</b> Ceremonia</li><li><b>19:00</b> Retratos</li><li><b>20:00</b> Recepción</li><li><b>23:00</b> Pista</li></ul><p>Para sumar preparativos y traslados, la cobertura debe empezar antes. Mirá también <a class="article-inline-link" href="/blog/fotografo-video-casamiento-que-incluye/">qué incluye la cobertura de un casamiento</a>.</p></div>
       </div>
 
       <h2 id="errores">Errores frecuentes</h2>
@@ -222,10 +232,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       </div>
     `,
     faqs: [],
-    relatedSlugs: ['cuanto-cuesta-fotografo-15-anos-buenos-aires', 'fotografo-video-casamiento-que-incluye', 'fotos-que-no-pueden-faltar-fiesta-15'],
+    relatedSlugs: ['cuanto-cuesta-fotografo-eventos-buenos-aires', 'fotografo-video-casamiento-que-incluye', 'cuanto-cuesta-fotografo-15-anos-buenos-aires'],
   },
   {
     slug: 'fotos-que-no-pueden-faltar-fiesta-15',
+    seoTitle: '15 fotos que no pueden faltar en una fiesta de 15 | Frame Estudio',
     number: '04',
     category: '15 años · Lista de fotos',
     title: 'Fotos para una fiesta de 15: 15 imágenes que no pueden faltar',
@@ -302,7 +313,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       { question: '¿Cuándo conviene hacer las fotos familiares?', answer: 'Antes de la entrada o durante la recepción, antes de que empiece la pista.' },
       { question: '¿La sesión previa reemplaza las fotos de la fiesta?', answer: 'No. La sesión produce retratos; la fiesta conserva familia, amistades y momentos reales.' },
     ],
-    relatedSlugs: ['cuanto-cuesta-fotografo-15-anos-buenos-aires', 'cuantas-horas-contratar-fotografo-evento', 'fotografo-video-casamiento-que-incluye'],
+    relatedSlugs: ['cuanto-cuesta-fotografo-15-anos-buenos-aires', 'ideas-sesion-fotos-15-anos', 'cuantas-horas-contratar-fotografo-evento'],
   },
 ];
 

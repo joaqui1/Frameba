@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Check TypeScript
+        run: npm run typecheck
       - name: Verify dist output
         run: |
           set -e
@@ -38,6 +40,13 @@ jobs:
           test -f dist/eventos-corporativos-buenos-aires/index.html
           test -f dist/video-para-eventos-buenos-aires/index.html
           test -f dist/contacto/index.html
+          test -f dist/book-15-anos-buenos-aires/index.html
+          test -f dist/fotografia-corporativa-buenos-aires/index.html
+          test -f dist/sesion-de-fotos-buenos-aires/index.html
+          test -f dist/en/buenos-aires-photographer/index.html
+          test -f dist/pt/fotografo-em-buenos-aires/index.html
+          test -f dist/blog/ideas-sesion-fotos-15-anos/index.html
+          test -f dist/blog/cuanto-cuesta-fotografo-eventos-buenos-aires/index.html
           test -f dist/sitemap.xml
           test -f dist/robots.txt
           test -f dist/404.html
@@ -48,6 +57,13 @@ jobs:
           grep -q 'fotografo-15-anos-caba-gba/' dist/sitemap.xml
           grep -q 'contacto/' dist/sitemap.xml
           grep -q 'video-para-eventos-buenos-aires/' dist/sitemap.xml
+          grep -q 'book-15-anos-buenos-aires/' dist/sitemap.xml
+          grep -q 'fotografia-corporativa-buenos-aires/' dist/sitemap.xml
+          grep -q 'sesion-de-fotos-buenos-aires/' dist/sitemap.xml
+          grep -q 'en/buenos-aires-photographer/' dist/sitemap.xml
+          grep -q 'pt/fotografo-em-buenos-aires/' dist/sitemap.xml
+          grep -q 'ideas-sesion-fotos-15-anos/' dist/sitemap.xml
+          grep -q 'cuanto-cuesta-fotografo-eventos-buenos-aires/' dist/sitemap.xml
           echo "dist verification OK"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

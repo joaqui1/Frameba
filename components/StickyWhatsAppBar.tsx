@@ -9,6 +9,8 @@ interface Props {
 }
 
 const CTA_LABELS: Record<CTA_Context, string> = {
+  book: 'Consultar mi book de 15',
+  portraits: 'Consultar retratos corporativos',
   general: 'Consultar fecha por WhatsApp',
   quince: 'Estoy organizando un 15',
   wedding: 'Consultar casamiento',
@@ -86,13 +88,14 @@ export const StickyWhatsAppBar: React.FC<Props> = ({ context = 'general', label,
         isVisible ? 'translate-y-0' : 'translate-y-full pointer-events-none'
       }`}
       aria-hidden={!isVisible}
+      inert={!isVisible}
     >
       <div className="bg-zinc-950/90 backdrop-blur-lg border-t border-zinc-800/50 px-4 py-3">
         <WhatsAppLink
           context={context}
           showIcon
           iconSize={20}
-          className="flex items-center justify-center gap-2.5 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-green-900/20"
+          className="flex items-center justify-center gap-2.5 w-full bg-green-700 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-green-900/20"
         >
           <span className="text-sm uppercase tracking-wide">{displayLabel}</span>
         </WhatsAppLink>

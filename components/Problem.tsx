@@ -4,11 +4,11 @@ const WORLDS = [
   {
     title: "FOTO Y VIDEO PARA 15 AÑOS",
     description: "Previa, fiesta y pista con ritmo real.",
-    details: "Fotografía y video para fiestas de 15 años en CABA y Buenos Aires: previa, entrada, baile, familia, amigos y momentos clave, sin posar de más.",
+    details: "Fotografía y video para fiestas de 15 años: previa, entrada, baile, familia, amigos y momentos clave, sin posar de más.",
     image: "/images/fotografia-15-anos-caba-frame-1536.jpg",
     srcSet: "/images/fotografia-15-anos-caba-frame-768.jpg 768w, /images/fotografia-15-anos-caba-frame-1536.jpg 1536w",
     tag: "15 Años",
-    alt: "Foto y video para fiesta de 15 años en CABA por Frame Estudio"
+    alt: "Foto y video para fiesta de 15 años por Frame Estudio"
   },
   {
     title: "CASAMIENTOS Y BODAS",
@@ -41,7 +41,7 @@ export const BentoGrid: React.FC = () => {
             </h2>
           </div>
           <p className="text-zinc-400 max-w-md text-sm md:text-base">
-            Cubrimos fiestas de 15, casamientos y bodas, eventos corporativos y contenido para marcas en CABA y Buenos Aires.
+            Cubrimos fiestas de 15, casamientos y bodas, eventos corporativos y contenido para marcas.
           </p>
         </div>
 

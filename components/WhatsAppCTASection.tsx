@@ -1,6 +1,7 @@
 import React from 'react';
 import { type CTA_Context } from '../utils/whatsapp';
 import { WhatsAppLink } from './WhatsAppLink';
+import { GoogleRating } from './GoogleRating';
 
 interface Props {
   title?: string;
@@ -32,6 +33,7 @@ export const WhatsAppCTASection: React.FC<Props> = ({
           >
             {ctaLabel}
           </WhatsAppLink>
+          <GoogleRating />
         </div>
       </div>
     </section>

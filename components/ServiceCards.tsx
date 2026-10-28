@@ -29,7 +29,7 @@ export const ServiceCards: React.FC<Props> = ({ cards }) => {
             </h2>
           </div>
           <p className="text-zinc-400 max-w-md text-sm md:text-base">
-            Foto y video para distintos tipos de eventos en CABA y Buenos Aires.
+            Foto y video para distintos tipos de eventos sociales y corporativos.
           </p>
         </div>
 

@@ -10,9 +10,9 @@ const article = getBlogArticle(slug);
 const rootElement = document.getElementById('root');
 
 if (rootElement && article) {
-  ReactDOM.createRoot(rootElement).render(
+  ReactDOM.hydrateRoot(rootElement,
     <React.StrictMode>
-      <Layout ctaContext={article.ctaContext} ctaLabel={article.ctaLabel}>
+      <Layout ctaContext={article.ctaContext} ctaLabel={article.ctaLabel} homeEditorial>
         <BlogArticlePage article={article} />
       </Layout>
     </React.StrictMode>,

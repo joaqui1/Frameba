@@ -1,87 +1,146 @@
 import React from 'react';
-import { ServicePageHero } from '../components/ServicePageHero';
-import { Camera, Film, Clock, Sparkles, Music, Users, Heart, Star, MapPin } from 'lucide-react';
+import { Camera, Film, Clock, Sparkles, Music, Users, Heart, Star, UsersRound } from 'lucide-react';
 import { HowWeWork } from '../components/HowWeWork';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
+import { GoogleRating } from '../components/GoogleRating';
+import { RelatedServices } from '../components/RelatedServices';
+import { DesktopOnlyImage } from '../components/DesktopOnlyImage';
 
 const INTRO =
-  'Fotografía y video para fiestas de 15 años en Buenos Aires, CABA y GBA. Cubrimos previa, entrada, vals, familia, pista, book de 15 y reels con una estética moderna, natural y cuidada.';
+  'Fotos, video y reels de tu fiesta de 15, y un book antes de la fiesta. Una estética moderna, natural y cuidada.';
+
+const CTA_LABEL = 'Pedir presupuesto';
+
+const linkClass = 'font-bold text-white underline decoration-brand-orange underline-offset-8 hover:text-brand-orange';
 
 const QUINCE_MOMENTS = [
   {
     icon: <Sparkles size={20} />,
     time: 'Previa',
-    title: 'Preparativos con amigas y familia.',
-    desc: 'Maquillaje, vestido, detalles, brindis y esos minutos donde empieza a sentirse la noche.',
+    title: 'Preparativos',
+    desc: 'Vestido, maquillaje, detalles y brindis con amigas y familia.',
   },
   {
     icon: <Star size={20} />,
     time: 'Entrada',
-    title: 'La llegada, el vals, los saludos y los momentos importantes sin cortar la emoción del evento.',
-    desc: '',
+    title: 'Llegada y vals',
+    desc: 'La entrada, el vals y los saludos, tal como se viven.',
   },
   {
     icon: <Heart size={20} />,
     time: 'Familia',
-    title: 'Retratos con familia, amigas, amigos y personas clave para que nadie quede afuera.',
-    desc: '',
+    title: 'Retratos en familia',
+    desc: 'Fotos con familia, amigas y amigos para que estén todos los que querés.',
   },
   {
     icon: <Music size={20} />,
     time: 'Pista',
-    title: 'Movimiento, luces, abrazos y la energía real de la fiesta hasta el cierre contratado.',
-    desc: '',
+    title: 'La fiesta en movimiento',
+    desc: 'Luces, abrazos y baile hasta el cierre de la cobertura.',
   },
 ];
 
 const QUINCE_INCLUDES = [
-  { icon: <Camera size={18} />, title: 'Fotografía del evento', desc: 'Cobertura de previa, entrada, familia, baile, pista y momentos principales.' },
-  { icon: <Film size={18} />, title: 'Video y reels', desc: 'Video resumen y piezas cortas para redes, según la propuesta elegida.' },
-  { icon: <Users size={18} />, title: 'Book de 15 años', desc: 'Sesión previa o en exteriores para sumar fotos cuidadas antes de la fiesta.' },
-  { icon: <Clock size={18} />, title: 'Horario a medida', desc: 'Definimos la cantidad de horas según el cronograma y el tipo de entrega.' },
+  { icon: <Camera size={18} />, title: 'Fotografía del evento', desc: 'Todos los momentos de la noche, de la previa al cierre.' },
+  { icon: <Film size={18} />, title: 'Video y reels', desc: 'Video resumen y piezas cortas para redes, si las sumás.' },
+  { icon: <Users size={18} />, title: 'Book de 15 años', desc: 'Una sesión previa para tener fotos cuidadas antes de la fiesta.' },
+  { icon: <Clock size={18} />, title: 'Horario a medida', desc: 'Las horas se definen según el cronograma de la fiesta.' },
 ];
 
-const FAQ_ITEMS = [
+export const FAQ_ITEMS = [
   {
-    question: '¿Qué incluye una cobertura de fotografía para 15 años?',
-    answer: 'Puede incluir previa, entrada, vals, familia, pista y momentos principales de la fiesta, según el cronograma del evento.',
+    question: '¿Puedo contratar solo fotos o sumar video y reels?',
+    answer: 'Sí. Podés contratar solo fotografía o sumarle video resumen y reels. En la cotización detallamos qué piezas incluye cada propuesta.',
   },
   {
-    question: '¿Hacen foto y video para fiestas de 15?',
-    answer: 'Sí, podemos cubrir fiestas de 15 con fotografía, video resumen, reels y piezas editadas para compartir.',
+    question: '¿Cómo se organizan las fotos importantes?',
+    answer: 'Antes de la fiesta repasamos el cronograma con vos y anotamos entrada, vals, brindis, shows, torta y retratos familiares, con sus horarios.',
   },
   {
-    question: '¿Se puede sumar book de 15 años?',
-    answer: 'Sí, el book de 15 puede hacerse antes de la fiesta, en exteriores o en una locación a definir.',
+    question: '¿Cuándo se hace el book de 15 años?',
+    answer: 'Unas semanas antes de la fiesta, en exteriores o en una locación que elegimos juntos. Podés contratarlo solo o junto con la cobertura.',
   },
   {
-    question: '¿Cubren previa, entrada, vals, familia y pista?',
-    answer: 'Sí, podemos organizar la cobertura alrededor de esos momentos para registrar la historia completa del evento.',
+    question: '¿Qué datos necesito para pedir presupuesto?',
+    answer: 'La fecha, el salón o la zona, las horas estimadas y si buscás fotos, video, book o reels.',
   },
   {
-    question: '¿Trabajan en CABA y GBA?',
-    answer: 'Sí, trabajamos en Buenos Aires, CABA y Gran Buenos Aires, sujeto a disponibilidad de fecha y logística.',
-  },
-  {
-    question: '¿Cómo se calcula un presupuesto de fotografía y video para 15 años?',
-    answer: 'Se calcula según fecha, duración, zona, horas de cobertura, tipo de entrega y si se suma fotografía, video, book o reels.',
+    question: '¿En qué zonas trabajan?',
+    answer: 'En CABA y el Gran Buenos Aires. Si tu salón queda en otra zona, consultanos.',
   },
 ];
+
+function QuinceEditorialHero() {
+  return (
+    <section data-page-hero className="home-editorial-hero quince-editorial-hero">
+      <div className="home-editorial-main">
+        <div className="quince-mobile-cover" aria-hidden="true" />
+        <div className="home-editorial-copy">
+          <div className="home-editorial-eyebrow" aria-hidden="true">
+            <span className="home-editorial-index">
+              <svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 98 16 A 62 62 0 0 0 28 116" /></svg>
+              <span className="home-editorial-index-dot" />
+              <span>01</span>
+            </span>
+            <span className="home-editorial-rule" />
+            <span>Fotografía y video para 15 años</span>
+          </div>
+          <div className="quince-mobile-copy-block">
+            <h1 className="home-editorial-title">
+              Fotógrafo<br />para 15 años<br /><span>en Buenos Aires</span>
+            </h1>
+            <p className="home-editorial-description">
+              {INTRO}
+            </p>
+            <WhatsAppLink context="quince" showIcon={false} className="home-editorial-cta">
+              <span className="quince-cta-desktop">{CTA_LABEL} por WhatsApp</span>
+              <span className="quince-cta-mobile">{CTA_LABEL}</span>
+              <span aria-hidden="true">⟶</span>
+            </WhatsAppLink>
+            <GoogleRating className="frame-hero-rating" />
+          </div>
+        </div>
+
+        <div className="home-editorial-gallery" aria-label="Book de 15 años en un mercado de Buenos Aires">
+          <figure className="home-editorial-photo home-editorial-photo--lead quince-editorial-photo--lead">
+            <DesktopOnlyImage src="/images/quince-mercado-primer-plano.webp" alt="Retrato sonriente durante una sesión de 15 años en un mercado" width={1280} height={1920} fetchPriority="high" decoding="async" />
+          </figure>
+          <figure className="home-editorial-photo quince-editorial-photo--side-portrait">
+            <DesktopOnlyImage src="/images/quince-mercado-retrato-vertical.webp" alt="Retrato de 15 años en un puesto del mercado histórico" width={1280} height={1920} loading="eager" decoding="async" />
+          </figure>
+        </div>
+        <aside className="home-editorial-notes" aria-label="Detalles de la sesión">
+          <p><span>01 / Historia</span><span>Hecha a tu manera</span></p>
+          <p><span>02 / Retrato</span><span>Con tu estilo</span></p>
+          <p><span>03 / Book de 15</span><span>Buenos Aires como escenario</span></p>
+        </aside>
+      </div>
+
+      <div className="home-editorial-footer">
+        <div><UsersRound className="home-editorial-footer-icon" size={28} strokeWidth={1.2} /><span>Cobertura completa</span><small>Previa, entrada, vals y pista</small></div>
+        <div><Film className="home-editorial-footer-icon" size={28} strokeWidth={1.2} /><span>Foto y video</span><small>Reels, resumen y book</small></div>
+        <div><Camera className="home-editorial-footer-icon" size={28} strokeWidth={1.2} /><span>Planificación</span><small>Antes de la fiesta</small></div>
+      </div>
+    </section>
+  );
+}
 
 function SectionBlock({
   title,
   children,
   eyebrow,
   altBg = false,
+  className = '',
 }: {
   title: string;
   children: React.ReactNode;
   eyebrow?: string;
   altBg?: boolean;
+  className?: string;
 }) {
   return (
-    <section className={altBg ? 'bg-zinc-900 py-20 border-y border-zinc-800/50' : 'bg-zinc-950 py-20'}>
+    <section className={`home-editorial-section ${className} ${altBg ? 'home-editorial-section--soft bg-zinc-900 border-y border-zinc-800/50' : 'bg-zinc-950'} py-20`.trim()}>
       <div className="container mx-auto px-6 md:px-12">
         {eyebrow && (
           <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">{eyebrow}</span>
@@ -98,41 +157,14 @@ function SectionBlock({
 export const QuincePage: React.FC = () => {
   return (
     <>
-      <ServicePageHero
-        badge="15 años"
-        h1="Fotógrafo para 15 años en Buenos Aires"
-        subtitle={INTRO}
-        ctaLabel="Estoy organizando un 15"
-        ctaContext="quince"
-        imageBase="/images/hero-quince-portada"
-        imageAlt="Fotógrafo para 15 años en Buenos Aires"
-        responsive
-        heroPolish
-        mobileObjectPosition="52% 58%"
-        desktopObjectPosition="50% 48%"
-      />
+      <QuinceEditorialHero />
 
-      <SectionBlock title="Foto y video para fiestas de 15 años" eyebrow="Cobertura completa">
+      <SectionBlock title="Cómo cubrimos tu fiesta" eyebrow="Cobertura" className="home-editorial-includes home-editorial-moments">
         <p className="mb-10 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
-          Armamos la cobertura según el cronograma de la fiesta y el tipo de material que querés recibir: fotografía,
-          video, book de 15 años, reels o una entrega combinada.
+          Cada fiesta tiene su propio ritmo. Coordinamos la cobertura con vos para que el registro acompañe la celebración sin interrumpirla.
         </p>
-        <div className="grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {QUINCE_INCLUDES.map((item) => (
-            <div
-              key={item.title}
-              className="border border-zinc-800/60 bg-zinc-900/45 p-6 transition-colors hover:border-zinc-700"
-            >
-              <div className="mb-4 text-brand-orange">{item.icon}</div>
-              <h3 className="mb-2 font-display text-lg font-bold text-white">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-zinc-500">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Cobertura de previa, entrada, vals, familia y pista" altBg eyebrow="Momentos del evento">
-        <div className="max-w-3xl">
+        <h3 className="font-display mb-6 text-2xl font-bold text-white">Los momentos de la noche</h3>
+        <div className="home-editorial-timeline mb-14 max-w-3xl">
           {QUINCE_MOMENTS.map((item, i) => (
             <div key={item.title} className="group mb-8 flex gap-5 last:mb-0">
               <div className="flex flex-col items-center">
@@ -143,66 +175,58 @@ export const QuincePage: React.FC = () => {
               </div>
               <div className="pb-4">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-brand-orange">{item.time}</span>
-                <p className="mt-0.5 text-sm leading-relaxed text-zinc-500">
-                  <span className="font-display text-lg font-bold text-white">{item.title}</span>
-                  {item.desc ? ` ${item.desc}` : ''}
-                </p>
+                <h4 className="mt-0.5 font-display font-bold text-white">{item.title}</h4>
+                <p className="mt-1 text-sm leading-relaxed text-zinc-500">{item.desc}</p>
               </div>
+            </div>
+          ))}
+        </div>
+        <h3 className="font-display mb-6 text-2xl font-bold text-white">Una cobertura a medida</h3>
+        <div className="grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {QUINCE_INCLUDES.map((item) => (
+            <div
+              key={item.title}
+              className="home-editorial-detail-card border border-zinc-800/60 bg-zinc-900/45 p-6 transition-colors hover:border-zinc-700"
+            >
+              <div className="mb-4 text-brand-orange">{item.icon}</div>
+              <h4 className="mb-2 font-display text-lg font-bold text-zinc-900">{item.title}</h4>
+              <p className="text-sm leading-relaxed text-zinc-500">{item.desc}</p>
             </div>
           ))}
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Book de 15 años y sesión previa">
-        <div className="max-w-4xl border border-zinc-800/70 bg-zinc-900/45 p-7 md:p-10">
-          <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
-            El book puede hacerse antes de la fiesta, en exteriores o en una locación a definir, y combinarse con la
-            cobertura del evento, video resumen o reels.
+      <SectionBlock title="Book de 15 años y sesión previa" className="home-editorial-book">
+        <div className="max-w-5xl border border-zinc-800/70 bg-zinc-900/45 p-6 md:p-9">
+          <p className="mb-8 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
+            Una sesión tranquila, sin el ritmo de la fiesta, con tiempo para probar looks y lugares de Buenos Aires.
           </p>
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Fotógrafo para 15 años en CABA y GBA" altBg>
-        <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
-          <p className="max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
-            Trabajamos en Buenos Aires, CABA, Gran Buenos Aires y otras zonas según disponibilidad de fecha. Contanos
-            dónde es la fiesta para confirmar logística y horarios.
-          </p>
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-orange">
-              Zonas principales de cobertura
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {['Buenos Aires', 'CABA', 'GBA'].map((zone) => (
-                <span
-                  key={zone}
-                  className="inline-flex items-center gap-2 border border-zinc-800 bg-zinc-950/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300"
-                >
-                  <MapPin size={14} className="text-brand-orange" />
-                  {zone}
-                </span>
-              ))}
-            </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Fotos de sesiones de book de 15 años">
+            <figure className="group overflow-hidden bg-zinc-900">
+              <img src="/images/book-15-sunset.webp" alt="Sesión de 15 años al atardecer" width={1800} height={1200} loading="lazy" decoding="async" className="aspect-[4/3] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:aspect-[4/5]" />
+            </figure>
+            <figure className="group overflow-hidden bg-zinc-900">
+              <img src="/images/book-15-dsc01068.webp" alt="Retrato de book de 15 años en el mercado" width={1280} height={1920} loading="lazy" decoding="async" className="aspect-[4/3] h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03] sm:aspect-[4/5]" />
+            </figure>
+            <figure className="group overflow-hidden bg-zinc-900 sm:col-span-2 lg:col-span-1">
+              <img src="/images/book-15-market.webp" alt="Retrato de cuerpo entero durante un book de 15 años" width={1800} height={1200} loading="lazy" decoding="async" className="aspect-[4/3] h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03] sm:aspect-[4/5]" />
+            </figure>
           </div>
+          <a href="/book-15-anos-buenos-aires/" className="mt-7 inline-block py-2 text-sm font-bold text-white underline decoration-brand-orange underline-offset-8 hover:text-brand-orange">Conocé el book de fotos de 15 años</a>
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Presupuesto para fotografía y video de 15 años">
-        <div className="grid max-w-5xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
-          <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
-            El presupuesto depende de la fecha, la duración, la zona, el tipo de cobertura y la entrega final. Podemos
-            armar una propuesta para fotografía, video, book, reels o cobertura completa de la fiesta.
-          </p>
-          <WhatsAppLink
-            context="quince"
-            className="inline-flex items-center justify-center gap-2 rounded-sm bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-950 transition-all hover:bg-brand-orange hover:text-white"
-          >
-            Pedir presupuesto
-          </WhatsAppLink>
-        </div>
-      </SectionBlock>
+      <HowWeWork
+        className="home-editorial-process"
+        steps={[
+          { number: '01', title: 'Nos contás fecha y salón', description: 'Vemos disponibilidad, zona, horarios y momentos principales del 15.' },
+          { number: '02', title: 'Definimos foto, video o ambos', description: 'Armamos una propuesta según lo que quieras recibir.' },
+          { number: '03', title: 'Coordinamos el cronograma', description: 'Repasamos la noche con vos para llegar preparados.' },
+          { number: '04', title: 'Recibís el material editado', description: 'Fotos y video organizados para guardar, compartir y revivir la noche.' },
+        ]}
+      />
 
-      <section className="bg-zinc-900 py-20 border-y border-zinc-800/50">
+      <section className="home-editorial-section home-editorial-section--soft home-editorial-faq bg-zinc-900 py-20 border-y border-zinc-800/50">
         <div className="container mx-auto max-w-4xl px-6 md:px-12">
           <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-brand-orange">
             Dudas comunes
@@ -218,24 +242,22 @@ export const QuincePage: React.FC = () => {
               </article>
             ))}
           </div>
+          <p className="mt-8 text-sm leading-relaxed text-zinc-400">
+            Antes de pedir presupuesto, mirá la <a href="/blog/cuanto-cuesta-fotografo-15-anos-buenos-aires/" className={linkClass}>guía de precios para 15 años</a>,
+            las <a href="/blog/fotos-que-no-pueden-faltar-fiesta-15/" className={linkClass}>fotos que no pueden faltar</a> y
+            cómo trabajamos el <a href="/video-para-eventos-buenos-aires/" className={linkClass}>video para la fiesta</a>.
+          </p>
         </div>
       </section>
 
-      <HowWeWork
-        steps={[
-          { number: '01', title: 'Nos contás fecha y salón', description: 'Vemos disponibilidad, zona, horarios y momentos principales del 15.' },
-          { number: '02', title: 'Definimos foto, video o ambos', description: 'Armamos una propuesta según previa, fiesta, pista y entrega esperada.' },
-          { number: '03', title: 'Coordinamos el cronograma', description: 'Anotamos entrada, vals, brindis, shows, torta y fotos importantes.' },
-          { number: '04', title: 'Recibís el material editado', description: 'Fotos y video organizados para guardar, compartir y revivir la noche.' },
-        ]}
-      />
-
       <WhatsAppCTASection
         title="¿Estás organizando un 15?"
-        subtitle="Escribinos por WhatsApp con la fecha, zona y tipo de cobertura. Te armamos una propuesta de foto y video a medida."
-        ctaLabel="Consultar disponibilidad"
+        subtitle="Escribinos por WhatsApp con la fecha, el salón y qué te gustaría recibir. Te armamos una propuesta a medida."
+        ctaLabel={CTA_LABEL}
         context="quince"
       />
+
+      <RelatedServices current="/fotografo-15-anos-caba-gba/" />
     </>
   );
 };

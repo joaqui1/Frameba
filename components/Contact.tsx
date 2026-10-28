@@ -23,7 +23,7 @@ export const Contact: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-6 text-zinc-400 font-medium">
             <div className="flex items-center gap-2">
               <MapPin size={18} className="text-brand-orange" />
-              <span>Buenos Aires (CABA & GBA)</span>
+              <span>Consultá la cobertura para tu evento</span>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ export const Contact: React.FC = () => {
                 <Clock size={20} />
               </div>
               <div>
-                <p className="text-xs text-zinc-500 uppercase font-bold tracking-wider">Horario de atención</p>
+                <p className="text-xs text-zinc-400 uppercase font-bold tracking-wider">Horario de atención</p>
                 <p className="font-medium">{OPENING_HOURS_LABEL}</p>
               </div>
             </div>
@@ -49,7 +49,7 @@ export const Contact: React.FC = () => {
                 <Smartphone size={20} />
               </div>
               <div>
-                <p className="text-xs text-zinc-500 uppercase font-bold tracking-wider">Teléfono / WhatsApp</p>
+                <p className="text-xs text-zinc-400 uppercase font-bold tracking-wider">Teléfono / WhatsApp</p>
                 <a href={PHONE_TEL} className="font-medium hover:text-white transition-colors">
                   {PHONE_DISPLAY}
                 </a>
@@ -60,7 +60,7 @@ export const Contact: React.FC = () => {
           <WhatsAppLink
             context="contact"
             iconSize={22}
-            className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-900/20 hover:-translate-y-1"
+            className="w-full bg-green-700 hover:bg-green-600 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-900/20 hover:-translate-y-1"
           >
             Pedir presupuesto por WhatsApp
           </WhatsAppLink>
@@ -69,7 +69,7 @@ export const Contact: React.FC = () => {
             href={GOOGLE_BUSINESS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 block text-center text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+            className="mt-4 block text-center text-sm text-zinc-400 hover:text-white transition-colors"
           >
             Ver {BUSINESS_NAME} en Google
           </a>

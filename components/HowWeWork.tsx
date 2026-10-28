@@ -8,6 +8,7 @@ interface Step {
 
 interface Props {
   steps?: Step[];
+  className?: string;
 }
 
 const DEFAULT_STEPS: Step[] = [
@@ -33,9 +34,9 @@ const DEFAULT_STEPS: Step[] = [
   },
 ];
 
-export const HowWeWork: React.FC<Props> = ({ steps = DEFAULT_STEPS }) => {
+export const HowWeWork: React.FC<Props> = ({ steps = DEFAULT_STEPS, className = '' }) => {
   return (
-    <section className="py-20 bg-zinc-950">
+    <section className={`py-20 bg-zinc-950 ${className}`.trim()}>
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-14">
           <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-3 block">
@@ -55,7 +56,7 @@ export const HowWeWork: React.FC<Props> = ({ steps = DEFAULT_STEPS }) => {
               <h3 className="font-display font-bold text-lg text-white mb-2">{step.title}</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">{step.description}</p>
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 right-0 w-12 h-px bg-zinc-800"></div>
+                <div className="home-editorial-process-rule hidden lg:block absolute top-8 right-0 w-12 h-px bg-zinc-800"></div>
               )}
             </div>
           ))}

@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Imágenes que ya no usa el sitio (no se publican)
+_imagenes-sin-uso/

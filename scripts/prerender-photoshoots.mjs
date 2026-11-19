@@ -90,8 +90,9 @@ ${alternates}
 <link rel="stylesheet" href="/styles/photoshoots.css" />
 <script type="application/ld+json">${JSON.stringify(graph).replaceAll('<', '\\u003c')}</script>
 ${tracking}
+<script src="/scripts/static-whatsapp-tracking.js"></script>
 </head>
-<body>
+<body data-whatsapp-context="general">
 ${trackingFallback}
 <a class="skip" href="#main">${escape(page.skip)}</a>
 <header class="header wrap">

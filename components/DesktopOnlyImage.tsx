@@ -13,3 +13,10 @@ export const DesktopOnlyImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement
     <img {...props} />
   </picture>
 );
+
+export const MobileOnlyImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => (
+  <picture style={{ display: 'contents' }}>
+    <source media="(min-width: 768px)" srcSet={EMPTY_GIF} />
+    <img {...props} />
+  </picture>
+);

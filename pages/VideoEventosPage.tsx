@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 import { GoogleRating } from '../components/GoogleRating';
 import { RelatedServices } from '../components/RelatedServices';
 import { HowWeWork } from '../components/HowWeWork';
-import { Check, Film, Play, Sparkles } from 'lucide-react';
+import { DesktopOnlyImage, MobileOnlyImage } from '../components/DesktopOnlyImage';
+import { Check, Film, Sparkles } from 'lucide-react';
 
 const CTA_LABEL = 'Consultar video para mi evento';
 
@@ -16,11 +17,6 @@ const SERVICE_INCLUDES = [
   'Reels verticales para Instagram, TikTok o WhatsApp',
   'Clips cortos de los momentos clave',
   'Entrega digital lista para compartir',
-];
-
-const VIDEOS = [
-  { id: 'D-h5rOfkN8U', title: 'Reel de evento 1' },
-  { id: 'ufyNKEbTxdI', title: 'Reel de evento 2' },
 ];
 
 export const VIDEO_FAQ = [
@@ -72,33 +68,13 @@ function H2Block({
   );
 }
 
-/** Shows the YouTube thumbnail and only loads the player when someone clicks play. */
-function VideoCard({ id, title }: { id: string; title: string }) {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <figure className="frame-video-reel">
-      {playing ? (
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
-          title={title}
-          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-          allowFullScreen
-        />
-      ) : (
-        <button type="button" onClick={() => setPlaying(true)} aria-label={`Reproducir ${title.toLowerCase()}`}>
-          <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt={`Vista previa del video: ${title}`} width={480} height={360} loading="lazy" decoding="async" />
-          <span className="frame-video-reel-play" aria-hidden="true"><Play size={22} fill="currentColor" /></span>
-        </button>
-      )}
-    </figure>
-  );
-}
-
 export const VideoEventosPage: React.FC = () => {
   return (
     <>
       <section data-page-hero className="home-editorial-hero frame-book-editorial-hero frame-video-editorial-hero">
-        <div className="frame-video-mobile-cover" aria-hidden="true"><img src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento en Buenos Aires" width={4200} height={2360} fetchPriority="high" decoding="async" /></div>
+        <div className="frame-video-mobile-cover">
+          <MobileOnlyImage src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento en Buenos Aires" width={2560} height={1438} fetchPriority="high" decoding="async" />
+        </div>
         <div className="home-editorial-main frame-book-editorial-main">
           <div className="home-editorial-copy frame-book-editorial-copy">
             <nav aria-label="Breadcrumb" className="frame-book-breadcrumb">
@@ -126,14 +102,14 @@ export const VideoEventosPage: React.FC = () => {
 
           <div className="home-editorial-gallery frame-book-editorial-gallery frame-video-editorial-gallery" aria-label="Cobertura de video en eventos">
             <figure className="home-editorial-photo home-editorial-photo--lead">
-              <img src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento con público" width={4200} height={2360} fetchPriority="high" decoding="async" />
+              <DesktopOnlyImage src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento con público" width={2560} height={1438} fetchPriority="high" decoding="async" />
             </figure>
             <div className="home-editorial-side-photos">
               <figure className="home-editorial-photo home-editorial-photo--top">
-                <img src="/images/video-eventos-dsc03063.webp" alt="Equipo premiado en un evento tecnológico" width={1800} height={1012} loading="eager" decoding="async" />
+                <DesktopOnlyImage src="/images/video-eventos-dsc03063.webp" alt="Equipo premiado en un evento tecnológico" width={1800} height={1012} decoding="async" />
               </figure>
               <figure className="home-editorial-photo home-editorial-photo--bottom">
-                <img src="/images/video-eventos-dsc02748.webp" alt="Expositor en escenario durante una conferencia" width={1800} height={1012} loading="eager" decoding="async" />
+                <DesktopOnlyImage src="/images/video-eventos-dsc02748.webp" alt="Expositor en escenario durante una conferencia" width={1800} height={1012} decoding="async" />
               </figure>
             </div>
           </div>
@@ -192,6 +168,13 @@ export const VideoEventosPage: React.FC = () => {
         </div>
       </H2Block>
 
+      <H2Block title="Ejemplos de video resumen">
+        <ul className="grid gap-4">
+          <li><a href="/casos/video-resumen-fiesta-cena-shows-en-vivo/" className={linkClass}>Video de una fiesta con cena y shows en vivo</a></li>
+          <li><a href="/casos/video-presentacion-producto-hotel-nh/" className={linkClass}>Video de una presentación de producto en el Hotel NH</a></li>
+        </ul>
+      </H2Block>
+
       <HowWeWork className="frame-video-process-section" />
 
       <section className="home-editorial-faq">
@@ -212,15 +195,6 @@ export const VideoEventosPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      <H2Block id="videos" title="Mirá cómo filmamos" eyebrow="Nuestro trabajo">
-        <p className="mb-10 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
-          Dos reels de eventos que cubrimos, en el formato vertical que se comparte en redes.
-        </p>
-        <div className="frame-video-reels">
-          {VIDEOS.map(video => <VideoCard key={video.id} {...video} />)}
-        </div>
-      </H2Block>
 
       <WhatsAppCTASection
         title="Consultá disponibilidad para tu evento"

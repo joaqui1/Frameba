@@ -6,6 +6,7 @@ import { RelatedServices } from '../components/RelatedServices';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 import { GoogleRating } from '../components/GoogleRating';
 import { CaseHighlight } from '../components/CaseHighlight';
+import { DesktopOnlyImage, MobileOnlyImage } from '../components/DesktopOnlyImage';
 import { CASES } from './casesData';
 
 const EKOPARTY_CASE = CASES.find(item => item.slug === 'ekoparty-2026-cobertura-foto-video')!;
@@ -105,8 +106,8 @@ export const CorporativosPage: React.FC = () => {
   return (
     <>
       <section data-page-hero className="home-editorial-hero frame-book-editorial-hero frame-video-editorial-hero">
-        <div className="frame-video-mobile-cover" aria-hidden="true">
-          <img src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento corporativo en Buenos Aires" width={2560} height={1438} fetchPriority="high" decoding="async" />
+        <div className="frame-video-mobile-cover">
+          <MobileOnlyImage src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento corporativo en Buenos Aires" width={2560} height={1438} fetchPriority="high" decoding="async" />
         </div>
         <div className="home-editorial-main frame-book-editorial-main">
           <div className="home-editorial-copy frame-book-editorial-copy">
@@ -135,14 +136,14 @@ export const CorporativosPage: React.FC = () => {
 
           <div className="home-editorial-gallery frame-book-editorial-gallery frame-video-editorial-gallery frame-corporate-events-gallery" aria-label="Cobertura audiovisual de eventos corporativos">
             <figure className="home-editorial-photo home-editorial-photo--lead">
-              <img src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento con público" width={2560} height={1438} fetchPriority="high" decoding="async" />
+              <DesktopOnlyImage src="/images/video-eventos-dsc02772-vertical.webp" alt="Presentación en escenario durante un evento con público" width={2560} height={1438} fetchPriority="high" decoding="async" />
             </figure>
             <div className="home-editorial-side-photos">
               <figure className="home-editorial-photo home-editorial-photo--top">
-                <img src="/images/video-eventos-dsc03063.webp" alt="Equipo premiado en un evento tecnológico" width={1800} height={1012} loading="eager" decoding="async" />
+                <DesktopOnlyImage src="/images/video-eventos-dsc03063.webp" alt="Equipo premiado en un evento tecnológico" width={1800} height={1012} decoding="async" />
               </figure>
               <figure className="home-editorial-photo home-editorial-photo--bottom">
-                <img src="/images/video-eventos-dsc02748.webp" alt="Expositor en escenario durante una conferencia" width={1800} height={1012} loading="eager" decoding="async" />
+                <DesktopOnlyImage src="/images/video-eventos-dsc02748.webp" alt="Expositor en escenario durante una conferencia" width={1800} height={1012} decoding="async" />
               </figure>
             </div>
           </div>
@@ -174,6 +175,9 @@ export const CorporativosPage: React.FC = () => {
             </article>
           ))}
         </div>
+        <p className="mt-6 text-base leading-relaxed text-zinc-400">
+          Mirá cómo quedó el <a href="/casos/video-presentacion-producto-hotel-nh/" className={linkClass}>video de una presentación de producto en el Hotel NH</a>.
+        </p>
       </SectionBlock>
       </div>
       <CaseHighlight

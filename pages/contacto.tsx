@@ -9,7 +9,7 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <Layout ctaContext="contact" ctaLabel="Pedir propuesta por WhatsApp">
+      <Layout ctaContext="contact" ctaLabel="Pedir propuesta por WhatsApp" homeEditorial>
         <ContactoPage />
       </Layout>
     </React.StrictMode>

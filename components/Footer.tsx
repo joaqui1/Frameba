@@ -12,6 +12,7 @@ export const Footer: React.FC = () => {
     { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
     { label: 'Video para eventos', href: '/video-para-eventos-buenos-aires/' },
     { label: 'Eventos corporativos', href: '/eventos-corporativos-buenos-aires/' },
+    { label: 'Casos reales', href: '/casos/' },
     { label: 'Guías para organizar tu evento', href: '/blog/' },
   ];
 

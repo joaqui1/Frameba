@@ -16,4 +16,4 @@ export const OPENING_HOURS_SPECIFICATION = {
 export const GOOGLE_BUSINESS_URL = 'https://www.google.com/maps?cid=14896937321842328795';
 
 /** Calificación pública en Google Maps. Actualizar cuando cambie en la ficha (no redondear ni inflar). */
-export const GOOGLE_RATING = { value: '5,0', count: 18 };
+export const GOOGLE_RATING = { value: '5,0', count: 20 };

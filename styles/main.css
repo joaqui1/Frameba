@@ -950,9 +950,14 @@ header.home-editorial-header nav a[class*="bg-brand-orange"]:hover {
     display: block;
     margin: 0;
     overflow: hidden;
-    background-image: url('/images/hero-quince-mobile-display.webp');
-    background-position: 50% 50%;
-    background-size: cover;
+  }
+
+  .quince-mobile-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 
   .quince-mobile-cover::after {
@@ -1461,6 +1466,100 @@ header.home-editorial-header nav a[class*="bg-brand-orange"]:hover {
   .home-editorial-page .home-editorial-process > div:last-child > div {
     padding-top: 1rem;
   }
+}
+
+/* Contact follows the same paper, ink, serif type and restrained CTAs as the home. */
+.frame-contact {
+  padding: clamp(7rem, 11vw, 9rem) clamp(1.25rem, 3.2vw, 3.25rem) clamp(3rem, 6vw, 5rem);
+  color: var(--home-ink);
+  background: var(--home-paper);
+}
+
+.frame-contact__inner { max-width: 1280px; margin-inline: auto; }
+.frame-contact__breadcrumb {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+  color: var(--home-muted);
+  font-size: 0.65rem;
+}
+.frame-contact__breadcrumb a:hover { color: var(--home-ink); text-decoration: underline; }
+.frame-contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: start;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+.frame-contact__eyebrow {
+  display: block;
+  color: var(--home-muted);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.frame-contact h1,
+.frame-contact h2 {
+  color: var(--home-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+.frame-contact h1 { margin-block: 1.5rem; font-size: clamp(3.75rem, 6.8vw, 6rem); }
+.frame-contact h2 { margin-block: 1.25rem; font-size: clamp(2.75rem, 4.1vw, 3.75rem); }
+.frame-contact__description {
+  max-width: 29rem;
+  color: var(--home-muted);
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.frame-contact__illustration { margin-top: 2.25rem; color: #63584d; }
+.frame-contact__illustration svg { display: block; width: 100%; height: auto; max-height: 260px; }
+.frame-contact__illustration > span { display: block; margin-top: 0.5rem; color: var(--home-muted); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; font-style: italic; text-align: center; }
+.frame-contact__details { padding: 1rem 0 1rem clamp(2rem, 4vw, 4rem); border-left: 1px solid var(--home-line); }
+.frame-contact__details > p { color: var(--home-muted); font-size: 0.9rem; line-height: 1.7; }
+.frame-contact__info { margin-block: 1.5rem 2rem; }
+.frame-contact__info > div {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.35rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--home-line);
+}
+.frame-contact__info svg { grid-row: 1 / 3; margin-top: 0.1rem; color: #685247; }
+.frame-contact__info dt { color: var(--home-muted); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.frame-contact__info dd { margin: 0; font-size: 0.85rem; line-height: 1.6; }
+.frame-contact__info a:hover { color: #685247; text-decoration: underline; }
+.frame-contact__cta { width: 100%; justify-content: space-between; font-size: 0.6rem; letter-spacing: 0.12em; }
+.frame-contact__cta:hover { background: #513e34; }
+.frame-contact__details > .frame-contact__note { margin-top: 0.8rem; font-size: 0.7rem; text-align: center; }
+.frame-contact__quick-cta { display: none; }
+
+body:has(.frame-contact) .home-editorial-header a[aria-label="Frame Estudio — Inicio"] { transform: none; }
+body:has(.frame-contact) header.home-editorial-header { background: rgba(246, 243, 237, .97) !important; border-color: rgba(45, 40, 35, .18) !important; backdrop-filter: blur(12px); }
+body:has(.frame-contact) header.home-editorial-header .text-white,
+body:has(.frame-contact) header.home-editorial-header button,
+body:has(.frame-contact) header.home-editorial-header nav a,
+body:has(.frame-contact) header.home-editorial-header a[aria-label="Frame Estudio — Inicio"] > span > span { color: #211d1a !important; }
+body:has(.frame-contact) header.home-editorial-header nav a[class*="bg-white"],
+body:has(.frame-contact) header.home-editorial-header nav a[class*="bg-brand-orange"] { color: #f6f3ed !important; background: #685247 !important; }
+body:has(.frame-contact) #mobile-nav-panel > button { background: rgba(246, 243, 237, .98); }
+body:has(.frame-contact) #mobile-nav-panel nav a { color: #211d1a; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; font-weight: 500; border-radius: 0; }
+body:has(.frame-contact) #mobile-nav-panel nav a:hover { background: #eee9e0; }
+body:has(.frame-contact) #mobile-nav-panel nav + div { border-color: #d7cfc5; }
+body:has(.frame-contact) #mobile-nav-panel nav + div a { color: #f6f3ed; background: #685247 !important; border-radius: 0; }
+
+@media (max-width: 767px) {
+  .frame-contact { padding-top: 6.5rem; }
+  .frame-contact__breadcrumb { margin-bottom: 1.75rem; }
+  .frame-contact__grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .frame-contact h1 { font-size: clamp(3.75rem, 16vw, 5rem); }
+  .frame-contact__illustration { display: none; }
+  .frame-contact__details { padding: 2rem 0 0; border-left: 0; border-top: 1px solid var(--home-line); }
+  .frame-contact__quick-cta { display: inline-flex; margin-top: 1.25rem; }
 }
 
 /* Extend the cover's paper-and-ink language through the 15th-birthday book page. */
@@ -4456,11 +4555,38 @@ section.guide-index-cta .frame-google-rating {
 }
 
 .frame-google-reviews-list figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
   margin-top: 0.75rem;
   color: #6b625a;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.frame-google-review-avatar {
+  display: grid;
+  width: 1.875rem;
+  height: 1.875rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #e9d5ca;
+  color: #653d2e;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1;
+}
+
+.frame-google-reviews-list figure:nth-child(2) .frame-google-review-avatar {
+  background: #dce4d6;
+  color: #384e3e;
+}
+
+.frame-google-reviews-list figure:nth-child(3) .frame-google-review-avatar {
+  background: #dfe2eb;
+  color: #424e68;
 }
 
 .frame-google-reviews-more {
@@ -4892,4 +5018,80 @@ section.guide-index-cta .frame-google-rating {
   body[data-service-slug="fotografia-corporativa-buenos-aires"] .home-editorial-hero.frame-corporate-editorial-hero::after {
     color: #fff !important;
   }
+}
+
+
+/* Casos, con la misma dirección visual que la portada. */
+.frame-cases-list { scroll-margin-top: 5rem; }
+.home-editorial-page .frame-cases-list article { height: clamp(390px, 42vw, 520px); }
+.frame-cases-link { display:inline-flex; width:fit-content; align-items:center; gap:.6rem; margin-top:1.1rem; padding-bottom:.3rem; border-bottom:1px solid rgba(255,255,255,.7); color:#fff; font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
+.frame-cases-link:hover { color:#fff; border-color:#fff; }
+@media (max-width:767px) {
+  .home-editorial-hero.frame-cases-hero .home-editorial-gallery::before { content:'HISTORIAS\A REALES'; }
+  .home-editorial-hero.frame-cases-hero .home-editorial-footer::before { content:'EVENTOS · SESIONES · PERSONAS'; }
+  .home-editorial-hero.frame-cases-hero .home-editorial-footer::after { content:'FRAME / CASOS'; }
+  .home-editorial-hero.frame-cases-hero .home-editorial-title { max-width:18rem; }
+  .home-editorial-page .frame-cases-list article { height:420px; }
+}
+
+/* Graduación: mantiene las fotos completas y limita el tamaño de los retratos. */
+body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-case-lead img {
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-masonry {
+  columns: 1;
+}
+body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-photo.frame-case-photo--portrait {
+  max-width: 27rem;
+  margin-inline: auto;
+}
+@media (min-width: 640px) {
+  body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-masonry {
+    columns: 2;
+  }
+}
+@media (min-width: 1024px) {
+  body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-masonry {
+    max-width: 68rem;
+  }
+}
+
+/* Las fotos horizontales usan el ancho de la galería; los retratos se agrupan. */
+body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-masonry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-photo {
+  width: 100%;
+  margin-bottom: 0;
+}
+@media (min-width: 640px) {
+  body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] .frame-session-photo:not(.frame-case-photo--portrait),
+  body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] #toga-y-diploma .frame-case-photo--portrait,
+  body[data-case-slug="fotos-graduacion-universidad-palermo-hotel-hilton"] #exterior-hilton .frame-case-photo--portrait {
+    grid-column: 1 / -1;
+  }
+}
+
+.frame-video-case-player { width: min(100%, 68rem); margin-top: clamp(2rem, 4vw, 3.5rem); aspect-ratio: 16 / 9; background: #211d1a; }
+.frame-video-case-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+.frame-video-case-fallback { margin-top: .75rem; color: #665e56; font-size: .85rem; }
+.frame-video-case-fallback a { color: #6f3f2e; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Portada y relato del caso de video. */
+.frame-video-case-intro-grid { display: grid; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+.frame-video-case-cover img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.frame-video-case-copy .frame-case-title { font-size: clamp(2.8rem, 5vw, 5.2rem); }
+.frame-video-case-story { display: grid; gap: 1.3rem; max-width: 70rem; font-size: 1rem; line-height: 1.8; }
+.frame-video-case-watch { scroll-margin-top: 5rem; }
+@media (min-width: 1024px) {
+  .frame-video-case-intro-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .frame-video-case-story { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
 }

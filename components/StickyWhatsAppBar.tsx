@@ -12,6 +12,7 @@ const CTA_LABELS: Record<CTA_Context, string> = {
   book: 'Consultar mi book de 15',
   portraits: 'Consultar retratos corporativos',
   general: 'Consultar fecha por WhatsApp',
+  graduation: 'Consultar fotos para mi graduación',
   quince: 'Estoy organizando un 15',
   wedding: 'Consultar casamiento',
   corporate: 'Solicitar cobertura',

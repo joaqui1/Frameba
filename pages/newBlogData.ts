@@ -1,4 +1,5 @@
 import type { BlogArticle } from './blogData';
+import { QUINCE_COVERAGE_REFERENCE } from './quincePricing';
 
 export const NEW_BLOG_ARTICLES: BlogArticle[] = [
   {
@@ -63,12 +64,13 @@ export const NEW_BLOG_ARTICLES: BlogArticle[] = [
     shortTitle: 'Cómo calcular el presupuesto de tu evento',
     description: 'Qué determina el precio de un fotógrafo para eventos en Buenos Aires: horas, equipo, edición, video y traslados. Compará presupuestos con una referencia de FRAME.',
     intro: 'Dos presupuestos pueden tener importes parecidos y cubrir cosas diferentes. Para saber cuánto cuesta fotografiar tu evento, primero hay que definir horas, equipo y material final.',
-    readingTime: '5 min de lectura', updatedLabel: 'Publicado el 12 de septiembre de 2026', publishedIso: '2026-09-12',
+    readingTime: '5 min de lectura', updatedLabel: QUINCE_COVERAGE_REFERENCE.updatedLabel,
+    publishedIso: '2026-09-12', modifiedIso: QUINCE_COVERAGE_REFERENCE.date,
     image: '/images/hero-eventos-portada.webp', imageAlt: 'Brindis durante un evento social', imagePosition: 'center',
     serviceHref: '/', serviceLabel: 'Ver fotografía para eventos', ctaContext: 'general',
     ctaTitle: 'Pongámosle números a tu evento', ctaText: 'Pasanos fecha, lugar, horarios y si necesitás fotos, video o ambos. Te respondemos con una propuesta y sus entregas detalladas.',
     ctaLabel: 'Pedir mi presupuesto', quickAnswerTitle: 'Una referencia concreta',
-    quickAnswerHtml: '<p>En la guía de FRAME publicada en <strong>julio de 2026</strong>, la referencia para una <strong>fiesta de 15 era de aproximadamente $500.000 ARS</strong>. Es un ejemplo de ese servicio y esa fecha, no una tarifa vigente para cualquier evento. La cotización actual se confirma según cobertura, ubicación y entregas.</p>',
+    quickAnswerHtml: `<p>Como referencia de <strong>${QUINCE_COVERAGE_REFERENCE.period}</strong>, en FRAME la <strong>cobertura fotográfica profesional de una fiesta de 15 cuesta ${QUINCE_COVERAGE_REFERENCE.price} por unas ${QUINCE_COVERAGE_REFERENCE.hours} horas</strong>. Incluye fotos seleccionadas y editadas con entrega digital.</p><p>Para otros eventos, armamos el presupuesto según la duración, la ubicación, el equipo y el material que necesitás.</p>`,
     toc: [
       { id: 'precios', label: 'Precios y tipo de evento' }, { id: 'horas', label: 'Horas de cobertura' }, { id: 'incluye', label: 'Qué incluye' },
       { id: 'video', label: 'Cuánto cuesta sumar video' }, { id: 'comparar', label: 'Cómo comparar' }, { id: 'presupuesto', label: 'Pedir presupuesto' },

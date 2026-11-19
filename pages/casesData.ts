@@ -45,7 +45,8 @@ export interface CaseStudy {
   /** 'masonry' keeps vertical and horizontal photos uncropped. */
   layout?: 'grid' | 'masonry';
   previewLabel: string;
-  closing: { title: string; text: string; links: { label: string; href: string }[] };
+  closing: { title: string; text: string; links: { label: string; href: string }[]; asCta?: boolean };
+  video?: { id: string; thumbnail: string; playerTitle: string; cover?: { src: string; alt: string } };
   /** Extra schema.org node describing what the case is about (e.g. the event). */
   about?: Record<string, unknown>;
 }
@@ -60,6 +61,114 @@ export const casePhotoSrcSet = (folder: string, photo: CasePhoto) => casePhotoSi
 export const casePhotoUrl = (folder: string, photo: CasePhoto) => casePhotoSrc(folder, photo.file, casePhotoSize(photo).width);
 
 export const CASES: CaseStudy[] = [
+  {
+    slug: 'video-resumen-fiesta-cena-shows-en-vivo',
+    folder: '',
+    title: 'Video resumen de fiesta con cena y shows | Frame Estudio',
+    description: 'Mirá el video resumen de una fiesta con cena y shows en vivo filmada por Frame Estudio. Escenas de las mesas, los números en el escenario y el público.',
+    h1: 'Video resumen de una fiesta con cena y shows en vivo',
+    badge: 'Caso real · Video para eventos',
+    breadcrumbLabel: 'Fiesta con cena y shows en vivo',
+    context: 'video',
+    cta: 'Consultar video para mi fiesta',
+    location: '',
+    eventType: 'Fiesta con cena y shows en vivo',
+    service: 'Video resumen',
+    intro: 'Filmamos una fiesta con cena y shows en vivo. El video recorre la noche desde los encuentros en las mesas hasta los números sobre el escenario.',
+    video: {
+      id: '_tbz61iIMgw',
+      thumbnail: 'https://i.ytimg.com/vi/_tbz61iIMgw/hqdefault.jpg',
+      cover: { src: '/images/casos-portada-evento-nh.webp', alt: 'Foto grupal de asistentes en un evento' },
+      playerTitle: 'Mirá el video de la fiesta',
+    },
+    sections: [
+      { id: 'cobertura-de-la-fiesta', title: 'De la cena a los shows en vivo', paragraphs: [
+        'Durante la cena, registramos las charlas entre los invitados. Cuando empezaron los shows, filmamos lo que pasaba en el escenario y cómo reaccionaba el público.',
+        'En la edición reunimos esos momentos en un solo video para compartir con los invitados después de la fiesta.'
+      ] },
+    ], photos: [], highlight: [],
+    parent: { label: 'Casos', href: '/casos/' },
+    previewLabel: 'Ver el video',
+    closing: {
+      title: '¿Estás organizando una fiesta?',
+      text: 'Pasanos la fecha y el lugar de la fiesta, y contanos qué momentos querés que filmemos.',
+      links: [{ label: 'Video para eventos en Buenos Aires', href: '/video-para-eventos-buenos-aires/' }, { label: 'Ver todos los casos', href: '/casos/' }],
+    },
+  },
+  {
+    slug: 'video-presentacion-producto-hotel-nh',
+    folder: 'presentacion-producto-hotel-nh',
+    title: 'Video de presentación de producto en el Hotel NH | Frame Estudio',
+    description: 'Video resumen de una presentación de audífonos en el Hotel NH, filmado y editado por Frame Estudio.',
+    h1: 'Video de presentación de producto en el Hotel NH',
+    badge: 'Caso real · Video para eventos',
+    breadcrumbLabel: 'Presentación de producto en Hotel NH',
+    context: 'video',
+    cta: 'Consultar video para mi presentación de producto',
+    location: 'Hotel NH',
+    eventType: 'Presentación de producto',
+    service: 'Video resumen',
+    intro: 'Filmamos una presentación de audífonos en el Hotel NH y editamos el video resumen de la jornada.',
+    video: { id: 'FFqUFus6QwA', thumbnail: 'https://i.ytimg.com/vi/FFqUFus6QwA/hqdefault.jpg', playerTitle: 'Video resumen de la presentación de tecnología auditiva' },
+    lead: 'presentacion-tecnologia-auditiva-hotel-nh',
+    sections: [],
+    photos: [{
+      file: 'presentacion-tecnologia-auditiva-hotel-nh',
+      alt: 'Expositora con micrófono frente al público y una diapositiva de la línea G Series',
+      caption: 'Durante la charla se presentaron dos tipos de receptores para audífonos de la línea G Series, el RIC 312 y el RIC R.',
+    }], highlight: [],
+    parent: { label: 'Casos', href: '/casos/' },
+    previewLabel: 'Ver el video',
+    closing: { title: '¿Vas a presentar un producto?', text: 'Contanos la fecha, qué vas a presentar y dónde pensás compartir el video. Con eso podemos armarte una propuesta de cobertura.', links: [{ label: 'Video para eventos en Buenos Aires', href: '/video-para-eventos-buenos-aires/' }, { label: 'Ver todos los casos', href: '/casos/' }] },
+  },
+  {
+    slug: 'fotos-graduacion-universidad-palermo-hotel-hilton',
+    folder: 'graduacion-universidad-palermo-hilton',
+    title: 'Fotos de graduación de la Universidad de Palermo | Frame Estudio',
+    description: 'Mirá una sesión individual de graduación de la Universidad de Palermo en el Hotel Hilton de Buenos Aires, con retratos del graduado y su diploma.',
+    h1: 'Fotos de graduación de la Universidad de Palermo en el Hotel Hilton',
+    badge: 'Caso real · Graduación universitaria',
+    breadcrumbLabel: 'Graduación Universidad de Palermo',
+    context: 'graduation',
+    cta: 'Consultar fotos para mi graduación',
+    location: 'Hotel Hilton, Buenos Aires',
+    eventType: 'Graduación universitaria',
+    service: 'Sesión individual de fotos',
+    intro: 'Hicimos una sesión individual de graduación en el Hotel Hilton de Buenos Aires. La galería reúne retratos con el diploma frente al escenario de la Universidad de Palermo y en distintos espacios del hotel.',
+    lead: 'graduado-toga-diploma-escenario',
+    layout: 'masonry',
+    sections: [
+      { id: 'retratos-en-el-hotel', title: 'Retratos en el Hotel Hilton', paragraphs: [
+        'Combinamos retratos de cuerpo entero en el interior del Hilton con encuadres más cercanos junto a la señalética de la universidad.'
+      ], photos: ['retrato-graduado-cartel-universidad', 'retrato-hotel-hilton', 'retrato-graduado-fondo-universidad', 'retrato-entrada-hotel-hilton'] },
+      { id: 'fotos-con-el-diploma', title: 'Fotos con el diploma', paragraphs: [
+        'Fotografiamos al graduado con su diploma frente al escenario y junto a las letras de la UP.'
+      ], photos: ['graduado-toga-diploma-escenario', 'retrato-graduado-diploma', 'graduado-diploma-letras-up'] },
+      { id: 'exterior-hilton', title: 'Retratos a la salida del Hilton', paragraphs: [
+        'La galería termina con fotos en el exterior del hotel, con el diploma y la bolsa de la Universidad de Palermo.'
+      ], photos: ['graduado-diploma-exterior-hilton', 'graduado-frente-hotel-hilton'] },
+    ],
+    photos: [
+      { file: 'retrato-graduado-cartel-universidad', alt: 'Graduado frente al cartel de la Universidad de Palermo en el Hotel Hilton', caption: 'Retrato junto al cartel de la universidad.', portrait: true },
+      { file: 'retrato-graduado-fondo-universidad', alt: 'Retrato del graduado frente a la señalética de la Universidad de Palermo', caption: 'Un retrato con la señalética de la UP.' },
+      { file: 'retrato-hotel-hilton', alt: 'Retrato de graduación en el interior del Hotel Hilton de Buenos Aires', caption: 'Retrato en el interior del hotel.', portrait: true },
+      { file: 'retrato-entrada-hotel-hilton', alt: 'Graduado posando frente a la entrada del Hotel Hilton', caption: 'En la entrada del Hilton.' },
+      { file: 'graduado-toga-diploma-escenario', alt: 'Graduado con el portadiploma frente al escenario de la Universidad de Palermo', caption: 'Retrato con el diploma frente al escenario.' },
+      { file: 'retrato-graduado-diploma', alt: 'Graduado con su diploma frente a un cartel de la Universidad de Palermo', caption: 'Un retrato con el diploma.', portrait: true },
+      { file: 'graduado-diploma-letras-up', alt: 'Graduado con su diploma junto a las letras UP', caption: 'El diploma junto a las letras de la UP.' },
+      { file: 'graduado-diploma-exterior-hilton', alt: 'Graduado con diploma y bolsa de la Universidad de Palermo frente al hotel', caption: 'A la salida del hotel, con el diploma.', portrait: true },
+      { file: 'graduado-frente-hotel-hilton', alt: 'Graduado con diploma y bolsa de la Universidad de Palermo frente al Hotel Hilton', caption: 'Un recuerdo frente al Hotel Hilton.' },
+    ],
+    highlight: ['graduado-toga-diploma-escenario', 'retrato-hotel-hilton', 'retrato-graduado-diploma'],
+    parent: { label: 'Casos', href: '/casos/' },
+    previewLabel: 'Ver la sesión completa',
+    closing: {
+      title: '¿Querés fotos de tu graduación?',
+      text: 'Mandanos la fecha y el lugar de tu acto por WhatsApp y vemos cómo organizar tu sesión.',
+      asCta: true,
+      links: [{ label: 'Ver todos los casos', href: '/casos/' }, { label: 'Sesiones de fotos en Buenos Aires', href: '/sesion-de-fotos-buenos-aires/' }],
+    },
+  },
   {
     slug: 'ekoparty-2026-cobertura-foto-video',
     folder: 'ekoparty-2026',

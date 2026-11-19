@@ -20,7 +20,10 @@ export const GoogleReviews: React.FC = () => (
         {REVIEWS.map(review => (
           <figure key={review.author}>
             <blockquote><p>“{review.text}”</p></blockquote>
-            <figcaption>{review.author}</figcaption>
+            <figcaption>
+              <span className="frame-google-review-avatar" aria-hidden="true">{review.author.charAt(0)}</span>
+              <span>{review.author}</span>
+            </figcaption>
           </figure>
         ))}
       </div>

@@ -1,5 +1,6 @@
 import type { CTA_Context } from '../utils/whatsapp';
 import { NEW_BLOG_ARTICLES } from './newBlogData';
+import { QUINCE_COVERAGE_REFERENCE } from './quincePricing';
 
 export interface BlogArticle {
   slug: string;
@@ -36,7 +37,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'cuanto-cuesta-fotografo-15-anos-buenos-aires',
     seoTitle: 'Cuánto cuesta un fotógrafo para una fiesta de 15 | Frame Estudio',
-    modifiedIso: '2026-09-12',
+    modifiedIso: QUINCE_COVERAGE_REFERENCE.date,
     number: '01',
     category: '15 años · Precios',
     title: 'Cuánto cuesta un fotógrafo para una fiesta de 15 en Buenos Aires',
@@ -44,7 +45,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     description: 'Precios orientativos de fotografía para una fiesta de 15, qué modifica el presupuesto y qué debería incluir una propuesta clara.',
     intro: 'El precio no depende solamente de la cantidad de fotos. Horas, sesión previa, video, equipo y entregas pueden cambiar por completo una propuesta.',
     readingTime: '5 min de lectura',
-    updatedLabel: 'Actualizado el 12 de septiembre de 2026',
+    updatedLabel: QUINCE_COVERAGE_REFERENCE.updatedLabel,
     publishedIso: '2026-07-22',
     image: '/images/hero-quince-portada-desktop.webp',
     imageAlt: 'Guía de precios para fotografía de una fiesta de 15',
@@ -56,7 +57,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ctaText: 'Compartinos fecha, salón, zona, horas aproximadas y si buscás fotografía, video o ambos.',
     ctaLabel: 'Consultar presupuesto',
     quickAnswerTitle: 'Referencia rápida',
-    quickAnswerHtml: '<p>Como referencia de <strong>julio de 2026</strong>, en FRAME: <strong>Fiesta: aproximadamente $500.000 ARS</strong>.</p><p>Es una referencia de esa fecha. El presupuesto actual se confirma según horas, ubicación, equipo y entregas.</p>',
+    quickAnswerHtml: `<p>En <strong>${QUINCE_COVERAGE_REFERENCE.period}</strong>, el precio de referencia de FRAME es de <strong>${QUINCE_COVERAGE_REFERENCE.price} por unas ${QUINCE_COVERAGE_REFERENCE.hours} horas de cobertura fotográfica profesional de la fiesta</strong>.</p><p>La cobertura incluye selección y edición de fotos, con entrega digital. El video, los reels y el book previo se cotizan por separado. Te confirmamos el presupuesto según la fecha, el salón y el alcance de la cobertura.</p>`,
     toc: [
       { id: 'que-modifica-el-precio', label: 'Qué modifica el precio' },
       { id: 'que-deberia-incluir', label: 'Qué debería incluir' },

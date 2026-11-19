@@ -3,6 +3,10 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
 const PAGE_PATHS = [
+  '/casos',
+  '/casos/video-resumen-fiesta-cena-shows-en-vivo',
+  '/casos/video-presentacion-producto-hotel-nh',
+  '/casos/fotos-graduacion-universidad-palermo-hotel-hilton',
   '/casos/ekoparty-2026-cobertura-foto-video',
   '/casos/sesion-novios-recoleta-marcelo-noelia',
   '/sesion-de-fotos-buenos-aires',
@@ -83,6 +87,10 @@ export default defineConfig(({ mode }) => {
           fotografiaCorporativa: path.resolve(__dirname, 'fotografia-corporativa-buenos-aires/index.html'),
           blogIdeasQuince: path.resolve(__dirname, 'blog/ideas-sesion-fotos-15-anos/index.html'),
           blogPrecioEventos: path.resolve(__dirname, 'blog/cuanto-cuesta-fotografo-eventos-buenos-aires/index.html'),
+          cases: path.resolve(__dirname, 'casos/index.html'),
+          caseVideoFiesta: path.resolve(__dirname, 'casos/video-resumen-fiesta-cena-shows-en-vivo/index.html'),
+          caseVideoHotelNh: path.resolve(__dirname, 'casos/video-presentacion-producto-hotel-nh/index.html'),
+          caseGraduacionHilton: path.resolve(__dirname, 'casos/fotos-graduacion-universidad-palermo-hotel-hilton/index.html'),
           caseEkoparty2026: path.resolve(__dirname, 'casos/ekoparty-2026-cobertura-foto-video/index.html'),
           caseSesionNoviosRecoleta: path.resolve(__dirname, 'casos/sesion-novios-recoleta-marcelo-noelia/index.html'),
           main: path.resolve(__dirname, 'index.html'),

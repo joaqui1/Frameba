@@ -5,7 +5,7 @@ import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 import { GoogleRating } from '../components/GoogleRating';
 import { RelatedServices } from '../components/RelatedServices';
-import { DesktopOnlyImage } from '../components/DesktopOnlyImage';
+import { DesktopOnlyImage, MobileOnlyImage } from '../components/DesktopOnlyImage';
 
 const INTRO =
   'Fotos, video y reels de tu fiesta de 15, y un book antes de la fiesta. Una estética moderna, natural y cuidada.';
@@ -75,7 +75,18 @@ function QuinceEditorialHero() {
   return (
     <section data-page-hero className="home-editorial-hero quince-editorial-hero">
       <div className="home-editorial-main">
-        <div className="quince-mobile-cover" aria-hidden="true" />
+        <div className="quince-mobile-cover">
+          <MobileOnlyImage
+            src="/images/hero-quince-mobile-900.webp"
+            srcSet="/images/hero-quince-mobile-640.webp 640w, /images/hero-quince-mobile-900.webp 900w, /images/hero-quince-mobile-1120.webp 1120w"
+            sizes="max(100vw, 414px, 66.67svh)"
+            alt="Retrato de una quinceañera durante una sesión de fotos"
+            width={900}
+            height={1350}
+            fetchPriority="high"
+            decoding="async"
+          />
+        </div>
         <div className="home-editorial-copy">
           <div className="home-editorial-eyebrow" aria-hidden="true">
             <span className="home-editorial-index">

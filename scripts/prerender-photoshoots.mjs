@@ -9,7 +9,7 @@ const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '
 // Reuse the site's configured tracking without changing the existing pages.
 const template = await readFile(path.join(root, 'index.html'), 'utf8');
 const tracking = [...template.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>/g)]
-  .map(match => match[0]).filter(script => /googletagmanager|gtag\(/.test(script)).join('\n');
+  .map(match => match[0]).filter(script => script.includes('GTM-K2QT5C76')).join('\n');
 const trackingFallback = template.match(/<noscript>\s*<iframe[^>]*googletagmanager[\s\S]*?<\/noscript>/)?.[0] ?? '';
 const alternates = PHOTOSHOOTS.map(page => `<link rel="alternate" hreflang="${page.lang}" href="${origin}${page.route}" />`).join('\n');
 const languageNames = { es: 'Español', en: 'English', 'pt-BR': 'Português' };
@@ -116,7 +116,7 @@ ${trackingFallback}
     </div>
     <ul class="details">${homeDetails[page.lang].map(([title, text]) => `<li><span>${escape(title)}</span><small>${escape(text)}</small></li>`).join('')}</ul>
   </section>
-  ${page.sections.map((section, i) => `<section id="${section.id}" class="content-section${i % 2 ? ' tinted' : ''}"><div class="wrap"><div class="section-heading"><p class="eyebrow">0${i + 1} / ${escape(section.label)}</p><div><h2>${escape(section.title)}</h2><p class="section-intro">${escape(section.text)}</p></div></div>${section.cards ? `<div class="cards">${section.cards.map(([title, text]) => `<article><h3>${escape(title)}</h3><p>${escape(text)}</p></article>`).join('')}</div>` : ''}</div></section>`).join('\n')}
+  ${page.sections.map((section, i) => `<section id="${section.id}" class="content-section${i % 2 ? ' tinted' : ''}"><div class="wrap"><div class="section-heading"><p class="eyebrow">0${i + 1} / ${escape(section.label)}</p><div><h2>${escape(section.title)}</h2><p class="section-intro">${escape(section.text)}</p>${section.example ? `<div class="actions"><a class="text-link" href="${escape(section.example.href)}">${escape(section.example.label)} <span aria-hidden="true">↗</span></a></div>` : ''}</div></div>${section.cards ? `<div class="cards">${section.cards.map(([title, text]) => `<article><h3>${escape(title)}</h3><p>${escape(text)}</p></article>`).join('')}</div>` : ''}</div></section>`).join('\n')}
   <section class="faq wrap"><p class="eyebrow">FRAME / FAQ</p><h2>${escape(page.faqTitle)}</h2><div class="questions">${page.faqs.map(([question, answer]) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join('')}</div></section>
   <section class="closing"><div class="wrap"><p class="eyebrow">BUENOS AIRES / FRAME</p><h2>${escape(page.closing)}</h2><p>${escape(page.closingText)}</p>${cta}</div></section>
 </main>

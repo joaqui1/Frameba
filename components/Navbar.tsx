@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: 'Casamientos', href: '/fotografia-video-casamientos-buenos-aires/' },
   { label: 'Video', href: '/video-para-eventos-buenos-aires/' },
   { label: 'Corporativos', href: '/eventos-corporativos-buenos-aires/' },
+  { label: 'Casos', href: '/casos/' },
   { label: 'Guías', href: '/blog/' },
 ];
 

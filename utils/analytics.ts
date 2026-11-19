@@ -1,8 +1,6 @@
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
-    gtag: (...args: unknown[]) => void;
-    gtag_report_conversion: (url?: string) => boolean;
   }
 }
 
@@ -13,12 +11,6 @@ export function trackWhatsAppClick(ctaContext: string): void {
     cta_context: ctaContext,
     page_location: window.location.pathname,
   });
-
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'conversion', {
-      send_to: 'AW-17522815085/y71yCIrDv9UbEO3gw6NB',
-    });
-  }
 }
 
 export function trackFormSubmit(pageLocation: string): void {

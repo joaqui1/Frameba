@@ -28,4 +28,4 @@ View your app in AI Studio: https://ai.studio/apps/temp/1
 - `npm run build` ejecuta esa generación antes de compilar. El resultado publicable queda en `dist/`.
 - `npm run typecheck` verifica los tipos. Las fechas de publicación, actualización y los precios se mantienen explícitamente en los datos editoriales; no se actualizan automáticamente por recompilar.
 
-Las guías conservan la referencia histórica de julio de 2026 para la fiesta de 15. No es una tarifa para books, retratos ni todos los eventos.
+Las guías de precios comparten la referencia fechada de cobertura de fiestas de 15 en `pages/quincePricing.ts`.

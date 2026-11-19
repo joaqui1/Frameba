@@ -8,6 +8,34 @@ import { ReviewCard } from '../components/ReviewCard';
 import { getCasePhoto, type CaseStudy } from './casesData';
 
 export function CasePage({ study }: { study: CaseStudy }) {
+  if (study.video) return <>
+    <section data-page-hero className="frame-case-hero frame-video-case-hero">
+      <div className="container mx-auto px-6 md:px-12">
+        <nav aria-label="Breadcrumb" className="frame-case-breadcrumb"><a href="/">Inicio</a><span aria-hidden="true">/</span><a href="/casos/">Casos</a><span aria-hidden="true">/</span><span>{study.breadcrumbLabel}</span></nav>
+        <div className="frame-video-case-intro-grid">
+          <div className="frame-video-case-copy">
+            <span className="frame-case-eyebrow">{study.badge}</span>
+            <h1 className="frame-case-title">{study.h1}</h1>
+            <p className="frame-case-intro">{study.intro}</p>
+            <div className="frame-case-actions"><a href="#video-resumen" className="home-editorial-cta">Ver el video <span aria-hidden="true">⟶</span></a></div>
+          </div>
+          {study.lead ? <CasePhoto folder={study.folder} photo={getCasePhoto(study, study.lead)} priority caption className="frame-video-case-cover" sizes="(min-width: 1024px) 55vw, 100vw" /> : <figure className="frame-video-case-cover"><img src={study.video.cover?.src ?? study.video.thumbnail} alt={study.video.cover?.alt ?? study.h1} width={study.video.cover ? 1600 : 480} height={study.video.cover ? 899 : 360} fetchPriority="high" decoding="async" /></figure>}
+        </div>
+        <dl className="frame-case-facts"><div><dt>Tipo</dt><dd>{study.eventType}</dd></div>{study.location && <div><dt>Lugar</dt><dd>{study.location}</dd></div>}<div><dt>Servicio</dt><dd>{study.service}</dd></div></dl>
+      </div>
+    </section>
+    <section id="video-resumen" className="frame-corporate-content-section frame-case-section frame-video-case-watch scroll-mt-24"><div className="container mx-auto px-6 md:px-12">
+      <h2 className="frame-corporate-content-title font-display mb-6 max-w-4xl text-3xl font-bold leading-tight md:text-4xl">{study.video.playerTitle}</h2>
+      <div className="frame-video-case-player"><iframe src={`https://www.youtube-nocookie.com/embed/${study.video.id}`} title={study.h1} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" /></div>
+      <p className="frame-video-case-fallback">Si no podés reproducirlo, <a href={`https://youtu.be/${study.video.id}`} target="_blank" rel="noopener noreferrer">mirá el video en YouTube</a>.</p>
+    </div></section>
+    {study.sections.map((section, index) => <section key={section.id} id={section.id} className={`frame-corporate-content-section frame-case-section${index % 2 === 0 ? ' frame-corporate-content-section--soft' : ''}`}><div className="container mx-auto px-6 md:px-12">
+      <h2 className="frame-corporate-content-title font-display mb-6 max-w-4xl text-3xl font-bold leading-tight md:text-4xl">{section.title}</h2>
+      <div className="frame-video-case-story">{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
+    </div></section>)}
+    <WhatsAppCTASection title={study.closing.title} subtitle={study.closing.text} ctaLabel={study.cta} context={study.context} />
+    <section className="frame-corporate-content-section frame-corporate-content-section--soft frame-case-section"><div className="container mx-auto px-6 md:px-12"><div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-x-8">{study.closing.links.map(link => <a key={link.href} href={link.href} className="frame-case-more">{link.label} <ArrowRight size={16} aria-hidden="true" /></a>)}</div></div></section>
+  </>;
   const lead = study.lead ? getCasePhoto(study, study.lead) : study.photos[0];
   const facts = [
     { label: 'Tipo', value: study.eventType },
@@ -64,16 +92,18 @@ export function CasePage({ study }: { study: CaseStudy }) {
     </section>}
 
     <WhatsAppCTASection
-      title="Contanos de tu próximo evento"
-      subtitle="Escribinos por WhatsApp con la fecha, el lugar y qué necesitás: fotos, video o ambos. Te armamos una propuesta a medida."
+      title={study.closing.asCta ? study.closing.title : 'Contanos de tu próximo evento'}
+      subtitle={study.closing.asCta ? study.closing.text : 'Escribinos por WhatsApp con la fecha, el lugar y qué necesitás: fotos, video o ambos. Te armamos una propuesta a medida.'}
       ctaLabel={study.cta}
       context={study.context}
     />
 
     <section className="frame-corporate-content-section frame-corporate-content-section--soft frame-case-section">
       <div className="container mx-auto px-6 md:px-12">
-        <h2 className="frame-corporate-content-title font-display mb-6 max-w-4xl text-3xl font-bold leading-tight md:text-4xl">{study.closing.title}</h2>
-        <p className="mb-8 max-w-3xl text-base leading-relaxed md:text-lg">{study.closing.text}</p>
+        {!study.closing.asCta && <>
+          <h2 className="frame-corporate-content-title font-display mb-6 max-w-4xl text-3xl font-bold leading-tight md:text-4xl">{study.closing.title}</h2>
+          <p className="mb-8 max-w-3xl text-base leading-relaxed md:text-lg">{study.closing.text}</p>
+        </>}
         <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-x-8">
           {study.closing.links.map(link => <a key={link.href} href={link.href} className="frame-case-more">{link.label} <ArrowRight size={16} aria-hidden="true" /></a>)}
         </div>

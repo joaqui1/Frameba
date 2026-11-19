@@ -21,8 +21,9 @@ try {
   const { NewServicePage } = await server.ssrLoadModule('/pages/NewServicePage.tsx');
   const { CASES, casePhotoUrl, getCasePhoto } = await server.ssrLoadModule('/pages/casesData.ts');
   const { CasePage } = await server.ssrLoadModule('/pages/CasePage.tsx');
+  const { CasesIndexPage } = await server.ssrLoadModule('/pages/CasesIndexPage.tsx');
   const template = await readFile(path.join(root, 'index.html'), 'utf8');
-  const tracking = [...template.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>/g)].map(match => match[0]).filter(script => /googletagmanager|gtag\(/.test(script)).join('\n');
+  const tracking = [...template.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>/g)].map(match => match[0]).filter(script => script.includes('GTM-K2QT5C76')).join('\n');
   const business = { '@type': 'Organization', '@id': `${origin}/#business`, name: 'Frame Estudio', url: `${origin}/`, logo: `${origin}/og-image.png`, telephone: '+5491170671050' };
   // parent: { name, url } para páginas hijas de un silo (ej. Book de 15 -> 15 años).
   const breadcrumb = (url, label, article = false, parent = null) => {
@@ -92,14 +93,14 @@ ${tracking}
   for (const study of CASES) {
     const route = `/casos/${study.slug}/`;
     const leadPhoto = study.lead ? getCasePhoto(study, study.lead) : study.photos[0];
-    const images = [leadPhoto, ...study.photos.filter(photo => photo !== leadPhoto)].map(photo => origin + casePhotoUrl(study.folder, photo));
-    caseImages[route] = images;
+    const images = leadPhoto ? [leadPhoto, ...study.photos.filter(photo => photo !== leadPhoto)].map(photo => origin + casePhotoUrl(study.folder, photo)) : [];
+    if (images.length) caseImages[route] = images;
     await emit({ route, title: study.title, description: study.description, type: 'article',
       data: `data-case-slug="${study.slug}"`, entry: '/pages/case.tsx',
       content: render(CasePage, { study }, study.context, study.cta, true),
-      image: images[0],
+      image: images[0] ?? study.video?.thumbnail,
       graph: [
-        { '@type': 'Article', headline: study.h1, description: study.description, image: images, datePublished: '2026-10-22', dateModified: '2026-10-22', inLanguage: 'es-AR', mainEntityOfPage: origin + route, author: { '@id': business['@id'] }, publisher: { '@id': business['@id'] },
+        { '@type': 'Article', headline: study.h1, description: study.description, image: images.length ? images : (study.video ? [study.video.thumbnail] : []), ...(['fotos-graduacion-universidad-palermo-hotel-hilton', 'video-presentacion-producto-hotel-nh', 'video-resumen-fiesta-cena-shows-en-vivo'].includes(study.slug) ? {} : { datePublished: '2026-10-22', dateModified: '2026-10-22' }), inLanguage: 'es-AR', mainEntityOfPage: origin + route, author: { '@id': business['@id'] }, publisher: { '@id': business['@id'] },
           ...(study.about ? { about: study.about } : {}) },
         breadcrumb(origin + route, study.breadcrumbLabel, false, study.parent ? { name: study.parent.label, url: origin + study.parent.href } : null),
       ],
@@ -117,6 +118,11 @@ ${tracking}
       ],
     });
   }
+  await emit({ route: '/casos/', title: 'Casos de fotografía y video en Buenos Aires | Frame Estudio',
+    description: 'Conocé trabajos reales de Frame Estudio en Buenos Aires: fotografía y video en eventos, graduaciones y sesiones de fotos.',
+    entry: '/pages/cases.tsx', content: render(CasesIndexPage, {}, 'general', 'Consultar cobertura', true),
+    graph: [{ '@type': 'CollectionPage', name: 'Casos reales de Frame Estudio', url: origin + '/casos/', hasPart: CASES.map(study => ({ '@type': 'Article', headline: study.h1, url: origin + '/casos/' + study.slug + '/' })) }, breadcrumb(origin + '/casos/', 'Casos')],
+  });
   await emit({ route: '/blog/', title: 'Guías de fotografía y video para eventos | Frame Estudio',
     description: 'Guías de FRAME para planificar fotos y video: precios, horas de cobertura, ideas para books de 15 y consejos para casamientos y eventos en Buenos Aires.',
     entry: '/pages/blog.tsx', content: render(BlogIndexPage, {}, 'general', 'Consultar cobertura', true),
@@ -128,7 +134,7 @@ ${tracking}
     { route: '/eventos-corporativos-buenos-aires/', title: 'Fotografía y video para eventos corporativos en Buenos Aires', modulePath: '/pages/CorporativosPage.tsx', exportName: 'CorporativosPage', context: 'corporate', label: 'Solicitar cobertura' },
     { route: '/fotografia-video-casamientos-buenos-aires/', title: 'Fotógrafo para casamientos en Buenos Aires | Frame Estudio', modulePath: '/pages/CasamientosPage.tsx', exportName: 'CasamientosPage', context: 'wedding', label: 'Consultar casamiento', metaDescription: 'Fotografía y video para casamientos, bodas civiles, ceremonias y fiestas en Buenos Aires, CABA, Capital Federal y GBA. Consultá disponibilidad.', schemaDescription: 'Fotografía y video para casamientos, bodas civiles, ceremonias y fiestas.' },
     { route: '/video-para-eventos-buenos-aires/', title: 'Video para eventos en Buenos Aires | Frame Estudio', modulePath: '/pages/VideoEventosPage.tsx', exportName: 'VideoEventosPage', context: 'video', label: 'Consultar video para mi evento', metaDescription: 'Filmación profesional para eventos sociales y corporativos en Buenos Aires, CABA, Capital Federal, GBA y Zona Norte. Videos resumen, reels y cobertura audiovisual.' },
-    { route: '/contacto/', title: 'Contacto y Presupuesto | Frame Estudio', modulePath: '/pages/ContactoPage.tsx', exportName: 'ContactoPage', context: 'contact', label: 'Pedir propuesta por WhatsApp', metaDescription: 'Consultá por fotografía y video para eventos en CABA y Buenos Aires. Escribinos por WhatsApp y contanos tipo de evento, fecha y zona.' },
+    { route: '/contacto/', title: 'Contacto y Presupuesto | Frame Estudio', modulePath: '/pages/ContactoPage.tsx', exportName: 'ContactoPage', context: 'contact', label: 'Pedir propuesta por WhatsApp', homeEditorial: true, metaDescription: 'Consultá por fotografía y video para eventos en CABA y Buenos Aires. Escribinos por WhatsApp y contanos tipo de evento, fecha y zona.' },
   ];
   for (const page of modifiedPages) {
     const { route, modulePath, exportName, context, label } = page;
@@ -173,14 +179,21 @@ ${tracking}
       sitemap = sitemap.replace('</urlset>', `   <url><loc>${origin}${route}</loc><lastmod>2026-09-12</lastmod></url>\n</urlset>`);
     }
   }
-  const modifiedRoutes = ['/', '/blog/', '/fotografo-15-anos-caba-gba/', '/eventos-corporativos-buenos-aires/', '/blog/cuanto-cuesta-fotografo-15-anos-buenos-aires/'];
+  const modifiedRoutes = ['/', '/blog/', '/fotografo-15-anos-caba-gba/', '/eventos-corporativos-buenos-aires/'];
   sitemap = sitemap.replace(/<url>[\s\S]*?<\/url>/g, entry => modifiedRoutes.some(route => entry.includes(`<loc>${origin}${route}</loc>`)) ? entry.replace(/<lastmod>[^<]+<\/lastmod>/, '<lastmod>2026-09-12</lastmod>') : entry);
   // Pages changed after 2026-09-12 keep their real date, and case pages list their photos for Google Images.
-  const LASTMOD_OVERRIDES = { '/eventos-corporativos-buenos-aires/': '2026-10-22', '/fotografia-video-casamientos-buenos-aires/': '2026-10-22', '/blog/fotografo-video-casamiento-que-incluye/': '2026-10-22', '/sesion-de-fotos-buenos-aires/': '2026-10-22', ...Object.fromEntries(Object.keys(caseImages).map(route => [route, '2026-10-22'])) };
+  const LASTMOD_OVERRIDES = {
+    '/eventos-corporativos-buenos-aires/': '2026-10-22',
+    '/fotografia-video-casamientos-buenos-aires/': '2026-10-22',
+    '/sesion-de-fotos-buenos-aires/': '2026-10-22',
+    ...Object.fromEntries(BLOG_ARTICLES.map(article => [`/blog/${article.slug}/`, article.modifiedIso ?? article.publishedIso])),
+    ...Object.fromEntries(Object.keys(caseImages).filter(route => route !== '/casos/fotos-graduacion-universidad-palermo-hotel-hilton/').map(route => [route, '2026-10-22'])),
+  };
   sitemap = sitemap.replace(/<url>[\s\S]*?<\/url>/g, entry => {
     const route = Object.keys(LASTMOD_OVERRIDES).find(item => entry.includes(`<loc>${origin}${item}</loc>`));
     return route ? entry.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${LASTMOD_OVERRIDES[route]}</lastmod>`) : entry;
   });
+  sitemap = sitemap.replace(/(<loc>https:\/\/frameba\.com\.ar\/casos\/(?:fotos-graduacion-universidad-palermo-hotel-hilton|video-presentacion-producto-hotel-nh|video-resumen-fiesta-cena-shows-en-vivo)\/<\/loc>)<lastmod>[^<]+<\/lastmod>/g, '$1');
   const imageRoutes = { ...caseImages, ...Object.fromEntries(Object.entries(CASES.reduce((byParent, study) => ({ ...byParent, [study.parent.href]: [...(byParent[study.parent.href] ?? []), ...study.highlight.map(file => origin + casePhotoUrl(study.folder, getCasePhoto(study, file)))] }), {}))) };
   if (!sitemap.includes('xmlns:image=')) sitemap = sitemap.replace('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">');
   sitemap = sitemap.replace(/<url>[\s\S]*?<\/url>/g, entry => {

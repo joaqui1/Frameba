@@ -5,13 +5,15 @@ import { WhatsAppCTASection } from '../components/WhatsAppCTASection';
 import { WhatsAppLink } from '../components/WhatsAppLink';
 import { GoogleRating } from '../components/GoogleRating';
 import { GoogleReviews } from '../components/GoogleReviews';
+import { DesktopOnlyImage } from '../components/DesktopOnlyImage';
 
 const SERVICE_CARDS = [
   {
     title: 'Video para eventos en Buenos Aires',
     description: 'Filmación profesional para eventos sociales y corporativos.',
-    image: '/images/home-video-card-1536.webp',
-    srcSet: '/images/home-video-card-1536.webp 1536w, /images/home-video-card-2048.webp 2048w',
+    image: '/images/home-video-card-960.webp',
+    srcSet: '/images/home-video-card-640.webp 640w, /images/home-video-card-960.webp 960w, /images/home-video-card-1280.webp 1280w',
+    sizes: '(min-width: 1280px) 400px, (min-width: 1024px) 512px, (min-width: 640px) 400px, max(400px, 100vw)',
     alt: 'Filmación profesional para evento social en Buenos Aires',
     href: '/video-para-eventos-buenos-aires/',
     tag: 'Video',
@@ -185,10 +187,10 @@ export const HomePage: React.FC = () => {
             </figure>
             <div className="home-editorial-side-photos">
               <figure className="home-editorial-photo home-editorial-photo--top">
-                <img src="/images/home-floralis-horizontal.webp" alt="Conferencista durante una presentación ante el público" width={1536} height={1024} loading="eager" decoding="async" />
+                <DesktopOnlyImage src="/images/home-floralis-horizontal.webp" alt="Conferencista durante una presentación ante el público" width={1536} height={1024} decoding="async" />
               </figure>
               <figure className="home-editorial-photo home-editorial-photo--bottom">
-                <img src="/images/home-atardecer-horizontal.webp" alt="Pareja de novios frente a una fachada neoclásica en Buenos Aires" width={1536} height={1024} loading="eager" decoding="async" />
+                <DesktopOnlyImage src="/images/home-atardecer-horizontal.webp" alt="Pareja de novios frente a una fachada neoclásica en Buenos Aires" width={1536} height={1024} decoding="async" />
               </figure>
             </div>
           </div>
@@ -237,7 +239,7 @@ export const HomePage: React.FC = () => {
                     alt={card.alt}
                     width={1536}
                     height={2110}
-                    sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    sizes={card.sizes ?? '(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw'}
                     loading="lazy"
                     decoding="async"
                     className={`frame-art-directed h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-70 ${card.imageClassName ?? ''}`}
